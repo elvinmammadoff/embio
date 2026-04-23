@@ -1,0 +1,60 @@
+/* ============================================================
+   responsive.css — Mobile-first breakpoints
+   ============================================================ */
+
+@media (max-width: 900px) {
+  nav               { padding: 0 1.5rem; }
+  .nav-links        { display: none; }
+  .nav-toggle       { display: flex; }
+
+  section           { padding: 5rem 1.5rem; }
+
+  #hero             { padding: var(--nav-h) 1.5rem 0; }
+  .fl-img           { display: none; }
+  .hero-headline    { font-size: clamp(2.8rem, 11vw, 5rem); }
+  .hero-sub         { font-size: 0.9rem; }
+
+  .about-grid       { grid-template-columns: 1fr; gap: 3rem; }
+  .about-avatar     { max-width: 280px; }
+  .about-stats      { gap: 0.8rem; }
+  .stat-box         { min-width: 80px; }
+
+  .skills-grid      { grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+
+  .project-item     { grid-template-columns: 1fr; gap: 2rem; }
+  .project-item:nth-child(even) .project-info { order: 0; }
+  .project-item:nth-child(even) .project-img  { order: 0; }
+
+  .pricing-grid     { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+  .price-card.featured { transform: none; }
+  .price-card.featured:hover { transform: translateY(-6px); }
+
+  .blog-grid        { grid-template-columns: 1fr; }
+
+  .contact-wrapper  { grid-template-columns: 1fr; gap: 3rem; }
+  .form-row         { grid-template-columns: 1fr; }
+
+  .footer-inner     { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem 2rem; }
+  .footer-bottom    { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.2rem 1.5rem; }
+}
+
+@media (max-width: 600px) {
+  .skills-grid      { grid-template-columns: 1fr; }
+  .hero-headline    { font-size: clamp(2.4rem, 13vw, 4rem); }
+  .section-title    { font-size: clamp(2.5rem, 12vw, 4rem); }
+  .contact-headline { font-size: clamp(3rem, 14vw, 5rem); }
+}
+
+/* Footer7 responsive */
+@media (max-width: 900px) {
+  .footer-inner      { flex-direction: column; gap: 2.5rem; padding: 3rem 1.5rem 2rem; }
+  .footer-nav-grid   { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .footer-bottom     { flex-direction: column; gap: 0.8rem; text-align: center; padding: 1.2rem 1.5rem; }
+  .footer-legal      { justify-content: center; }
+  .footer-brand      { max-width: 100%; }
+  .about-actions     { flex-wrap: wrap; gap: 1rem; }
+}
+
+@media (max-width: 480px) {
+  .footer-nav-grid   { grid-template-columns: 1fr; }
+}

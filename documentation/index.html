@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>EMBio Portfolio — Documentation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --accent:  #c8ff00;
+    --bg:      #0f0f0f;
+    --bg-2:    #161616;
+    --border:  rgba(255,255,255,0.08);
+    --text:    #e8e8e8;
+    --muted:   #888;
+    --sidebar: 260px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.75; display: flex; min-height: 100vh; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  code, pre { font-family: 'Space Mono', monospace; }
+
+  /* ── Sidebar ── */
+  .sidebar {
+    width: var(--sidebar);
+    flex-shrink: 0;
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    background: var(--bg-2);
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    padding: 2rem 0;
+  }
+  .sidebar-logo {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--accent);
+    padding: 0 1.5rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    display: block;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+  }
+  .sidebar nav ul { list-style: none; }
+  .sidebar nav li a {
+    display: block;
+    padding: 0.45rem 1.5rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+    transition: color 0.2s, background 0.2s;
+    border-left: 2px solid transparent;
+  }
+  .sidebar nav li a:hover,
+  .sidebar nav li a.active {
+    color: var(--text);
+    background: rgba(255,255,255,0.04);
+    border-left-color: var(--accent);
+    text-decoration: none;
+  }
+  .sidebar nav .nav-section {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding: 1.2rem 1.5rem 0.4rem;
+    font-weight: 600;
+  }
+
+  /* ── Main content ── */
+  .main {
+    margin-left: var(--sidebar);
+    flex: 1;
+    max-width: 860px;
+    padding: 3.5rem 3rem;
+  }
+
+  /* ── Sections ── */
+  .doc-section { margin-bottom: 5rem; }
+  .doc-section + .doc-section { border-top: 1px solid var(--border); padding-top: 4rem; }
+
+  h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.6rem; }
+  h2 { font-size: 1.5rem; font-weight: 700; margin: 2.5rem 0 1rem; color: var(--text); }
+  h3 { font-size: 1.05rem; font-weight: 600; margin: 2rem 0 0.6rem; color: var(--text); }
+  p  { color: var(--muted); margin-bottom: 1rem; font-size: 0.92rem; }
+  ul, ol { color: var(--muted); font-size: 0.92rem; padding-left: 1.4rem; margin-bottom: 1rem; }
+  li { margin-bottom: 0.35rem; }
+  strong { color: var(--text); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    background: rgba(200,255,0,0.12);
+    color: var(--accent);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 3px;
+    margin-right: 0.4rem;
+    margin-bottom: 0.4rem;
+  }
+
+  pre {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.4rem;
+    overflow-x: auto;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    margin: 1rem 0 1.5rem;
+    color: #c9d1d9;
+  }
+  code:not(pre code) {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 0.15rem 0.4rem;
+    font-size: 0.8rem;
+    color: var(--accent);
+  }
+
+  .info-box {
+    background: rgba(200,255,0,0.06);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+    padding: 1rem 1.2rem;
+    margin: 1.2rem 0;
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+  .info-box strong { color: var(--accent); }
+
+  .warn-box {
+    background: rgba(255,160,0,0.07);
+    border-left: 3px solid #ffa500;
+    border-radius: 0 4px 4px 0;
+    padding: 1rem 1.2rem;
+    margin: 1.2rem 0;
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+  .warn-box strong { color: #ffa500; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.87rem; margin: 1rem 0 1.5rem; }
+  th { background: var(--bg-2); color: var(--text); font-weight: 600; padding: 0.7rem 1rem; text-align: left; border: 1px solid var(--border); }
+  td { padding: 0.6rem 1rem; border: 1px solid var(--border); color: var(--muted); }
+  tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+
+  .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.2rem 0; }
+  .feature-item {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1rem 1.2rem;
+    font-size: 0.85rem;
+  }
+  .feature-item strong { display: block; color: var(--text); margin-bottom: 0.2rem; }
+
+  .footer-doc {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <a class="sidebar-logo" href="#">EMBio Docs</a>
+  <nav>
+    <ul>
+      <li class="nav-section">Getting Started</li>
+      <li><a href="#introduction">1. Introduction</a></li>
+      <li><a href="#included">2. What's Included</a></li>
+      <li><a href="#structure">3. File Structure</a></li>
+      <li class="nav-section">Versions</li>
+      <li><a href="#versions">3b. Versions</a></li>
+
+      <li class="nav-section">Setup</li>
+      <li><a href="#quickstart">4. Quick Start</a></li>
+      <li><a href="#customization">5. Customization</a></li>
+      <li><a href="#colors">6. Colors & Themes</a></li>
+      <li><a href="#fonts">7. Fonts</a></li>
+
+      <li class="nav-section">Sections</li>
+      <li><a href="#s-hero">8. Hero Section</a></li>
+      <li><a href="#s-about">9. About Section</a></li>
+      <li><a href="#s-skills">10. Skills Section</a></li>
+      <li><a href="#s-projects">11. Projects Section</a></li>
+      <li><a href="#s-pricing">12. Pricing Section</a></li>
+      <li><a href="#s-blog">13. Blog Section</a></li>
+      <li><a href="#s-contact">14. Contact Section</a></li>
+
+      <li class="nav-section">Technical</li>
+      <li><a href="#css">15. CSS Architecture</a></li>
+      <li><a href="#js">16. JavaScript Modules</a></li>
+      <li><a href="#browsers">17. Browser Support</a></li>
+      <li><a href="#performance">18. Performance</a></li>
+
+      <li class="nav-section">Info</li>
+      <li><a href="#credits">19. Sources & Credits</a></li>
+      <li><a href="#support">20. Support</a></li>
+      <li><a href="#changelog">21. Changelog</a></li>
+    </ul>
+  </nav>
+</aside>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+  <!-- ── 1. INTRODUCTION ── -->
+  <section class="doc-section" id="introduction">
+    <h1>EMBio — Frontend Developer Portfolio</h1>
+    <p style="color:var(--accent); font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:1.5rem;">Version 1.0.0 &nbsp;·&nbsp; HTML5 Template</p>
+    <p>Thank you for purchasing <strong>EMBio Portfolio Template</strong>. This documentation will guide you through setup, customization, and deployment of your new portfolio website.</p>
+    <p>EMBio is a dark-first, editorial-style HTML5 portfolio template built with pure HTML, CSS, and vanilla JavaScript — zero framework dependencies, zero build step required.</p>
+
+    <table>
+      <tr><th>Property</th><th>Value</th></tr>
+      <tr><td>Template Name</td><td>EMBio — Frontend Developer Portfolio</td></tr>
+      <tr><td>Version</td><td>1.0.0</td></tr>
+      <tr><td>Author</td><td>Elvin Mammadov</td></tr>
+      <tr><td>Date</td><td>April 2026</td></tr>
+      <tr><td>Framework</td><td>Vanilla HTML5 / CSS3 / JS (ES Modules)</td></tr>
+      <tr><td>Responsive</td><td>Yes — mobile first</td></tr>
+      <tr><td>Light/Dark Mode</td><td>Yes — persisted via localStorage</td></tr>
+    </table>
+
+    <div class="info-box"><strong>📋 Note:</strong> Basic HTML and CSS knowledge is required for customization. No build tools or Node.js are required to run the template.</div>
+  </section>
+
+  <!-- ── 2. WHAT'S INCLUDED ── -->
+  <section class="doc-section" id="included">
+    <h2>2. What's Included</h2>
+    <p>After downloading and unzipping, you will find the following structure:</p>
+
+    <div class="feature-grid">
+      <div class="feature-item"><strong>✦ Hero Section</strong>Text rotate animation + mouse parallax floating images</div>
+      <div class="feature-item"><strong>✦ About Section</strong>Photo, bio, stats, skill tags, Download CV button</div>
+      <div class="feature-item"><strong>✦ Skills Section</strong>Bracket-corner cards with SVG icons</div>
+      <div class="feature-item"><strong>✦ Projects Section</strong>Alternating layout with hover zoom</div>
+      <div class="feature-item"><strong>✦ Pricing Section</strong>3-tier cards with featured highlight</div>
+      <div class="feature-item"><strong>✦ Blog Section</strong>3-column cards with category badges</div>
+      <div class="feature-item"><strong>✦ Contact Section</strong>2-column layout with functional form UI</div>
+      <div class="feature-item"><strong>✦ Footer</strong>Footer7 layout — logo + desc + 3-col nav</div>
+    </div>
+
+    <h3>Key Features</h3>
+    <ul>
+      <li><strong>Zero dependencies</strong> — No jQuery, no Bootstrap, no framework</li>
+      <li><strong>Light &amp; Dark mode</strong> — Toggle persisted via <code>localStorage</code></li>
+      <li><strong>Custom animated cursor</strong> — Acid-lime dot with smooth lag ring</li>
+      <li><strong>Text Rotate animation</strong> — Per-character spring animation with stagger</li>
+      <li><strong>Floating parallax images</strong> — Mouse-tracking depth effect on hero</li>
+      <li><strong>Scroll reveal animations</strong> — Intersection Observer based, no JS library</li>
+      <li><strong>Scrolling marquee strip</strong> — Infinite CSS animation</li>
+      <li><strong>Skill cards with bracket corners</strong> — Expand on hover</li>
+      <li><strong>Download CV button</strong> — Direct PDF download</li>
+      <li><strong>Contact form UI</strong> — With loading state and success feedback</li>
+      <li><strong>Fully responsive</strong> — 320px to 1440px+</li>
+      <li><strong>CSS custom properties</strong> — Easy theming</li>
+      <li><strong>ES Modules</strong> — Clean, maintainable JavaScript</li>
+      <li><strong>SEO-ready</strong> — Semantic HTML5, meta description, ARIA labels</li>
+      <li><strong>W3C valid</strong> — Clean, standard-compliant markup</li>
+    </ul>
+  </section>
+
+  <!-- ── 3. FILE STRUCTURE ── -->
+  <section class="doc-section" id="structure">
+    <h2>3. File Structure</h2>
+    <pre>em-portfolio/
+├── index.html              ← Main HTML file (all sections)
+├── README.txt              ← Quick start & license info
+├── ElvinMammadov_CV.pdf    ← Replace with your own CV
+├── documentation/
+│   └── index.html          ← This file
+└── assets/
+    ├── css/
+    │   ├── variables.css   ← Design tokens (colors, fonts, easing)
+    │   ├── base.css        ← CSS reset + shared utilities
+    │   ├── nav.css         ← Navigation bar styles
+    │   ├── sections.css    ← All section-specific styles
+    │   ├── responsive.css  ← Mobile breakpoints (max-width: 900px, 600px)
+    │   └── style.min.css   ← All CSS combined & minified (production)
+    └── js/
+        ├── main.js         ← Entry point — imports & inits all modules
+        ├── theme.js        ← Light/dark mode toggle + localStorage
+        ├── cursor.js       ← Custom animated cursor (rAF loop)
+        ├── scroll.js       ← IntersectionObserver reveal + smooth scroll
+        ├── nav.js          ← Nav scroll effect + mobile burger toggle
+        ├── hero.js         ← Text rotate + mouse parallax
+        └── main.min.js     ← All JS combined & minified (production)</pre>
+
+    <div class="info-box"><strong>Production tip:</strong> For deployment, replace the 6 individual <code>&lt;link&gt;</code> tags with a single <code>&lt;link rel="stylesheet" href="assets/css/style.min.css"&gt;</code> and replace the module script with <code>&lt;script src="assets/js/main.min.js" defer&gt;&lt;/script&gt;</code>.</div>
+  </section>
+
+  <!-- ── 4. QUICK START ── -->
+  <section class="doc-section" id="quickstart">
+    <h2>4. Quick Start</h2>
+    <div class="warn-box"><strong>⚠ Important:</strong> The template uses ES Modules (<code>type="module"</code>). You must serve files over HTTP — opening <code>index.html</code> via <code>file:///</code> will not work in most browsers.</div>
+
+    <h3>Option A — VS Code (recommended)</h3>
+    <ol>
+      <li>Install the <strong>Live Server</strong> extension by Ritwick Dey</li>
+      <li>Open the <code>em-portfolio/</code> folder in VS Code</li>
+      <li>Right-click <code>index.html</code> → <strong>Open with Live Server</strong></li>
+      <li>Browser opens at <code>http://127.0.0.1:5500</code></li>
+    </ol>
+
+    <h3>Option B — Node.js</h3>
+    <pre>cd em-portfolio
+npx serve .</pre>
+    <p>Opens at <code>http://localhost:3000</code></p>
+
+    <h3>Option C — Python</h3>
+    <pre>cd em-portfolio
+python3 -m http.server 3000</pre>
+    <p>Opens at <code>http://localhost:3000</code></p>
+  </section>
+
+  <!-- ── 5. CUSTOMIZATION ── -->
+  <section class="doc-section" id="customization">
+    <h2>5. Customization</h2>
+
+    <h3>5.1 Personal Information</h3>
+    <p>Open <code>index.html</code> and search for the following placeholders:</p>
+    <table>
+      <tr><th>Find</th><th>Replace With</th></tr>
+      <tr><td><code>Elvin Morgan</code></td><td>Your full name</td></tr>
+      <tr><td><code>elvinmammadoff@gmail.com</code></td><td>Your email address</td></tr>
+      <tr><td><code>Baku, Azerbaijan</code></td><td>Your city / location</td></tr>
+      <tr><td><code>https://github.com/elvinmammadoff</code></td><td>Your GitHub profile URL</td></tr>
+      <tr><td><code>https://linkedin.com/in/elvinmammadov</code></td><td>Your LinkedIn URL</td></tr>
+    </table>
+
+    <h3>5.2 Replace CV</h3>
+    <p>Replace <code>assets/ElvinMammadov_CV.pdf</code> with your own PDF file. Then update the filename in two places in <code>index.html</code>:</p>
+    <pre>&lt;!-- About section --&gt;
+&lt;a href="assets/YourName_CV.pdf" download="YourName_CV.pdf" class="cv-btn"&gt;
+
+&lt;!-- Footer Resources column --&gt;
+&lt;a href="assets/YourName_CV.pdf" download&gt;Download CV&lt;/a&gt;</pre>
+
+    <h3>5.3 Replace Images</h3>
+    <p>All images use Unsplash URLs for demo purposes. Replace them with your own images:</p>
+    <pre>&lt;!-- About avatar --&gt;
+&lt;img src="assets/images/your-photo.jpg" alt="Your Name" /&gt;
+
+&lt;!-- Project images --&gt;
+&lt;img src="assets/images/project-alpha.jpg" alt="Project Alpha" /&gt;</pre>
+
+    <h3>5.4 Update Projects</h3>
+    <p>Find the <code>&lt;!-- PROJECTS --&gt;</code> comment in <code>index.html</code>. Each project follows this pattern:</p>
+    <pre>&lt;article class="project-item"&gt;
+  &lt;div class="project-info reveal"&gt;
+    &lt;p class="project-number"&gt;01&lt;/p&gt;
+    &lt;h3 class="project-name"&gt;Your Project Name&lt;/h3&gt;
+    &lt;p class="project-desc"&gt;Your project description...&lt;/p&gt;
+    &lt;div class="project-tech"&gt;
+      &lt;span&gt;HTML&lt;/span&gt;&lt;span&gt;CSS&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;a href="https://your-live-url.com" class="project-link"&gt;View Project →&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class="project-img reveal reveal-delay-2"&gt;
+    &lt;img src="assets/images/project.jpg" alt="Project" loading="lazy" /&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</pre>
+
+    <h3>5.5 Update Blog Posts</h3>
+    <p>Find the <code>&lt;!-- BLOG --&gt;</code> comment. Each card pattern:</p>
+    <pre>&lt;article class="blog-card reveal"&gt;
+  &lt;div class="blog-img"&gt;
+    &lt;img src="assets/images/blog-1.jpg" alt="Post title" /&gt;
+    &lt;span class="blog-cat"&gt;Category&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="blog-body"&gt;
+    &lt;p class="blog-date"&gt;April 10, 2026&lt;/p&gt;
+    &lt;h3 class="blog-title"&gt;Your Blog Post Title&lt;/h3&gt;
+    &lt;p class="blog-excerpt"&gt;Short excerpt...&lt;/p&gt;
+    &lt;a href="your-post-url.html" class="blog-link"&gt;Read More →&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</pre>
+  </section>
+
+  <!-- ── 6. COLORS & THEMES ── -->
+  <section class="doc-section" id="colors">
+    <h2>6. Colors &amp; Themes</h2>
+    <p>All colors are defined as CSS custom properties in <code>assets/css/variables.css</code>. The template supports two themes controlled by the <code>data-theme</code> attribute on <code>&lt;html&gt;</code>.</p>
+
+    <h3>Dark Mode (default)</h3>
+    <pre>:root, [data-theme="dark"] {
+  --bg:      #080808;   /* main background */
+  --bg-2:    #0f0f0f;   /* section alternate bg */
+  --bg-3:    #161616;   /* card backgrounds */
+  --text:    #e8e8e8;   /* primary text */
+  --muted:   #666666;   /* secondary text */
+  --faint:   #333333;   /* borders, subtle text */
+  --border:  rgba(255,255,255,0.07);
+
+  --accent:       #c8ff00;  /* primary accent (acid lime) */
+  --accent-hover: #d9ff33;  /* accent on hover */
+  --accent-text:  #080808;  /* text on accent backgrounds */
+  --accent-label: #c8ff00;  /* labels, links */
+}</pre>
+
+    <h3>Light Mode</h3>
+    <pre>[data-theme="light"] {
+  --bg:      #f5f5f0;
+  --bg-2:    #eeede8;
+  --text:    #0f0f0f;
+  --muted:   #555555;
+  --accent:       #5a7a00;  /* dark olive — readable on light bg */
+  --accent-label: #5a7a00;
+  --accent-text:  #ffffff;
+}</pre>
+
+    <h3>Change Accent Color</h3>
+    <p>To change the entire accent color scheme, update these three values in <code>variables.css</code>:</p>
+    <pre>/* Example: change to electric blue */
+--accent:        #0070f3;
+--accent-hover:  #338fff;
+--accent-text:   #ffffff;</pre>
+  </section>
+
+  <!-- ── 7. FONTS ── -->
+  <section class="doc-section" id="fonts">
+    <h2>7. Fonts</h2>
+    <p>The template uses three Google Fonts loaded in <code>index.html</code>:</p>
+    <table>
+      <tr><th>Variable</th><th>Font</th><th>Used For</th></tr>
+      <tr><td><code>--font-display</code></td><td>Bebas Neue</td><td>Section titles, hero headline, logo</td></tr>
+      <tr><td><code>--font-body</code></td><td>DM Sans</td><td>Body text, descriptions, paragraphs</td></tr>
+      <tr><td><code>--font-mono</code></td><td>Space Mono</td><td>Labels, tags, nav links, code</td></tr>
+    </table>
+
+    <h3>Change Fonts</h3>
+    <p>1. Update the Google Fonts link in <code>&lt;head&gt;</code>:<br>
+    2. Update the variables in <code>assets/css/variables.css</code>:</p>
+    <pre>--font-display: 'Your Display Font', sans-serif;
+--font-body:    'Your Body Font', sans-serif;
+--font-mono:    'Your Mono Font', monospace;</pre>
+  </section>
+
+  <!-- ── 8. HERO ── -->
+  <section class="doc-section" id="s-hero">
+    <h2>8. Hero Section</h2>
+    <p>The hero features two interactive effects:</p>
+
+    <h3>8.1 Text Rotate</h3>
+    <p>Cycles through a list of words with per-character spring animation. To change the words, edit <code>assets/js/hero.js</code>:</p>
+    <pre>const words = [
+  'beautiful',
+  'fast ⚡',
+  'accessible',
+  'creative',
+  // add your own words here
+];</pre>
+
+    <h3>8.2 Floating Parallax Images</h3>
+    <p>5 images float and respond to mouse movement. Each has a <code>data-depth</code> attribute controlling parallax intensity. Edit positions and images in <code>index.html</code>:</p>
+    <pre>&lt;div class="fl-img" data-depth="1.4" style="top:10%;left:20%"&gt;
+  &lt;img src="assets/images/your-image.jpg" style="width:230px;height:175px;transform:rotate(-11deg)"&gt;
+&lt;/div&gt;</pre>
+    <p>Higher <code>data-depth</code> = more movement. Recommended range: 0.4 – 2.5</p>
+
+    <h3>8.3 Marquee Strip</h3>
+    <p>Update the skill items in the marquee by editing the <code>.marquee-track</code> div in <code>index.html</code>. Duplicate all items for a seamless loop.</p>
+  </section>
+
+  <!-- ── 9. ABOUT ── -->
+  <section class="doc-section" id="s-about">
+    <h2>9. About Section</h2>
+    <ul>
+      <li>Replace the photo URL with your own image path</li>
+      <li>Update the bio paragraphs with your personal text</li>
+      <li>Edit stat numbers (<code>3+</code>, <code>40+</code>, <code>20+</code>) to match your experience</li>
+      <li>Add/remove skill tags inside <code>.about-tags</code></li>
+      <li>Replace <code>ElvinMammadov_CV.pdf</code> with your CV filename</li>
+      <li>Update social link <code>href</code> attributes with your profiles</li>
+    </ul>
+  </section>
+
+  <!-- ── 10. SKILLS ── -->
+  <section class="doc-section" id="s-skills">
+    <h2>10. Skills Section</h2>
+    <p>Each skill card has bracket-corner decorations that expand on hover. To add a new card, copy an existing <code>.skill-cell</code> block and update the SVG icon, title and description.</p>
+    <pre>&lt;div class="skill-cell reveal"&gt;
+  &lt;span class="skill-bracket-tr" aria-hidden="true"&gt;&lt;/span&gt;
+  &lt;span class="skill-bracket-bl" aria-hidden="true"&gt;&lt;/span&gt;
+  &lt;div class="skill-icon-wrap"&gt;
+    &lt;!-- Your SVG icon here --&gt;
+  &lt;/div&gt;
+  &lt;h3 class="skill-name"&gt;Skill Name&lt;/h3&gt;
+  &lt;p class="skill-desc"&gt;Skill description...&lt;/p&gt;
+&lt;/div&gt;</pre>
+    <p>The grid is <code>repeat(3, 1fr)</code>. Add cards in multiples of 3 for even rows.</p>
+  </section>
+
+  <!-- ── 11. PROJECTS ── -->
+  <section class="doc-section" id="s-projects">
+    <h2>11. Projects Section</h2>
+    <p>Projects alternate left/right layout automatically via CSS <code>nth-child(even)</code>. Add projects by copying a <code>.project-item</code> article block. Update number, name, description, tech tags, live URL, and image.</p>
+  </section>
+
+  <!-- ── 12. PRICING ── -->
+  <section class="doc-section" id="s-pricing">
+    <h2>12. Pricing Section</h2>
+    <p>Three tiers: Starter, Professional (featured), Premium. The <code>.featured</code> class on the middle card adds the highlight styling and "Most Popular" badge.</p>
+    <p>To update prices, find the <code>.price-amount</code> spans inside each <code>.price-card</code> and update the number. To add/remove features, edit the <code>.price-features</code> list items. Change <code>.pf-no</code> class to mark a feature as unavailable (shows ✗ instead of ✓).</p>
+  </section>
+
+  <!-- ── 13. BLOG ── -->
+  <section class="doc-section" id="s-blog">
+    <h2>13. Blog Section</h2>
+    <p>3-column card grid. Each card: image with category badge, date, title, excerpt, "Read More" link. Update the <code>href</code> on <code>.blog-link</code> to point to your actual blog post pages.</p>
+  </section>
+
+  <!-- ── 14. CONTACT ── -->
+  <section class="doc-section" id="s-contact">
+    <h2>14. Contact Section</h2>
+    <p>The contact form is purely front-end (UI only). To make it actually send emails, integrate a service like <a href="https://formspree.io" target="_blank">Formspree</a>, <a href="https://web3forms.com" target="_blank">Web3Forms</a>, or <a href="https://emailjs.com" target="_blank">EmailJS</a>.</p>
+
+    <h3>Formspree Integration (easiest)</h3>
+    <pre>&lt;!-- In index.html, update the form tag: --&gt;
+&lt;form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST"&gt;</pre>
+    <p>Then remove the <code>onsubmit="handleFormSubmit(event)"</code> attribute and the inline <code>&lt;script&gt;</code> at the bottom.</p>
+  </section>
+
+  <!-- ── 15. CSS ARCHITECTURE ── -->
+  <section class="doc-section" id="css">
+    <h2>15. CSS Architecture</h2>
+    <p>CSS is split into 5 focused files, loaded in order:</p>
+    <table>
+      <tr><th>File</th><th>Contents</th></tr>
+      <tr><td><code>variables.css</code></td><td>All CSS custom properties — colors, fonts, easing, nav height</td></tr>
+      <tr><td><code>base.css</code></td><td>CSS reset, shared section/container styles, scroll reveal, keyframes</td></tr>
+      <tr><td><code>nav.css</code></td><td>Navigation bar, theme switch, mobile burger menu</td></tr>
+      <tr><td><code>sections.css</code></td><td>All section styles (hero, about, skills, projects, pricing, blog, contact, footer)</td></tr>
+      <tr><td><code>responsive.css</code></td><td>Mobile breakpoints (900px and 600px)</td></tr>
+    </table>
+
+    <h3>Centering Content</h3>
+    <p>All section content is wrapped in <code>.section-inner</code> which provides the max-width container:</p>
+    <pre>.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}</pre>
+  </section>
+
+  <!-- ── 16. JAVASCRIPT MODULES ── -->
+  <section class="doc-section" id="js">
+    <h2>16. JavaScript Modules</h2>
+    <table>
+      <tr><th>Module</th><th>Function</th><th>Description</th></tr>
+      <tr><td><code>theme.js</code></td><td><code>initTheme()</code></td><td>Reads/writes <code>localStorage</code>, applies <code>data-theme</code> attribute</td></tr>
+      <tr><td><code>cursor.js</code></td><td><code>initCursor()</code></td><td>rAF loop tracking mouse, lerp lag ring</td></tr>
+      <tr><td><code>scroll.js</code></td><td><code>initScrollReveal()</code><br><code>initSmoothScroll()</code></td><td>IntersectionObserver for <code>.reveal</code> elements, smooth anchor clicks</td></tr>
+      <tr><td><code>nav.js</code></td><td><code>initNav()</code></td><td>Scroll glass effect, mobile burger toggle, resize reset</td></tr>
+      <tr><td><code>hero.js</code></td><td><code>initHero()</code></td><td>Text rotate word cycling, mouse parallax for floating images</td></tr>
+      <tr><td><code>main.js</code></td><td>—</td><td>Entry point — imports and calls all init functions</td></tr>
+    </table>
+
+    <h3>Adding Custom JavaScript</h3>
+    <p>Create a new <code>.js</code> file in <code>assets/js/</code>, export a function, and import it in <code>main.js</code>:</p>
+    <pre>// assets/js/myfeature.js
+export function initMyFeature() {
+  // your code here
+}
+
+// assets/js/main.js — add:
+import { initMyFeature } from './myfeature.js';
+// inside DOMContentLoaded:
+initMyFeature();</pre>
+  </section>
+
+  <!-- ── 17. BROWSER SUPPORT ── -->
+  <section class="doc-section" id="browsers">
+    <h2>17. Browser Support</h2>
+    <table>
+      <tr><th>Browser</th><th>Version</th><th>Status</th></tr>
+      <tr><td>Chrome</td><td>90+</td><td><span class="badge">✓ Supported</span></td></tr>
+      <tr><td>Firefox</td><td>88+</td><td><span class="badge">✓ Supported</span></td></tr>
+      <tr><td>Safari</td><td>14+</td><td><span class="badge">✓ Supported</span></td></tr>
+      <tr><td>Edge</td><td>90+</td><td><span class="badge">✓ Supported</span></td></tr>
+      <tr><td>IE 11</td><td>—</td><td>✗ Not supported (ES Modules)</td></tr>
+    </table>
+    <div class="info-box"><strong>Note:</strong> The template uses <code>:has()</code> CSS selector for cursor effects. This is supported in all modern browsers (Chrome 105+, Safari 15.4+, Firefox 121+).</div>
+  </section>
+
+  <!-- ── 18. PERFORMANCE ── -->
+  <section class="doc-section" id="performance">
+    <h2>18. Performance</h2>
+    <ul>
+      <li>All images use <code>loading="lazy"</code> (except hero which uses <code>loading="eager"</code>)</li>
+      <li>Animations use only <code>transform</code> and <code>opacity</code> — no layout-triggering properties</li>
+      <li>Google Fonts loaded with <code>rel="preconnect"</code> for faster DNS</li>
+      <li>CSS custom properties eliminate redundant values</li>
+      <li>ES Modules enable tree-shaking and deferred parsing</li>
+      <li>Use <code>style.min.css</code> and <code>main.min.js</code> in production for best Lighthouse scores</li>
+    </ul>
+
+    <h3>Production Switch</h3>
+    <p>Replace the 5 stylesheet links and module script in <code>&lt;head&gt;</code> with:</p>
+    <pre>&lt;link rel="stylesheet" href="assets/css/style.min.css" /&gt;
+&lt;!-- ... --&gt;
+&lt;script src="assets/js/main.min.js" defer&gt;&lt;/script&gt;</pre>
+  </section>
+
+  <!-- ── 19. CREDITS ── -->
+  <section class="doc-section" id="credits">
+    <h2>19. Sources &amp; Credits</h2>
+    <table>
+      <tr><th>Resource</th><th>URL</th><th>License</th></tr>
+      <tr><td>Bebas Neue font</td><td>fonts.google.com</td><td>OFL</td></tr>
+      <tr><td>DM Sans font</td><td>fonts.google.com</td><td>OFL</td></tr>
+      <tr><td>Space Mono font</td><td>fonts.google.com</td><td>OFL</td></tr>
+      <tr><td>Unsplash images</td><td>unsplash.com</td><td>Unsplash License (demo only)</td></tr>
+      <tr><td>SVG icons</td><td>Custom inline SVG</td><td>Original / MIT</td></tr>
+    </table>
+    <div class="warn-box"><strong>⚠ Image License:</strong> Unsplash images are for demo purposes only. Replace with your own images or properly licensed alternatives before commercial use.</div>
+  </section>
+
+  <!-- ── 20. SUPPORT ── -->
+  <section class="doc-section" id="support">
+    <h2>20. Support</h2>
+    <p>For support, please use the <strong>ThemeForest comments section</strong> on the item page, or email directly:</p>
+    <p><strong>Email:</strong> <a href="mailto:elvinmammadoff@gmail.com">elvinmammadoff@gmail.com</a></p>
+    <p><strong>Response time:</strong> Within 24 hours on business days.</p>
+
+    <h3>Included in Free Support</h3>
+    <ul>
+      <li>Bug fixes related to the template</li>
+      <li>Guidance on customizing content (text, images, colors)</li>
+      <li>Help with setup and getting started</li>
+    </ul>
+
+    <h3>NOT Included in Free Support</h3>
+    <ul>
+      <li>Custom feature development</li>
+      <li>Third-party plugin integration</li>
+      <li>Server-side / backend development</li>
+      <li>Design customization beyond the template scope</li>
+    </ul>
+  </section>
+
+  <!-- ── 21. CHANGELOG ── -->
+  <section class="doc-section" id="changelog">
+    <h2>21. Changelog</h2>
+    <pre>v1.0.0 — April 2026
+──────────────────────────────
+  - Initial release
+  - Hero: TextRotate + Floating Parallax
+  - Light/Dark mode with localStorage
+  - Custom animated cursor
+  - Scroll reveal animations
+  - About: stats, tags, Download CV, social icons
+  - Skills: bracket-corner SVG icon cards
+  - Projects: alternating layout with hover effects
+  - Pricing: 3-tier cards with featured highlight
+  - Blog: 3-column card grid with category badges
+  - Contact: 2-column layout with form UI
+  - Footer: Footer7 layout
+  - Fully responsive (320px – 1440px+)
+  - CSS custom properties for easy theming
+  - Minified CSS + JS included</pre>
+  </section>
+
+  <div class="footer-doc">
+    <p>EMBio Portfolio Template — Documentation</p>
+    <p style="margin-top:0.3rem;">© 2026 Elvin Mammadov · <a href="mailto:elvinmammadoff@gmail.com">elvinmammadoff@gmail.com</a></p>
+  </div>
+
+</main>
+
+<script>
+  // Highlight active sidebar link on scroll
+  const sections = document.querySelectorAll('.doc-section');
+  const links    = document.querySelectorAll('.sidebar nav a');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const link = document.querySelector(`.sidebar nav a[href="#${e.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  sections.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
