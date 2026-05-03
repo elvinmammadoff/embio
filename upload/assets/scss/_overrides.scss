@@ -1,0 +1,357 @@
+// ============================================================
+// _overrides.scss — Version-specific style overrides
+// All versions in one file, grouped by [data-version] selector
+//
+// HOW TO ADD A NEW VERSION
+// ────────────────────────
+// 1. Add tokens to _variables.scss with -vN suffix
+// 2. Add a new section below following the same pattern
+// 3. Import stays the same — only this one file is used
+//
+// TABLE OF CONTENTS
+// ─────────────────
+// ── VERSION 2 — Cream Minimal ──
+//   2.1  CSS custom property tokens
+//   2.2  Nav
+//   2.3  Hero
+//   2.4  About
+//   2.5  Skills
+//   2.6  Section headings
+//   2.7  Footer
+//   2.8  Responsive
+//
+// ── VERSION 3 — Neon Cyberpunk ──
+//   3.1  CSS custom property tokens
+//   3.2  Nav
+//   3.3  Hero (scanlines, neon glow)
+//   3.4  Section labels & titles
+//   3.5  Skills
+//   3.6  About
+//   3.7  Noise texture overlay
+//   3.8  Footer
+//   3.9  Responsive
+// ============================================================
+
+@use 'variables' as *;
+
+
+// ════════════════════════════════════════════════════════════
+// VERSION 2 — Cream Minimal
+// ════════════════════════════════════════════════════════════
+
+// ── 2.1  CSS custom property tokens ──────────────────────────
+[data-version="2"] {
+  --bg:              #{$bg-v2};
+  --bg-2:            #{$bg-2-v2};
+  --bg-3:            #{$bg-3-v2};
+  --surface:         #{$surface-v2};
+  --border:          #{$border-v2};
+  --text:            #{$text-v2};
+  --muted:           #{$muted-v2};
+  --faint:           #{$faint-v2};
+  --accent:          #{$accent-v2};
+  --accent-dim:      #{$accent-dim-v2};
+  --accent-hover:    #{$accent-hover-v2};
+  --accent-text:     #{$accent-text-v2};
+  --accent-label:    #{$accent-label-v2};
+  --accent-border:   #{$accent-border-v2};
+  --nav-scrolled-bg: #{$nav-scrolled-bg-v2};
+  --logo-em:         #{$logo-em-v2};
+  --logo-bio:        #{$logo-bio-v2};
+}
+
+[data-version="2"][data-theme="dark"] {
+  --bg:              #{$bg-dark-v2};
+  --bg-2:            #{$bg-2-dark-v2};
+  --bg-3:            #{$bg-3-dark-v2};
+  --surface:         #{$surface-dark-v2};
+  --text:            #{$text-dark-v2};
+  --muted:           #{$muted-dark-v2};
+  --faint:           #{$faint-dark-v2};
+  --accent:          #{$accent-dark-v2};
+  --accent-dim:      #{$accent-dim-dark-v2};
+  --accent-hover:    #{$accent-hover-dark-v2};
+  --accent-text:     #{$accent-text-dark-v2};
+  --accent-label:    #{$accent-label-dark-v2};
+  --accent-border:   #{$accent-border-dark-v2};
+  --nav-scrolled-bg: #{$nav-scrolled-bg-dark-v2};
+  --logo-em:         #{$logo-em-dark-v2};
+  --logo-bio:        #{$logo-bio-dark-v2};
+}
+
+// ── 2.2  Nav ─────────────────────────────────────────────────
+[data-version="2"] nav { padding: 0 4rem; }
+
+// ── 2.3  Hero ────────────────────────────────────────────────
+[data-version="2"] #hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+  padding: var(--nav-h) 2rem 0;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.4;
+    z-index: 0;
+  }
+}
+
+[data-version="2"] #floating-layer { display: none; }
+
+[data-version="2"] .hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+[data-version="2"] .hero-headline {
+  font-size: clamp(3rem, 10vw, 8rem);
+  line-height: 0.95;
+  text-align: center;
+}
+
+[data-version="2"] .hero-line-top {
+  display: block;
+  font-family: var(--font-display);
+  font-size: inherit;
+  color: var(--muted);
+  margin-bottom: 0.1em;
+}
+
+[data-version="2"] #text-rotate-wrap { color: var(--accent); }
+
+[data-version="2"] .hero-sub {
+  max-width: 560px;
+  margin: 2rem auto;
+  font-size: 1.05rem;
+  color: var(--muted);
+  line-height: 1.7;
+  text-align: center;
+}
+
+[data-version="2"] .hero-actions { justify-content: center; gap: 1rem; }
+
+// ── 2.4  About ───────────────────────────────────────────────
+[data-version="2"] .about-grid {
+  grid-template-columns: 1fr;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+[data-version="2"] .about-avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 2rem;
+  border: 3px solid var(--accent-border);
+  img { width: 100%; height: 100%; object-fit: cover; }
+}
+
+[data-version="2"] .about-stats,
+[data-version="2"] .about-tags,
+[data-version="2"] .about-actions { justify-content: center; }
+
+// ── 2.5  Skills ──────────────────────────────────────────────
+[data-version="2"] .skills-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+[data-version="2"] .skill-cell {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.2rem;
+  text-align: left;
+  padding: 1.4rem 1.6rem;
+}
+
+[data-version="2"] .skill-name { font-size: 1rem; margin-bottom: 0.2rem; }
+
+// ── 2.6  Section headings ────────────────────────────────────
+[data-version="2"] .section-label,
+[data-version="2"] .section-title { text-align: center; }
+
+[data-version="2"] .section-title {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  letter-spacing: 0.02em;
+}
+
+// ── 2.7  Footer ──────────────────────────────────────────────
+[data-version="2"] footer                      { background: var(--text); }
+[data-version="2"] .footer-logo .logo-em       { color: #ffffff; }
+[data-version="2"] .footer-logo .logo-bio      { color: var(--accent); }
+[data-version="2"] .footer-tagline             { color: rgba(255,255,255,0.5); }
+[data-version="2"] .footer-nav-title           { color: rgba(255,255,255,0.9); }
+[data-version="2"] .footer-nav a               { color: rgba(255,255,255,0.45); }
+[data-version="2"] .footer-nav a:hover         { color: #ffffff; }
+[data-version="2"] .footer-social-icon         { color: rgba(255,255,255,0.45); }
+[data-version="2"] .footer-social-icon:hover   { color: #ffffff; }
+[data-version="2"] .footer-bottom              { border-top-color: rgba(255,255,255,0.08); }
+[data-version="2"] .footer-copy                { color: rgba(255,255,255,0.35); }
+[data-version="2"] .footer-legal a             { color: rgba(255,255,255,0.35); }
+[data-version="2"] .footer-legal a:hover       { color: #ffffff; }
+
+// ── 2.8  Responsive ──────────────────────────────────────────
+@media (max-width: 700px) {
+  [data-version="2"] .skills-grid { grid-template-columns: 1fr; }
+  [data-version="2"] .skill-cell  { flex-direction: column; text-align: center; }
+}
+
+
+// ════════════════════════════════════════════════════════════
+// VERSION 3 — Neon Cyberpunk
+// ════════════════════════════════════════════════════════════
+
+// ── 3.1  CSS custom property tokens ──────────────────────────
+[data-version="3"] {
+  --bg:              #{$bg-v3};
+  --bg-2:            #{$bg-2-v3};
+  --bg-3:            #{$bg-3-v3};
+  --surface:         #{$surface-v3};
+  --border:          #{$border-v3};
+  --text:            #{$text-v3};
+  --muted:           #{$muted-v3};
+  --faint:           #{$faint-v3};
+  --accent:          #{$accent-v3};
+  --accent-2:        #{$accent-2-v3};
+  --accent-dim:      #{$accent-dim-v3};
+  --accent-hover:    #{$accent-hover-v3};
+  --accent-text:     #{$accent-text-v3};
+  --accent-label:    #{$accent-label-v3};
+  --accent-border:   #{$accent-border-v3};
+  --nav-scrolled-bg: #{$nav-scrolled-bg-v3};
+  --logo-em:         #{$logo-em-v3};
+  --logo-bio:        #{$logo-bio-v3};
+}
+
+// ── 3.2  Nav ─────────────────────────────────────────────────
+[data-version="3"] nav { border-bottom: 1px solid var(--border); }
+
+[data-version="3"] .nav-cta {
+  border-radius: 0;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  padding: 0.55rem 1.5rem;
+}
+
+// ── 3.3  Hero ────────────────────────────────────────────────
+[data-version="3"] #hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--nav-h) 3rem 5rem;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 60% at 80% 20%, rgba(255,0,204,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 50% at 20% 80%, rgba(0,229,255,0.08) 0%, transparent 70%);
+    z-index: 0;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.15) 2px,
+      rgba(0,0,0,0.15) 4px
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+[data-version="3"] #floating-layer  { z-index: 2; }
+[data-version="3"] .hero-content    { position: relative; z-index: 3; }
+
+[data-version="3"] .hero-headline {
+  font-size: clamp(4rem, 12vw, 11rem);
+  line-height: 0.88;
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+
+[data-version="3"] .hero-line-top {
+  font-family: var(--font-display);
+  font-size: inherit;
+  color: var(--muted);
+}
+
+[data-version="3"] #text-rotate-wrap {
+  color: var(--accent);
+  text-shadow: 0 0 40px rgba(255,0,204,0.5);
+}
+
+[data-version="3"] .hero-sub { max-width: 480px; color: var(--muted); font-size: 0.95rem; }
+
+[data-version="3"] .hero-btn-primary {
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  border-radius: 0;
+}
+
+// ── 3.4  Section labels & titles ─────────────────────────────
+[data-version="3"] .section-label { color: var(--accent-2); letter-spacing: 0.22em; }
+
+[data-version="3"] .section-title {
+  font-size: clamp(3rem, 8vw, 7rem);
+  text-shadow: 0 0 60px rgba(255,0,204,0.15);
+}
+
+// ── 3.5  Skills ──────────────────────────────────────────────
+[data-version="3"] .skill-cell { border-color: rgba(255,0,204,0.15); background: var(--bg-3); }
+
+[data-version="3"] .skill-bracket-tr::before,
+[data-version="3"] .skill-bracket-tr::after,
+[data-version="3"] .skill-bracket-bl::before,
+[data-version="3"] .skill-bracket-bl::after { border-color: var(--accent); }
+
+// ── 3.6  About ───────────────────────────────────────────────
+[data-version="3"] .about-grid     { direction: rtl; }
+[data-version="3"] .about-grid > * { direction: ltr; }
+
+// ── 3.7  Noise texture ───────────────────────────────────────
+[data-version="3"] body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.6;
+}
+
+// ── 3.8  Footer ──────────────────────────────────────────────
+[data-version="3"] footer                    { border-top: 1px solid var(--accent-border); }
+[data-version="3"] .footer-logo .logo-bio   { text-shadow: 0 0 20px rgba(255,0,204,0.5); }
+[data-version="3"] .footer-nav-title        { color: var(--accent-2); }
+[data-version="3"] .footer-legal a:hover,
+[data-version="3"] .footer-nav a:hover,
+[data-version="3"] .footer-social-icon:hover { color: var(--accent); }
+
+// ── 3.9  Responsive ──────────────────────────────────────────
+@media (max-width: 900px) {
+  [data-version="3"] #hero       { padding-bottom: 4rem; }
+  [data-version="3"] .about-grid { direction: ltr; }
+}

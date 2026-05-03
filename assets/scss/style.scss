@@ -1,0 +1,48 @@
+// ============================================================
+// style.scss — EMBio main stylesheet entry point
+// Compiles to: assets/css/style.min.css
+//
+// All 3 versions included via [data-version] selectors.
+// V1 (default) · V2 Cream Minimal · V3 Neon Cyberpunk
+//
+// To add a new version: add tokens to _variables.scss,
+// add a new section in _overrides.scss, done.
+//
+// TABLE OF CONTENTS
+// ─────────────────
+// 1. Global tokens & mixins
+// 2. Base styles
+// 3. Navigation
+// 4. Sections (shared)
+// 5. Components
+// 6. Responsive
+// 7. Version overrides (all versions in one file)
+// ============================================================
+
+// ── 1. Global tokens & mixins ────────────────────────────────
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ── 2. Base styles ───────────────────────────────────────────
+@use 'base';
+
+// ── 3. Navigation ────────────────────────────────────────────
+@use 'nav';
+
+// ── 4. Sections ──────────────────────────────────────────────
+@use 'sections/hero';
+@use 'sections/about';
+@use 'sections/portfolio';
+@use 'sections/contact';
+@use 'sections/footer';
+
+// ── 5. Components ────────────────────────────────────────────
+@use 'components/cursor';
+@use 'components/floating-images';
+@use 'components/text-rotate';
+
+// ── 6. Responsive ────────────────────────────────────────────
+@use 'responsive';
+
+// ── 7. Version overrides (V2, V3, … all in one file) ─────────
+@use 'overrides';

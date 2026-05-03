@@ -1,0 +1,26 @@
+{
+  "name": "embio-portfolio-template",
+  "version": "2.4.0",
+  "description": "EMBio - Frontend Developer Portfolio Template. All 3 versions compile from a single SCSS entry point.",
+  "main": "index.html",
+  "scripts": {
+    "compile": "sass assets/scss/style.scss assets/css/style.min.css --style compressed",
+    "watch": "sass --watch assets/scss/style.scss:assets/css/style.min.css",
+    "dev": "npm run watch"
+  },
+  "keywords": [
+    "portfolio",
+    "template",
+    "frontend",
+    "developer",
+    "scss",
+    "html5",
+    "css3",
+    "vanilla-js"
+  ],
+  "author": "Elvin Mammadov",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.77.0"
+  }
+}

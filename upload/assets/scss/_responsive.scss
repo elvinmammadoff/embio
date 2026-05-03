@@ -1,0 +1,39 @@
+// ============================================================
+// _responsive.scss — Responsive breakpoints for V1
+// ============================================================
+
+@import '../variables';
+@import '../mixins';
+
+// ── Mobile (max-width: 600px) ──
+@include mobile {
+  section {
+    padding: 4rem 1.5rem;
+  }
+  
+  .section-heading {
+    font-size: 2rem;
+  }
+  
+  nav {
+    padding: 0 1.5rem;
+  }
+}
+
+// ── Tablet (max-width: 900px) ──
+@include tablet {
+  section {
+    padding: 5rem 2rem;
+  }
+  
+  .section-heading {
+    font-size: 2.5rem;
+  }
+}
+
+// ── Desktop (min-width: 901px) ──
+@include desktop {
+  section {
+    padding: 8rem 2rem;
+  }
+}

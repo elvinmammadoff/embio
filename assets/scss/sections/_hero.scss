@@ -1,0 +1,47 @@
+// ============================================================
+// _hero.scss — Hero section styles for V1
+// ============================================================
+
+@import '../../variables';
+@import '../../mixins';
+
+.hero {
+  min-height: 100vh;
+  @include flex-center;
+  flex-direction: column;
+  position: relative;
+  padding-top: $nav-h;
+  
+  @include mobile {
+    min-height: 90vh;
+  }
+}
+
+.hero-content {
+  text-align: center;
+  z-index: 10;
+}
+
+.hero-eyebrow {
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $accent;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-family: $font-display;
+  font-size: clamp(3rem, 10vw, 7rem);
+  line-height: 0.9;
+  margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: $muted;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.8;
+}

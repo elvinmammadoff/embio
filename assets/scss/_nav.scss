@@ -1,0 +1,314 @@
+// ============================================================
+// _nav.scss — Navigation bar styles
+// ============================================================
+
+@import '../variables';
+@import '../mixins';
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3rem;
+  height: $nav-h;
+  @include transition(background, backdrop-filter, border-bottom);
+  
+  @include mobile {
+    padding: 0 1.5rem;
+  }
+  
+  &.scrolled {
+    background: $nav-scrolled-bg;
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid $border;
+  }
+}
+
+// ── Logo — EMBio two-tone ──
+.nav-logo {
+  font-family: $font-display;
+  font-size: 1.7rem;
+  letter-spacing: 0.04em;
+  font-weight: 400;
+  line-height: 1;
+  z-index: 201;
+  
+  .logo-em {
+    color: $logo-em;
+  }
+  
+  .logo-bio {
+    color: $logo-bio;
+  }
+}
+
+// ── Desktop links ──
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  list-style: none;
+  
+  @include tablet {
+    display: none;
+  }
+  
+  a {
+    font-family: $font-mono;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $muted;
+    position: relative;
+    @include transition(color);
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: $accent;
+      transition: width 0.3s $ease-out;
+    }
+    
+    &:hover {
+      color: $text;
+      
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// ── Right-side controls ──
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 201;
+}
+
+// ── CTA button ──
+.nav-cta {
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $accent-text;
+  background: $accent;
+  padding: 0.55rem 1.2rem;
+  border-radius: 2px;
+  font-weight: 700;
+  @include transition(background, transform);
+  
+  @include mobile {
+    font-size: 0.65rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  &:hover {
+    background: $accent-hover;
+    transform: scale(1.04);
+  }
+}
+
+// ── Theme toggle button ──
+.theme-toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: $surface;
+  border: 1px solid $border;
+  cursor: pointer;
+  @include flex-center;
+  @include transition(background, border-color);
+  
+  svg {
+    width: 18px;
+    height: 18px;
+    fill: $text;
+    @include transition(fill);
+  }
+  
+  &:hover {
+    background: $bg-3;
+    border-color: $accent-border;
+    
+    svg {
+      fill: $accent;
+    }
+  }
+}
+
+// ── Mobile menu toggle ──
+.nav-menu-toggle {
+  display: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: $surface;
+  border: 1px solid $border;
+  cursor: pointer;
+  @include flex-center;
+  flex-direction: column;
+  gap: 4px;
+  @include transition(background, border-color);
+  
+  @include tablet {
+    display: flex;
+  }
+  
+  span {
+    width: 16px;
+    height: 2px;
+    background: $text;
+    border-radius: 2px;
+    @include transition(transform, opacity, background);
+  }
+  
+  &.active {
+    background: $bg-3;
+    border-color: $accent-border;
+    
+    span {
+      background: $accent;
+      
+      &:nth-child(1) {
+        transform: rotate(45deg) translateY(6px);
+      }
+      
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      
+      &:nth-child(3) {
+        transform: rotate(-45deg) translateY(-6px);
+      }
+    }
+  }
+}
+
+// ── Mobile menu overlay ──
+.nav-mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $bg;
+  z-index: 199;
+  display: none;
+  @include flex-center;
+  opacity: 0;
+  pointer-events: none;
+  @include transition(opacity);
+  
+  @include tablet {
+    display: flex;
+  }
+  
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  ul {
+    list-style: none;
+    text-align: center;
+    
+    li {
+      margin-bottom: 2rem;
+      
+      a {
+        font-family: $font-display;
+        font-size: 2.5rem;
+        color: $muted;
+        @include transition(color);
+        
+        &:hover {
+          color: $accent;
+        }
+      }
+    }
+  }
+}
+
+// ── Light mode adjustments ──
+[data-theme="light"] {
+  nav.scrolled {
+    background: $nav-scrolled-bg-light;
+    border-bottom: 1px solid $border-light;
+  }
+  
+  .nav-logo {
+    .logo-em {
+      color: $logo-em-light;
+    }
+    
+    .logo-bio {
+      color: $logo-bio-light;
+    }
+  }
+  
+  .nav-links a {
+    color: $muted-light;
+    
+    &::after {
+      background: $accent-light;
+    }
+    
+    &:hover {
+      color: $text-light;
+    }
+  }
+  
+  .nav-cta {
+    color: $accent-text-light;
+    background: $accent-light;
+    
+    &:hover {
+      background: $accent-hover-light;
+    }
+  }
+  
+  .theme-toggle,
+  .nav-menu-toggle {
+    background: $surface-light;
+    border-color: $border-light;
+    
+    svg,
+    span {
+      fill: $text-light;
+      background: $text-light;
+    }
+    
+    &:hover {
+      background: $bg-3-light;
+      border-color: $accent-border-light;
+      
+      svg {
+        fill: $accent-light;
+      }
+    }
+  }
+  
+  .nav-mobile-menu {
+    background: $bg-light;
+    
+    ul li a {
+      color: $muted-light;
+      
+      &:hover {
+        color: $accent-light;
+      }
+    }
+  }
+}

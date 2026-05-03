@@ -1,0 +1,79 @@
+// ============================================================
+// _mixins.scss — Reusable SCSS mixins
+// ============================================================
+
+// Responsive breakpoints
+@mixin mobile {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 900px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 901px) {
+    @content;
+  }
+}
+
+// Flexbox center
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Absolute fill
+@mixin absolute-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+// Smooth transition
+@mixin transition($properties...) {
+  transition: $properties 0.3s ease;
+}
+
+// Text truncate
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Hover lift effect
+@mixin hover-lift($distance: -4px) {
+  transition: transform 0.25s ease;
+  
+  &:hover {
+    transform: translateY($distance);
+  }
+}
+
+// Section spacing
+@mixin section-spacing {
+  padding: 5rem 2rem;
+  
+  @include mobile {
+    padding: 3rem 1.5rem;
+  }
+}
+
+// Container
+@mixin container($max-width: 1200px) {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 2rem;
+  
+  @include mobile {
+    padding: 0 1.5rem;
+  }
+}

@@ -1,0 +1,144 @@
+// ============================================================
+// _variables.scss — EMBio Design tokens
+// All 3 version variables in one place
+//
+// TABLE OF CONTENTS
+// ─────────────────
+// 1. Theme-independent tokens
+// 2. V1 Dark Industrial (default)
+// 3. V1 Light mode
+// 4. V2 Cream Minimal tokens
+// 5. V2 Dark mode tokens
+// 6. V3 Neon Cyberpunk tokens
+// 7. V3 Light mode tokens
+// ============================================================
+
+
+// ── 1. Theme-independent ──────────────────────────────────────
+$nav-h: 80px;
+
+$font-display: 'Bebas Neue', sans-serif;
+$font-body:    'DM Sans', sans-serif;
+$font-mono:    'Space Mono', monospace;
+
+$ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+$ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+
+
+// ── 2. V1 Dark Industrial — default dark ─────────────────────
+$bg:      #080808;
+$bg-2:    #0f0f0f;
+$bg-3:    #161616;
+$surface: #1a1a1a;
+$border:  rgba(255, 255, 255, 0.07);
+$text:    #e8e8e8;
+$muted:   #666666;
+$faint:   #333333;
+
+$accent:        #c8ff00;
+$accent-dim:    #8aad00;
+$accent-hover:  #d9ff33;
+$accent-text:   #080808;
+$accent-label:  #c8ff00;
+$accent-border: rgba(200, 255, 0, 0.25);
+
+$nav-scrolled-bg: rgba(8, 8, 8, 0.85);
+$logo-em:  #ffffff;
+$logo-bio: #c8ff00;
+
+
+// ── 3. V1 Light mode ─────────────────────────────────────────
+$bg-light:      #f5f5f0;
+$bg-2-light:    #eeede8;
+$bg-3-light:    #e5e4df;
+$surface-light: #dddcd7;
+$border-light:  rgba(0, 0, 0, 0.09);
+$text-light:    #0f0f0f;
+$muted-light:   #555555;
+$faint-light:   #c0bfba;
+
+$accent-light:        #5a7a00;
+$accent-dim-light:    #3d5400;
+$accent-hover-light:  #6e9600;
+$accent-text-light:   #ffffff;
+$accent-label-light:  #5a7a00;
+$accent-border-light: rgba(90, 122, 0, 0.3);
+
+$nav-scrolled-bg-light: rgba(245, 245, 240, 0.88);
+$logo-em-light:  #0f0f0f;
+$logo-bio-light: #5a7a00;
+
+
+// ── 4. V2 Cream Minimal — default (light-first) ──────────────
+$bg-v2:      #fafaf8;
+$bg-2-v2:    #f2f1ed;
+$bg-3-v2:    #e8e6e0;
+$surface-v2: #dddbd4;
+$border-v2:  rgba(0, 0, 0, 0.08);
+$text-v2:    #111111;
+$muted-v2:   #666666;
+$faint-v2:   #c5c2b8;
+
+$accent-v2:        #1a56db;
+$accent-dim-v2:    #1344b0;
+$accent-hover-v2:  #2563eb;
+$accent-text-v2:   #ffffff;
+$accent-label-v2:  #1a56db;
+$accent-border-v2: rgba(26, 86, 219, 0.25);
+
+$nav-scrolled-bg-v2: rgba(250, 250, 248, 0.9);
+$logo-em-v2:  #111111;
+$logo-bio-v2: #1a56db;
+
+
+// ── 5. V2 Dark mode ──────────────────────────────────────────
+$bg-dark-v2:      #0d0d0f;
+$bg-2-dark-v2:    #13131a;
+$bg-3-dark-v2:    #1a1a24;
+$surface-dark-v2: #22222e;
+$text-dark-v2:    #eeeef0;
+$muted-dark-v2:   #7070a0;
+$faint-dark-v2:   #2a2a38;
+
+$accent-dark-v2:        #6b8fff;
+$accent-dim-dark-v2:    #4d74ff;
+$accent-hover-dark-v2:  #89a8ff;
+$accent-text-dark-v2:   #0d0d0f;
+$accent-label-dark-v2:  #6b8fff;
+$accent-border-dark-v2: rgba(107, 143, 255, 0.3);
+
+$nav-scrolled-bg-dark-v2: rgba(13, 13, 15, 0.88);
+$logo-em-dark-v2:  #eeeef0;
+$logo-bio-dark-v2: #6b8fff;
+
+
+// ── 6. V3 Neon Cyberpunk ─────────────────────────────────────
+$bg-v3:      #050508;
+$bg-2-v3:    #0a0a10;
+$bg-3-v3:    #10101a;
+$surface-v3: #16161f;
+$border-v3:  rgba(255, 0, 200, 0.12);
+$text-v3:    #f0f0ff;
+$muted-v3:   #8080b0;
+$faint-v3:   #2a2a40;
+
+$accent-v3:        #ff00cc;
+$accent-2-v3:      #00e5ff;
+$accent-dim-v3:    #cc00a3;
+$accent-hover-v3:  #ff33d6;
+$accent-text-v3:   #ffffff;
+$accent-label-v3:  #ff00cc;
+$accent-border-v3: rgba(255, 0, 204, 0.35);
+
+$nav-scrolled-bg-v3: rgba(5, 5, 8, 0.9);
+$logo-em-v3:  #f0f0ff;
+$logo-bio-v3: #ff00cc;
+
+
+// ── 7. V3 Light mode ─────────────────────────────────────────
+$bg-light-v3:       #f5f5ff;
+$bg-2-light-v3:     #ebebf5;
+$accent-light-v3:   #cc00a3;
+$accent-2-light-v3: #00b8cc;
+$logo-em-light-v3:  #1a1a2e;
+$logo-bio-light-v3: #cc00a3;
