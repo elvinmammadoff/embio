@@ -2,7 +2,7 @@
 
 A modern, dark-first, editorial-style portfolio template for frontend developers. Zero dependencies, pure HTML/CSS/JS with full SCSS support.
 
-![Version](https://img.shields.io/badge/version-1.1.0-brightgreen)
+![Version](https://img.shields.io/badge/version-2.7.0-brightgreen)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
 ![SCSS](https://img.shields.io/badge/SCSS-CC6699?logo=sass&logoColor=white)
@@ -249,33 +249,35 @@ Give a ⭐️ if this project helped you!
 ## 📸 Screenshots
 
 ### Preview Page
-![Preview Page](screenshots/preview.png) <!-- Add actual screenshot -->
+![Preview Page](screenshots/preview.jpg)
 
-### Version 1 - Dark Industrial
-![Version 1](screenshots/v1.png) <!-- Add actual screenshot -->
+### Version 1 — Dark Industrial
+![Version 1](screenshots/v1.jpg)
 
-### Version 2 - Cream Minimal
-![Version 2](screenshots/v2.png) <!-- Add actual screenshot -->
+### Version 2 — Cream Minimal
+![Version 2](screenshots/v2.jpg)
 
-### Version 3 - Neon Cyberpunk
-![Version 3](screenshots/v3.png) <!-- Add actual screenshot -->
+### Version 3 — Neon Cyberpunk
+![Version 3](screenshots/v3.jpg)
 
 ## 🔄 Version History
 
 See [CHANGELOG.md](CHANGELOG.md) for detailed version history.
 
-### v1.1.0 (Latest)
-- ✅ Added complete SCSS architecture
-- ✅ Improved preview page navigation
-- ✅ Added smooth scroll menu
-- ✅ Enhanced section backgrounds
-- ✅ Direct version links
+### v2.7.0 (Latest)
+- ✅ Added `upload/` folder for ThemeForest submission
+- ✅ Merged all SCSS overrides into single `_overrides.scss`
+- ✅ Removed separate `v1/` SCSS subfolder — flat structure
+- ✅ CSS: removed separate `style-v2.css` / `style-v3.css` files
+- ✅ Skills expanded from 6 → 12 with unique linear SVG icons
+- ✅ All emoji replaced with professional inline SVG icons
+- ✅ `screenshots/` folder added — GitHub README images fixed
 
 ### v1.0.0
 - 🎉 Initial release
-- 3 unique versions
-- Light/Dark mode
-- Responsive design
+- 3 unique versions (Dark Industrial, Cream Minimal, Neon Cyberpunk)
+- Light/Dark mode toggle
+- Fully responsive design
 
 ---
 
