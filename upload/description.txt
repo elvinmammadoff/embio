@@ -1,0 +1,108 @@
+<blockquote>
+  <ul>
+    <li><strong>3 Unique Design Versions Included</strong></li>
+    <li><strong>Zero Dependencies — Pure HTML/CSS/JS</strong></li>
+    <li><strong>SCSS Source Files Included</strong></li>
+  </ul>
+</blockquote>
+
+<h3>EMBio – Frontend Developer Portfolio HTML Template</h3>
+
+<p>
+  <strong>EMBio</strong> is a modern, dark-first, editorial-style
+  <strong>Personal Portfolio HTML Template</strong> built for frontend developers,
+  UI designers, and creative professionals. Crafted with
+  <strong>pure HTML5, CSS3, and vanilla JavaScript</strong> — no jQuery, no Bootstrap,
+  no dependencies. Every pixel is hand-coded for performance, accessibility, and style.
+</p>
+
+<p>
+  Choose from <strong>3 visually distinct versions</strong> — each with its own personality,
+  color system, and layout logic — all sharing a single, unified codebase and compiling
+  from one SCSS entry point.
+</p>
+
+<h3>EMBio Key Features</h3>
+<ul>
+  <li><strong>3 Unique Design Versions</strong> — Dark Industrial, Cream Minimal, Neon Cyberpunk</li>
+  <li><strong>Light &amp; Dark Mode</strong> — Time-based auto switch (07:00–18:00 light / 18:00–07:00 dark) with manual override</li>
+  <li><strong>Zero Dependencies</strong> — No jQuery, no Bootstrap, no frameworks. Pure HTML5 / CSS3 / ES Modules</li>
+  <li><strong>SCSS Architecture Included</strong> — Single entry point compiles all 3 versions via <code>[data-version]</code> selectors</li>
+  <li><strong>Fully Responsive</strong> — Mobile-first breakpoints at 900px and 600px, tested from 320px to 1440px+</li>
+  <li><strong>Custom Animated Cursor</strong> — Acid-lime dot with smooth lerp-lag ring (V1), version-specific accent colors</li>
+  <li><strong>Text Rotate Animation</strong> — Per-character spring animation with stagger, smooth enter/exit</li>
+  <li><strong>Parallax Floating Images</strong> — Mouse-reactive depth layers with rAF interpolation (hero section)</li>
+  <li><strong>Scroll Reveal</strong> — IntersectionObserver-powered fade-up animations</li>
+  <li><strong>12 Skill Cards</strong> — Linear SVG icons, bracket-corner decoration, version-accented hover</li>
+  <li><strong>Projects Section</strong> — Alternating layout with tag filters and hover effects</li>
+  <li><strong>3-Tier Pricing Cards</strong> — Featured highlight with SVG checkmarks/crosses</li>
+  <li><strong>Blog Section</strong> — 3-column card grid with category badges</li>
+  <li><strong>Contact Form UI</strong> — 2-column layout with contact info + social links</li>
+  <li><strong>Multi-column Footer</strong> — Navigation, services, resources, social icons</li>
+  <li><strong>Download CV Button</strong> — Direct PDF download from About section</li>
+  <li><strong>Professional SVG Icons</strong> — All icons inline SVG (linear style), no icon fonts</li>
+  <li><strong>Accessibility</strong> — ARIA labels, semantic HTML5, keyboard navigation, focus styles</li>
+  <li><strong>Performance</strong> — Minified CSS + JS included for production deployment</li>
+  <li><strong>Well Documented</strong> — 21-section HTML documentation with code examples</li>
+</ul>
+
+<h3>3 Design Versions</h3>
+
+<ul>
+  <li>
+    <strong>Version 1 — Dark Industrial</strong><br>
+    Acid-lime (#c8ff00) on deep black. Editorial typography, floating parallax images,
+    animated custom cursor, marquee skill strip. The bold, statement-piece portfolio.
+  </li>
+  <li>
+    <strong>Version 2 — Cream Minimal</strong><br>
+    Cobalt blue (#1a56db) on warm cream. Centre-aligned hero with CSS grid texture,
+    clean editorial layout. Elegant and professional — perfect for designers.
+  </li>
+  <li>
+    <strong>Version 3 — Neon Cyberpunk</strong><br>
+    Magenta (#ff00cc) + cyan (#00e5ff) on near-black. Scanline texture, neon glow,
+    diagonal hero layout, noise overlay. Futuristic and high-impact.
+  </li>
+</ul>
+
+<h3>Sections Included</h3>
+<ul>
+  <li>Hero — Full-screen with text rotate animation + floating parallax images</li>
+  <li>About — Bio, stats (years / projects / clients), tags, download CV, social links</li>
+  <li>Skills — 12 cards with linear SVG icons (HTML &amp; CSS, JavaScript, React &amp; Vue, TypeScript, UI Design, Performance, Accessibility, Tooling, Testing, Deployment, API Integration, SEO &amp; Analytics)</li>
+  <li>Projects — 3 projects, alternating image/text layout, tags</li>
+  <li>Pricing — 3 tiers (Starter / Pro / Enterprise) with feature lists</li>
+  <li>Blog — 3 article cards with category badges and read-more links</li>
+  <li>Contact — Form UI + contact info (email, location, social)</li>
+  <li>Footer — Multi-column: logo + tagline + social icons + navigation + legal</li>
+  <li>Preview Page — Version selector with live thumbnail previews</li>
+</ul>
+
+<h3>CSS / SCSS Architecture</h3>
+<ul>
+  <li>Single SCSS entry point: <code>assets/scss/style.scss</code> compiles all 3 versions</li>
+  <li>Version overrides via <code>[data-version]</code> attribute selectors — no duplicate files</li>
+  <li>All 3 version tokens in <code>_variables.scss</code> with <code>-v2</code> / <code>-v3</code> suffix convention</li>
+  <li>Adding a new version = add tokens + one block in <code>_overrides.scss</code></li>
+  <li>Production: single <code>style.min.css</code> + <code>main.min.js</code> covers all versions</li>
+</ul>
+
+<h3>Included in the Purchase Package</h3>
+<ul>
+  <li>HTML files — <code>index.html</code> (V1), <code>v2.html</code> (V2), <code>v3.html</code> (V3), <code>preview.html</code></li>
+  <li>SCSS source files with full architecture</li>
+  <li>CSS files (development + minified)</li>
+  <li>JavaScript modules (development + minified)</li>
+  <li>HTML Documentation (21 sections)</li>
+  <li>Upload-ready package with <code>placehold.co</code> placeholder images (ThemeForest compliant)</li>
+</ul>
+
+<p>
+  <strong>EMBio</strong> is built for developers who care about code quality as much as visual impact.
+  Clean code, pixel-perfect design, zero dependencies — your portfolio deserves nothing less.
+</p>
+
+<strong>Get EMBio today and build your portfolio the right way.</strong>
+
+<p><strong>NOTE:</strong> All images used in the demo are from <a href="https://unsplash.com" rel="nofollow">Unsplash</a> and are <strong>not included</strong> in the purchase package. The upload package contains <code>placehold.co</code> placeholder images as required by ThemeForest guidelines.</p>

@@ -1460,7 +1460,8 @@ footer {
 [data-version="3"] .hero-content   { position: relative; z-index: 3; }
 [data-version="3"] .hero-headline  { font-size: clamp(4rem, 12vw, 11rem); line-height: 0.88; letter-spacing: -0.01em; text-align: left; }
 [data-version="3"] .hero-line-top  { font-family: var(--font-display); font-size: inherit; color: var(--muted); }
-[data-version="3"] #text-rotate-wrap { color: var(--accent); text-shadow: 0 0 40px rgba(255,0,204,0.5); }
+[data-version="3"] #text-rotate-wrap { color: var(--accent); text-shadow: 0 0 20px rgba(255,0,204,0.25); }
+[data-version="3"][data-theme="light"] #text-rotate-wrap { text-shadow: none; }
 [data-version="3"] .hero-sub { max-width: 480px; color: var(--muted); font-size: 0.95rem; }
 [data-version="3"] .hero-btn-primary { clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); border-radius: 0; }
 
