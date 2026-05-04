@@ -766,7 +766,31 @@ initMyFeature();</pre>
   <!-- ── 21. CHANGELOG ── -->
   <section class="doc-section" id="changelog">
     <h2>21. Changelog</h2>
-    <pre>v2.7.1 — May 2026
+    <pre>v2.9.0 — May 2026
+──────────────────────────────
+  - V3: Fixed scanline/noise overlay covering nav and marquee
+    body::after z-index: 9999 → 1 (below nav z-index: 200)
+  - V3 light mode: scanlines and noise texture hidden (opacity: 0)
+  - theme.js: Added time-based auto dark/light mode
+    07:00–18:00 → light, 18:00–07:00 → dark (local time)
+    Manual toggle still works and overrides auto mode (saved to localStorage)
+    Auto mode resumes if localStorage preference is cleared
+  - main.min.js: Inline IIFE also updated for instant theme-on-load
+  - _overrides.scss: Synced with same z-index and light mode fixes
+
+v2.8.0 — May 2026
+──────────────────────────────
+  - V2: Footer dark mode bug fixed — added dedicated --footer-bg / --footer-text /
+    --footer-title / --footer-border / --footer-copy CSS tokens (light & dark variants)
+    so footer always stays dark regardless of page theme
+  - V3: Light mode fully implemented — added [data-version="3"][data-theme="light"]
+    token block with purple-tinted light palette
+  - variables.css: V2 footer tokens + V3 light mode tokens added
+  - sections.css: V2 footer updated to use var(--footer-bg) instead of var(--text)
+  - _variables.scss + _overrides.scss: synced with same changes
+  - upload/ folder rebuilt and synced
+
+v2.7.1 — May 2026
 ──────────────────────────────
   - Added screenshots/ folder with 4 images (preview, v1, v2, v3)
   - README.md: screenshot paths fixed (.png → .jpg, correct folder)

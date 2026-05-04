@@ -90,6 +90,13 @@ $nav-scrolled-bg-v2: rgba(250, 250, 248, 0.9);
 $logo-em-v2:  #111111;
 $logo-bio-v2: #1a56db;
 
+// Footer — always dark regardless of page theme
+$footer-bg-v2:     #111111;
+$footer-text-v2:   rgba(255,255,255,0.45);
+$footer-title-v2:  rgba(255,255,255,0.9);
+$footer-border-v2: rgba(255,255,255,0.08);
+$footer-copy-v2:   rgba(255,255,255,0.35);
+
 
 // ── 5. V2 Dark mode ──────────────────────────────────────────
 $bg-dark-v2:      #0d0d0f;
@@ -110,6 +117,13 @@ $accent-border-dark-v2: rgba(107, 143, 255, 0.3);
 $nav-scrolled-bg-dark-v2: rgba(13, 13, 15, 0.88);
 $logo-em-dark-v2:  #eeeef0;
 $logo-bio-dark-v2: #6b8fff;
+
+// Footer dark mode
+$footer-bg-dark-v2:     #090910;
+$footer-text-dark-v2:   rgba(255,255,255,0.35);
+$footer-title-dark-v2:  rgba(255,255,255,0.8);
+$footer-border-dark-v2: rgba(255,255,255,0.06);
+$footer-copy-dark-v2:   rgba(255,255,255,0.25);
 
 
 // ── 6. V3 Neon Cyberpunk ─────────────────────────────────────
@@ -136,9 +150,23 @@ $logo-bio-v3: #ff00cc;
 
 
 // ── 7. V3 Light mode ─────────────────────────────────────────
-$bg-light-v3:       #f5f5ff;
-$bg-2-light-v3:     #ebebf5;
-$accent-light-v3:   #cc00a3;
-$accent-2-light-v3: #00b8cc;
-$logo-em-light-v3:  #1a1a2e;
+$bg-light-v3:       #f5f0ff;
+$bg-2-light-v3:     #ece5f8;
+$bg-3-light-v3:     #e0d5f0;
+$surface-light-v3:  #d4c8e8;
+$border-light-v3:   rgba(180, 0, 150, 0.12);
+$text-light-v3:     #1a0a2e;
+$muted-light-v3:    #5a4070;
+$faint-light-v3:    #c8b8e0;
+
+$accent-light-v3:        #cc00a3;
+$accent-dim-light-v3:    #990078;
+$accent-hover-light-v3:  #e000b5;
+$accent-text-light-v3:   #ffffff;
+$accent-label-light-v3:  #cc00a3;
+$accent-border-light-v3: rgba(204, 0, 163, 0.3);
+$accent-2-light-v3:      #0099bb;
+
+$nav-scrolled-bg-light-v3: rgba(245,240,255,0.92);
+$logo-em-light-v3:  #1a0a2e;
 $logo-bio-light-v3: #cc00a3;

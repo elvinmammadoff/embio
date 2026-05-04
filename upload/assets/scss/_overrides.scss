@@ -58,6 +58,11 @@
   --nav-scrolled-bg: #{$nav-scrolled-bg-v2};
   --logo-em:         #{$logo-em-v2};
   --logo-bio:        #{$logo-bio-v2};
+  --footer-bg:       #{$footer-bg-v2};
+  --footer-text:     #{$footer-text-v2};
+  --footer-title:    #{$footer-title-v2};
+  --footer-border:   #{$footer-border-v2};
+  --footer-copy:     #{$footer-copy-v2};
 }
 
 [data-version="2"][data-theme="dark"] {
@@ -77,6 +82,11 @@
   --nav-scrolled-bg: #{$nav-scrolled-bg-dark-v2};
   --logo-em:         #{$logo-em-dark-v2};
   --logo-bio:        #{$logo-bio-dark-v2};
+  --footer-bg:       #{$footer-bg-dark-v2};
+  --footer-text:     #{$footer-text-dark-v2};
+  --footer-title:    #{$footer-title-dark-v2};
+  --footer-border:   #{$footer-border-dark-v2};
+  --footer-copy:     #{$footer-copy-dark-v2};
 }
 
 // ── 2.2  Nav ─────────────────────────────────────────────────
@@ -189,19 +199,19 @@
 }
 
 // ── 2.7  Footer ──────────────────────────────────────────────
-[data-version="2"] footer                      { background: var(--text); }
-[data-version="2"] .footer-logo .logo-em       { color: #ffffff; }
-[data-version="2"] .footer-logo .logo-bio      { color: var(--accent); }
-[data-version="2"] .footer-tagline             { color: rgba(255,255,255,0.5); }
-[data-version="2"] .footer-nav-title           { color: rgba(255,255,255,0.9); }
-[data-version="2"] .footer-nav a               { color: rgba(255,255,255,0.45); }
-[data-version="2"] .footer-nav a:hover         { color: #ffffff; }
-[data-version="2"] .footer-social-icon         { color: rgba(255,255,255,0.45); }
-[data-version="2"] .footer-social-icon:hover   { color: #ffffff; }
-[data-version="2"] .footer-bottom              { border-top-color: rgba(255,255,255,0.08); }
-[data-version="2"] .footer-copy                { color: rgba(255,255,255,0.35); }
-[data-version="2"] .footer-legal a             { color: rgba(255,255,255,0.35); }
-[data-version="2"] .footer-legal a:hover       { color: #ffffff; }
+[data-version="2"] footer                    { background: var(--footer-bg); }
+[data-version="2"] .footer-logo .logo-em     { color: #ffffff; }
+[data-version="2"] .footer-logo .logo-bio    { color: var(--accent); }
+[data-version="2"] .footer-tagline           { color: var(--footer-text); }
+[data-version="2"] .footer-nav-title         { color: var(--footer-title); }
+[data-version="2"] .footer-nav a             { color: var(--footer-text); }
+[data-version="2"] .footer-nav a:hover       { color: #ffffff; }
+[data-version="2"] .footer-social-icon       { color: var(--footer-text); }
+[data-version="2"] .footer-social-icon:hover { color: #ffffff; }
+[data-version="2"] .footer-bottom            { border-top-color: var(--footer-border); }
+[data-version="2"] .footer-copy              { color: var(--footer-copy); }
+[data-version="2"] .footer-legal a           { color: var(--footer-copy); }
+[data-version="2"] .footer-legal a:hover     { color: #ffffff; }
 
 // ── 2.8  Responsive ──────────────────────────────────────────
 @media (max-width: 700px) {
@@ -234,6 +244,27 @@
   --nav-scrolled-bg: #{$nav-scrolled-bg-v3};
   --logo-em:         #{$logo-em-v3};
   --logo-bio:        #{$logo-bio-v3};
+}
+
+[data-version="3"][data-theme="light"] {
+  --bg:              #{$bg-light-v3};
+  --bg-2:            #{$bg-2-light-v3};
+  --bg-3:            #{$bg-3-light-v3};
+  --surface:         #{$surface-light-v3};
+  --border:          #{$border-light-v3};
+  --text:            #{$text-light-v3};
+  --muted:           #{$muted-light-v3};
+  --faint:           #{$faint-light-v3};
+  --accent:          #{$accent-light-v3};
+  --accent-dim:      #{$accent-dim-light-v3};
+  --accent-hover:    #{$accent-hover-light-v3};
+  --accent-text:     #{$accent-text-light-v3};
+  --accent-label:    #{$accent-label-light-v3};
+  --accent-border:   #{$accent-border-light-v3};
+  --accent-2:        #{$accent-2-light-v3};
+  --nav-scrolled-bg: #{$nav-scrolled-bg-light-v3};
+  --logo-em:         #{$logo-em-light-v3};
+  --logo-bio:        #{$logo-bio-light-v3};
 }
 
 // ── 3.2  Nav ─────────────────────────────────────────────────
@@ -338,9 +369,13 @@
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
   background-size: 200px 200px;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 1;
   opacity: 0.6;
 }
+
+// Light mode — noise and scanlines off
+[data-version="3"][data-theme="light"] body::after { opacity: 0; }
+[data-version="3"][data-theme="light"] #hero::after { opacity: 0; }
 
 // ── 3.8  Footer ──────────────────────────────────────────────
 [data-version="3"] footer                    { border-top: 1px solid var(--accent-border); }
