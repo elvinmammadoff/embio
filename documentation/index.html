@@ -766,7 +766,16 @@ initMyFeature();</pre>
   <!-- ── 21. CHANGELOG ── -->
   <section class="doc-section" id="changelog">
     <h2>21. Changelog</h2>
-    <pre>v2.9.1 — May 2026
+    <pre>v2.9.2 — May 2026
+──────────────────────────────
+  - theme-init.js: Fixed time-based auto theme on page load
+    Previously always fell back to 'dark' due to missing time logic
+    Now: localStorage check first, then getHours() for light/dark decision
+    07:00-18:00 local browser time → light, else → dark
+  - main.min.js: IIFE updated to match theme-init.js logic exactly
+  - theme.js: No change needed (already correct)
+
+v2.9.1 — May 2026
 ──────────────────────────────
   - V3: Hero rotating text shadow reduced (40px → 20px, opacity 0.5 → 0.25)
   - V3 light mode: text-shadow: none on rotating word (no pink glow on light bg)
