@@ -285,7 +285,7 @@ body:has(a:hover) #cursor-ring { width: 56px; height: 56px; }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(90,122,0,0.1) 0%, transparent 50%);
+  background: linear-gradient(to top, rgba(200,255,0,0.08) 0%, transparent 50%);
   mix-blend-mode: multiply;
 }
 [data-theme="dark"] .about-avatar::after {
@@ -334,6 +334,38 @@ body:has(a:hover) #cursor-ring { width: 56px; height: 56px; }
    SKILLS — Bracket-corner card design
 ══════════════════════════════════════════════════════════ */
 #skills { background: var(--bg); }
+
+/* V1 — skills bg image in both dark and light mode */
+[data-version="1"] #skills {
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.78) 100%),
+    url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1800&q=80&auto=format&fit=crop') center/cover no-repeat;
+}
+[data-version="1"][data-theme="light"] #skills {
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.70) 100%),
+    url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1800&q=80&auto=format&fit=crop') center/cover no-repeat;
+}
+
+/* V1 skills — glassmorphism cards on top of bg image (dark + light) */
+[data-version="1"] #skills .section-label { color: var(--accent); }
+[data-version="1"] #skills .section-title  { color: #ffffff; }
+[data-version="1"] .skill-cell {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.07);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+[data-version="1"] .skill-cell:hover { background: rgba(200,255,0,0.08); }
+[data-version="1"] .skill-name { color: #ffffff; }
+[data-version="1"] .skill-desc { color: #999999; }
+[data-version="1"] .skill-icon-wrap { background: rgba(255,255,255,0.06); }
+[data-version="1"] .skill-icon-wrap svg [stroke="#c8ff00"] { stroke: #c8ff00; }
+[data-version="1"] .skill-icon-wrap svg [fill="#c8ff00"]   { fill: #c8ff00; }
+[data-version="1"] .skill-bracket-tr::before,
+[data-version="1"] .skill-bracket-tr::after,
+[data-version="1"] .skill-bracket-bl::before,
+[data-version="1"] .skill-bracket-bl::after { border-color: var(--accent); }
 
 .skills-grid {
   display: grid;
@@ -435,12 +467,12 @@ body:has(a:hover) #cursor-ring { width: 56px; height: 56px; }
   background: rgba(255,0,204,0.15);
 }
 
-[data-theme="light"] .skill-icon-wrap svg rect:first-child { fill: rgba(90,122,0,0.1); }
-[data-theme="light"] .skill-icon-wrap svg [stroke="#c8ff00"] { stroke: #5a7a00; }
-[data-theme="light"] .skill-icon-wrap svg [fill="#c8ff00"]   { fill: #5a7a00; }
-[data-theme="light"] .skill-icon-wrap svg text              { fill: #5a7a00; }
-[data-theme="light"] .skill-icon-wrap svg [fill="rgba(200,255,0,0.12)"] { fill: rgba(90,122,0,0.1); }
-[data-theme="light"] .skill-icon-wrap svg [fill="rgba(200,255,0,0.2)"]  { fill: rgba(90,122,0,0.15); }
+[data-theme="light"] .skill-icon-wrap { background: var(--bg-3); }
+
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.07);
+  backdrop-filter: blur(8px);
+}
 
 .skill-name {
   font-family: var(--font-display);
@@ -588,6 +620,41 @@ body:has(a:hover) #cursor-ring { width: 56px; height: 56px; }
   position: relative;
   overflow: hidden;
 }
+
+/* V1 — contact bg image in both dark and light mode */
+[data-version="1"] #contact {
+  background:
+    linear-gradient(135deg, rgba(0,0,0,0.90) 0%, rgba(10,0,25,0.85) 100%),
+    url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1800&q=80&auto=format&fit=crop') center/cover no-repeat;
+}
+[data-version="1"][data-theme="light"] #contact {
+  background:
+    linear-gradient(135deg, rgba(0,0,0,0.88) 0%, rgba(10,0,25,0.82) 100%),
+    url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1800&q=80&auto=format&fit=crop') center/cover no-repeat;
+}
+
+/* V1 contact — text + form overrides on bg image (dark + light) */
+[data-version="1"] #contact .section-label { color: var(--accent); }
+[data-version="1"] #contact .section-title,
+[data-version="1"] .contact-headline { color: #ffffff; }
+[data-version="1"] .contact-sub { color: #888888; }
+[data-version="1"] .ci-label { color: #666666; }
+[data-version="1"] .ci-value { color: #cccccc; }
+[data-version="1"] .ci-value a { color: #cccccc; }
+[data-version="1"] .ci-icon {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.08);
+  color: var(--accent);
+}
+[data-version="1"] .contact-form-field {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.10);
+  color: #e8e8e8;
+}
+[data-version="1"] .contact-form-field:focus { border-color: var(--accent); }
+[data-version="1"] .contact-form-field::placeholder { color: #555555; }
+[data-version="1"] .ci-social-links a { color: #888888; }
+[data-version="1"] .ci-social-links a:hover { color: var(--accent); }
 #contact::before {
   content: '';
   position: absolute;
@@ -598,8 +665,24 @@ body:has(a:hover) #cursor-ring { width: 56px; height: 56px; }
   pointer-events: none;
 }
 [data-theme="light"] #contact::before {
-  background: radial-gradient(ellipse, rgba(90,122,0,0.07) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(200,255,0,0.08) 0%, transparent 70%);
 }
+
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.08);
+  color: var(--accent);
+}
+[data-version="1"][data-theme="light"] .contact-form-field {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.10);
+  color: #e8e8e8;
+}
+[data-version="1"][data-theme="light"] .contact-form-field:focus {
+  border-color: var(--accent);
+}
+[data-version="1"][data-theme="light"] .contact-form-field::placeholder { color: #555555; }
+[data-version="1"][data-theme="light"] .ci-social-links a { color: #888888; }
+[data-version="1"][data-theme="light"] .ci-social-links a:hover { color: var(--accent); }
 
 .contact-inner {
   max-width: 700px;
@@ -1009,7 +1092,7 @@ body, body * {
   pointer-events: none;
 }
 [data-theme="light"] #contact::before {
-  background: radial-gradient(ellipse, rgba(90,122,0,0.06) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(200,255,0,0.06) 0%, transparent 70%);
 }
 
 .contact-wrapper {

@@ -51,25 +51,24 @@
 
 /* ── 3. Light mode palette ── */
 [data-theme="light"] {
-  --bg:      #f5f5f0;
-  --bg-2:    #eeede8;
-  --bg-3:    #e5e4df;
-  --surface: #dddcd7;
-  --border:  rgba(0, 0, 0, 0.09);
+  --bg:      #ffffff;
+  --bg-2:    #f8f8f6;
+  --bg-3:    #f0f0ec;
+  --surface: #e8e8e4;
+  --border:  rgba(0, 0, 0, 0.08);
   --text:    #0f0f0f;
   --muted:   #555555;
-  --faint:   #c0bfba;
+  --faint:   #b8b8b4;
 
-  --accent:        #5a7a00;
-  --accent-dim:    #3d5400;
-  --accent-hover:  #6e9600;
-  --accent-text:   #ffffff;
+  --accent:        #c8ff00;
+  --accent-dim:    #aade00;
+  --accent-hover:  #d9ff33;
+  --accent-text:   #0f0f0f;
   --accent-label:  #5a7a00;
-  --accent-border: rgba(90, 122, 0, 0.3);
+  --accent-border: rgba(200, 255, 0, 0.45);
 
-  --nav-scrolled-bg: rgba(245, 245, 240, 0.88);
+  --nav-scrolled-bg: rgba(255, 255, 255, 0.92);
 
-  /* Logo: EM black, Bio dark green */
   --logo-em:  #0f0f0f;
   --logo-bio: #5a7a00;
 }

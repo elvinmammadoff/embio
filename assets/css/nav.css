@@ -136,6 +136,16 @@ input:checked + .theme-track::after { transform: translateX(24px); }
   color: var(--text);
 }
 
+/* Sun icon (left) — active when dark mode (knob is left = unchecked) */
+.theme-switch:not(:has(input:checked)) .theme-icons .theme-icon:first-child {
+  color: var(--accent-text);
+}
+
+/* Moon icon (right) — active when light mode (knob is right = checked) */
+.theme-switch:has(input:checked) .theme-icons .theme-icon:last-child {
+  color: var(--accent-text);
+}
+
 .theme-icon svg {
   width: 16px;
   height: 16px;

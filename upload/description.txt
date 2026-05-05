@@ -1,8 +1,11 @@
+<div class="user-html user-html__with-lazy-load">
+
 <blockquote>
   <ul>
     <li><strong>3 Unique Design Versions Included</strong></li>
     <li><strong>Zero Dependencies — Pure HTML/CSS/JS</strong></li>
     <li><strong>SCSS Source Files Included</strong></li>
+    <li><strong>Auto Light/Dark Mode by Local Time</strong></li>
   </ul>
 </blockquote>
 
@@ -25,25 +28,25 @@
 <h3>EMBio Key Features</h3>
 <ul>
   <li><strong>3 Unique Design Versions</strong> — Dark Industrial, Cream Minimal, Neon Cyberpunk</li>
-  <li><strong>Light &amp; Dark Mode</strong> — Time-based auto switch (07:00–18:00 light / 18:00–07:00 dark) with manual override</li>
+  <li><strong>Smart Light &amp; Dark Mode</strong> — Auto-switches by local time (07:00–18:00 → light, 18:00–07:00 → dark). Manual toggle overrides and persists via localStorage. Resets to auto when cleared.</li>
   <li><strong>Zero Dependencies</strong> — No jQuery, no Bootstrap, no frameworks. Pure HTML5 / CSS3 / ES Modules</li>
-  <li><strong>SCSS Architecture Included</strong> — Single entry point compiles all 3 versions via <code>[data-version]</code> selectors</li>
+  <li><strong>SCSS Architecture Included</strong> — Single entry point compiles all 3 versions via <code>[data-version]</code> selectors. Adding a new version = tokens in <code>_variables.scss</code> + one block in <code>_overrides.scss</code></li>
   <li><strong>Fully Responsive</strong> — Mobile-first breakpoints at 900px and 600px, tested from 320px to 1440px+</li>
-  <li><strong>Custom Animated Cursor</strong> — Acid-lime dot with smooth lerp-lag ring (V1), version-specific accent colors</li>
+  <li><strong>Custom Animated Cursor</strong> — Accent-color dot with smooth lerp-lag ring, version-specific colors</li>
   <li><strong>Text Rotate Animation</strong> — Per-character spring animation with stagger, smooth enter/exit</li>
   <li><strong>Parallax Floating Images</strong> — Mouse-reactive depth layers with rAF interpolation (hero section)</li>
   <li><strong>Scroll Reveal</strong> — IntersectionObserver-powered fade-up animations</li>
-  <li><strong>12 Skill Cards</strong> — Linear SVG icons, bracket-corner decoration, version-accented hover</li>
-  <li><strong>Projects Section</strong> — Alternating layout with tag filters and hover effects</li>
+  <li><strong>12 Skill Cards</strong> — Linear SVG icons, bracket-corner decoration, version-accented hover colors</li>
+  <li><strong>Projects Section</strong> — Alternating image/text layout with technology tags</li>
   <li><strong>3-Tier Pricing Cards</strong> — Featured highlight with SVG checkmarks/crosses</li>
-  <li><strong>Blog Section</strong> — 3-column card grid with category badges</li>
-  <li><strong>Contact Form UI</strong> — 2-column layout with contact info + social links</li>
-  <li><strong>Multi-column Footer</strong> — Navigation, services, resources, social icons</li>
+  <li><strong>Blog Section</strong> — 3-column card grid with category badges and read-more links</li>
+  <li><strong>Contact Form UI</strong> — 2-column layout with contact info (email, location, social links)</li>
+  <li><strong>Multi-column Footer</strong> — Logo, tagline, social icons, navigation links, legal</li>
   <li><strong>Download CV Button</strong> — Direct PDF download from About section</li>
-  <li><strong>Professional SVG Icons</strong> — All icons inline SVG (linear style), no icon fonts</li>
-  <li><strong>Accessibility</strong> — ARIA labels, semantic HTML5, keyboard navigation, focus styles</li>
+  <li><strong>Professional SVG Icons</strong> — All icons inline SVG (linear/outline style), no icon fonts or external libraries</li>
+  <li><strong>Accessibility</strong> — ARIA labels, semantic HTML5, keyboard navigation, focus styles (WCAG 2.1 AA)</li>
   <li><strong>Performance</strong> — Minified CSS + JS included for production deployment</li>
-  <li><strong>Well Documented</strong> — 21-section HTML documentation with code examples</li>
+  <li><strong>Well Documented</strong> — 21-section HTML documentation with code examples for every component</li>
 </ul>
 
 <h3>3 Design Versions</h3>
@@ -53,49 +56,66 @@
     <strong>Version 1 — Dark Industrial</strong><br>
     Acid-lime (#c8ff00) on deep black. Editorial typography, floating parallax images,
     animated custom cursor, marquee skill strip. The bold, statement-piece portfolio.
+    Full light/dark mode support.
   </li>
   <li>
     <strong>Version 2 — Cream Minimal</strong><br>
     Cobalt blue (#1a56db) on warm cream. Centre-aligned hero with CSS grid texture,
-    clean editorial layout. Elegant and professional — perfect for designers.
+    clean editorial layout. Dedicated dark footer regardless of page theme.
+    Full light/dark mode support.
   </li>
   <li>
     <strong>Version 3 — Neon Cyberpunk</strong><br>
     Magenta (#ff00cc) + cyan (#00e5ff) on near-black. Scanline texture, neon glow,
-    diagonal hero layout, noise overlay. Futuristic and high-impact.
+    diagonal hero layout, noise overlay. Scanlines and noise hidden in light mode.
+    Full light/dark mode support with purple-tinted light palette.
   </li>
 </ul>
 
 <h3>Sections Included</h3>
 <ul>
-  <li>Hero — Full-screen with text rotate animation + floating parallax images</li>
-  <li>About — Bio, stats (years / projects / clients), tags, download CV, social links</li>
-  <li>Skills — 12 cards with linear SVG icons (HTML &amp; CSS, JavaScript, React &amp; Vue, TypeScript, UI Design, Performance, Accessibility, Tooling, Testing, Deployment, API Integration, SEO &amp; Analytics)</li>
-  <li>Projects — 3 projects, alternating image/text layout, tags</li>
-  <li>Pricing — 3 tiers (Starter / Pro / Enterprise) with feature lists</li>
-  <li>Blog — 3 article cards with category badges and read-more links</li>
-  <li>Contact — Form UI + contact info (email, location, social)</li>
-  <li>Footer — Multi-column: logo + tagline + social icons + navigation + legal</li>
-  <li>Preview Page — Version selector with live thumbnail previews</li>
+  <li><strong>Hero</strong> — Full-screen with text rotate animation + floating parallax images</li>
+  <li><strong>About</strong> — Bio, stats (years / projects / clients), tags, download CV, social links</li>
+  <li><strong>Skills</strong> — 12 cards with linear SVG icons: HTML &amp; CSS, JavaScript, React &amp; Vue, TypeScript, UI Design, Performance, Accessibility, Tooling, Testing, Deployment, API Integration, SEO &amp; Analytics</li>
+  <li><strong>Projects</strong> — 3 projects, alternating image/text layout, technology tags</li>
+  <li><strong>Pricing</strong> — 3 tiers (Starter / Pro / Enterprise) with SVG icon feature lists</li>
+  <li><strong>Blog</strong> — 3 article cards with category badges and read-more links</li>
+  <li><strong>Contact</strong> — Form UI + contact info (email, location, social links)</li>
+  <li><strong>Footer</strong> — Multi-column: logo + tagline + social icons + navigation + legal</li>
+  <li><strong>Preview Page</strong> — Version selector with real screenshot thumbnails</li>
+</ul>
+
+<h3>Light &amp; Dark Mode</h3>
+<p>
+  EMBio features a smart theme system that works automatically without any configuration:
+</p>
+<ul>
+  <li><strong>Auto by time</strong> — 07:00–18:00 local time → light mode, 18:00–07:00 → dark mode</li>
+  <li><strong>Manual override</strong> — Toggle button saves preference to localStorage and persists across sessions</li>
+  <li><strong>Flash-free</strong> — Inline <code>theme-init.js</code> runs synchronously before render, eliminating flash of wrong theme</li>
+  <li><strong>Auto-resume</strong> — Clearing localStorage restores time-based auto switching</li>
+  <li><strong>Per-minute check</strong> — Theme updates automatically if the user leaves the tab open across the threshold hour</li>
+  <li><strong>Consistent brand color</strong> — V1 uses the same acid-lime (#c8ff00) in both light and dark mode. Button text turns black (#0f0f0f) in light mode for readability on the bright accent background</li>
 </ul>
 
 <h3>CSS / SCSS Architecture</h3>
 <ul>
   <li>Single SCSS entry point: <code>assets/scss/style.scss</code> compiles all 3 versions</li>
-  <li>Version overrides via <code>[data-version]</code> attribute selectors — no duplicate files</li>
-  <li>All 3 version tokens in <code>_variables.scss</code> with <code>-v2</code> / <code>-v3</code> suffix convention</li>
-  <li>Adding a new version = add tokens + one block in <code>_overrides.scss</code></li>
-  <li>Production: single <code>style.min.css</code> + <code>main.min.js</code> covers all versions</li>
+  <li>Version overrides via <code>[data-version]</code> HTML attribute — no duplicate files</li>
+  <li>All version tokens in <code>_variables.scss</code> with <code>-v2</code> / <code>-v3</code> suffix convention</li>
+  <li>All version layout overrides in single <code>_overrides.scss</code> file, grouped by version</li>
+  <li>Production: one <code>style.min.css</code> + one <code>main.min.js</code> covers all 3 versions</li>
+  <li>Compile: <code>npm run compile</code> / Watch: <code>npm run watch</code></li>
 </ul>
 
 <h3>Included in the Purchase Package</h3>
 <ul>
   <li>HTML files — <code>index.html</code> (V1), <code>v2.html</code> (V2), <code>v3.html</code> (V3), <code>preview.html</code></li>
-  <li>SCSS source files with full architecture</li>
-  <li>CSS files (development + minified)</li>
-  <li>JavaScript modules (development + minified)</li>
-  <li>HTML Documentation (21 sections)</li>
-  <li>Upload-ready package with <code>placehold.co</code> placeholder images (ThemeForest compliant)</li>
+  <li>SCSS source files with full documented architecture</li>
+  <li>CSS files — individual source files + minified production bundle</li>
+  <li>JavaScript modules — individual source files + minified production bundle</li>
+  <li>HTML Documentation — 21 sections with code examples</li>
+  <li>ThemeForest-compliant upload package with <code>placehold.co</code> placeholder images</li>
 </ul>
 
 <p>
@@ -105,4 +125,6 @@
 
 <strong>Get EMBio today and build your portfolio the right way.</strong>
 
-<p><strong>NOTE:</strong> All images used in the demo are from <a href="https://unsplash.com" rel="nofollow">Unsplash</a> and are <strong>not included</strong> in the purchase package. The upload package contains <code>placehold.co</code> placeholder images as required by ThemeForest guidelines.</p>
+<p><strong>NOTE:</strong> All images used in the live demo are from <a href="https://unsplash.com" rel="nofollow">Unsplash</a> and are <strong>not included</strong> in the purchase package. The upload package contains <code>placehold.co</code> placeholder images as required by ThemeForest guidelines.</p>
+
+</div>

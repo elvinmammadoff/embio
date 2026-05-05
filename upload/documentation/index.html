@@ -766,7 +766,64 @@ initMyFeature();</pre>
   <!-- ── 21. CHANGELOG ── -->
   <section class="doc-section" id="changelog">
     <h2>21. Changelog</h2>
-    <pre>v2.9.2 — May 2026
+    <pre>v3.1.2 — May 2026
+──────────────────────────────
+  - V1: Skills + Contact background images now show in BOTH dark and light mode
+    Previously only light mode had the bg image; dark mode showed solid black
+    Now [data-version="1"] #skills / #contact have bg image for both modes
+    Dark overlay: rgba(0,0,0,0.88/0.90), Light overlay: rgba(0,0,0,0.80/0.88)
+  - V1: Skill cards glassmorphism applied to both modes (universal [data-version=1] rules)
+  - V1: Contact text/form/icon styles applied to both modes
+  - nav.css: Theme toggle active icon now uses --accent-text (#0f0f0f in light mode)
+    Sun icon gets black color when dark mode active (knob on left/sun)
+    Moon icon gets black color when light mode active (knob on right/moon)
+    Uses :has() selector for clean CSS-only solution
+  - Cleaned up duplicate light-only override blocks
+
+v3.1.1 — May 2026
+──────────────────────────────
+  - V1 light mode Skills: solid #111111 → atmospheric background image
+    (dark gaming/tech photo + rgba overlay, skill cards glassmorphism)
+  - V1 light mode Contact: solid #0a0a0a → neon abstract background image
+    (colorful abstract + dark gradient overlay, form fields glassmorphism)
+  - Both sections use backdrop-filter: blur for card depth effect
+  - upload/ rebuilt and synced
+
+v3.1.0 — May 2026
+──────────────────────────────
+  - V1 light mode: all #5a7a00 (dark green) references removed from sections.css
+  - V1 light mode: backgrounds changed to white/near-white (--bg: #ffffff, --bg-2: #f8f8f6)
+  - V1 light mode: Skills section gets dark panel (#111111 bg, lime icons stay #c8ff00)
+  - V1 light mode: Contact section gets dark panel (#0a0a0a bg, form fields dark)
+  - V1 light mode: about-avatar gradient uses lime (rgba 200,255,0) instead of dark green
+  - V1 light mode: contact glow uses lime rgba instead of dark green rgba
+  - _variables.scss: V1 light mode tokens synced (white backgrounds)
+  - upload/: .md files excluded, fully rebuilt and synced
+
+v3.0.0 — May 2026
+──────────────────────────────
+  - V1 light mode: accent color changed from #5a7a00 (dark green) to #c8ff00 (acid lime)
+    Same brand color as dark mode — consistent visual identity
+  - V1 light mode: --accent-text changed from #ffffff to #0f0f0f (black)
+    Ensures readability of button text on bright acid lime background
+  - V1 light mode: --accent-dim #aade00, --accent-hover #d9ff33 (lime scale)
+  - V1 light mode: --accent-border rgba(200,255,0,0.4)
+  - sections.css: Skill icon light mode overrides simplified
+    SVG stroke overrides kept dark (#5a7a00) for icon readability on light bg
+  - _variables.scss: V1 light mode tokens synced
+  - upload/: .md files removed per workflow rules
+  - upload/: fully rebuilt and synced
+
+v2.9.3 — May 2026
+──────────────────────────────
+  - upload/ fully synced with all changes from v2.8.0 → v2.9.2
+  - description.txt: wrapped in <div class="user-html user-html__with-lazy-load">
+  - description.txt: Light & Dark Mode section added (auto-by-time explanation)
+  - description.txt: V2 footer fix and V3 scanline/light mode noted in version descriptions
+  - description.txt: SCSS Architecture and Key Features updated to reflect current state
+  - Workflow rule established: upload/ synced on every project change
+
+v2.9.2 — May 2026
 ──────────────────────────────
   - theme-init.js: Fixed time-based auto theme on page load
     Previously always fell back to 'dark' due to missing time logic
