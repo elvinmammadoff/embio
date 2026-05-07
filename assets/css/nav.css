@@ -214,3 +214,69 @@ input:checked + .theme-track::after { transform: translateX(24px); }
 }
 #nav-links.mobile-open a:hover { color: var(--text); }
 #nav-links.mobile-open a::after { display: none; }
+
+/* ── Demos dropdown ── */
+.nav-dropdown {
+  position: relative;
+  padding-bottom: 0.8rem; /* extends hover area downward to bridge the gap */
+  margin-bottom: -0.8rem; /* compensate so layout isn't affected */
+}
+
+.nav-dropdown-toggle {
+  position: relative;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  color: inherit;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.nav-dropdown-toggle .chevron {
+  transition: transform 0.25s;
+}
+.nav-dropdown:hover .chevron,
+.nav-dropdown.open .chevron { transform: rotate(180deg); }
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%; /* flush — no gap, padding-bottom on parent bridges it */
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  min-width: 175px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  padding: 0.5rem 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+  z-index: 300;
+  border-radius: 2px;
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown.open  .nav-dropdown-menu {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* menu link colors */
+.nav-dropdown-menu a {
+  display: block;
+  padding: 0.65rem 1.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color 0.2s, background 0.2s;
+}
+.nav-dropdown-menu a::after { display: none !important; }
+.nav-dropdown-menu a:hover {
+  background: var(--accent) !important;
+}
+
+/* ── Active nav link ── */
+.nav-links a.nav-active { color: var(--accent) !important; }
+.nav-links a.nav-active::after { width: 100% !important; }

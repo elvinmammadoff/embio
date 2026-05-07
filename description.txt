@@ -9,7 +9,7 @@
   </ul>
 </blockquote>
 
-<h3>EMBio – Frontend Developer Portfolio HTML Template</h3>
+<h3>EMBio – Portfolio & Personal Branding HTML Template</h3>
 
 <p>
   <strong>EMBio</strong> is a modern, dark-first, editorial-style
@@ -35,6 +35,10 @@
   <li><strong>Custom Animated Cursor</strong> — Accent-color dot with smooth lerp-lag ring, version-specific colors</li>
   <li><strong>Text Rotate Animation</strong> — Per-character spring animation with stagger, smooth enter/exit</li>
   <li><strong>Parallax Floating Images</strong> — Mouse-reactive depth layers with rAF interpolation (hero section)</li>
+  <li><strong>Active Nav Highlighting</strong> — Current section nav link highlights automatically on scroll and click via <code>initActiveNav()</code></li>
+  <li><strong>Demos Dropdown</strong> — Header nav includes a "Demos" dropdown (hover on desktop, tap on mobile) linking to V1, V2, and V3 demo pages</li>
+  <li><strong>Web3Forms Email Integration</strong> — Contact form sends emails via Web3Forms API (free). No server required. Set access key in <code>assets/js/form.js</code></li>
+  <li><strong>scroll.js querySelector fix</strong> — Bare <code>#</code> href links no longer cause <code>querySelector</code> errors</li>
   <li><strong>Scroll Reveal</strong> — IntersectionObserver-powered fade-up animations</li>
   <li><strong>12 Skill Cards</strong> — Linear SVG icons, bracket-corner decoration, version-accented hover colors</li>
   <li><strong>Projects Section</strong> — Alternating image/text layout with technology tags</li>
@@ -126,5 +130,39 @@
 <strong>Get EMBio today and build your portfolio the right way.</strong>
 
 <p><strong>NOTE:</strong> All images used in the live demo are from <a href="https://unsplash.com" rel="nofollow">Unsplash</a> and are <strong>not included</strong> in the purchase package. The upload package contains <code>placehold.co</code> placeholder images as required by ThemeForest guidelines.</p>
+
+<h3>Perfect For</h3>
+<ul>
+  <li><strong>Freelancers</strong> — Showcase your services, rates, and portfolio in a premium, client-ready format</li>
+  <li><strong>Agencies</strong> — Present your team, services, and case studies with a professional agency feel</li>
+  <li><strong>Developers</strong> — Highlight technical skills, open source work, and coding projects</li>
+  <li><strong>Designers</strong> — Display visual work, brand projects, and UI/UX case studies beautifully</li>
+  <li><strong>Creative Studios</strong> — Multi-person studios can adapt any version to represent their brand</li>
+  <li><strong>Consultants</strong> — Lead generation focused layout with pricing, services, and strong CTAs</li>
+</ul>
+
+<h3>Why Choose EMBio</h3>
+<ul>
+  <li><strong>Zero Dependencies</strong> — No jQuery, no Bootstrap, no bloat. Pure HTML5/CSS3/JavaScript means faster load times and cleaner code</li>
+  <li><strong>3 Complete Styles</strong> — Get three production-ready designs in one purchase instead of buying separate templates</li>
+  <li><strong>Smart Theme System</strong> — Auto switches light/dark by time of day. No configuration needed</li>
+  <li><strong>Component Library Included</strong> — components.html (V1/V2/V3 switcher — 12 component categories) provides 10 reusable UI component categories to accelerate your build</li>
+  <li><strong>Commercial Ready</strong> — Services section, client logos, pricing, testimonials — all the sections a commercial project needs</li>
+  <li><strong>SCSS Source Included</strong> — Full SCSS architecture with single entry point, design tokens per version, and documented overrides</li>
+  <li><strong>Production Optimized</strong> — Minified CSS and JS included. Deploy in minutes</li>
+</ul>
+
+<h3>Included Pages &amp; Files</h3>
+<ul>
+  <li><code>index.html</code> — Version 1: Dark Industrial</li>
+  <li><code>v2.html</code> — Version 2: Cream Minimal</li>
+  <li><code>v3.html</code> — Version 3: Neon Cyberpunk</li>
+  <li><code>preview.html</code> — Interactive version selector</li>
+  <li><code>components.html (V1/V2/V3 switcher — 12 component categories)</code> — Full UI component library (buttons, cards, forms, pricing, timeline, alerts, progress bars, testimonials)</li>
+  <li><code>documentation/index.html</code> — 21-section HTML documentation</li>
+  <li><code>README.txt</code> — Quick start guide</li>
+  <li><code>changelog.txt</code> — Full version history</li>
+</ul>
+
 
 </div>

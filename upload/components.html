@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en" data-version="1">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EMBio — UI Components</title>
+  <meta name="description" content="EMBio UI Component Library — reusable buttons, cards, forms, pricing blocks and more." />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="assets/js/theme-init.js"></script>
+  <link rel="stylesheet" href="assets/css/variables.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/nav.css" />
+  <link rel="stylesheet" href="assets/css/sections.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <style>
+    /* ── Components page layout ── */
+    .comp-page { padding: calc(var(--nav-h) + 4rem) 0 6rem; }
+    .comp-inner { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+    .comp-header { margin-bottom: 5rem; }
+    .comp-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+    .comp-header h1 span { color: var(--accent); }
+    .comp-header p { color: var(--muted); font-size: 1rem; max-width: 500px; }
+
+    .comp-section { margin-bottom: 6rem; }
+    /* ── Version switcher ── */
+    .version-tabs { display:flex; gap:0.5rem; margin-bottom:4rem; flex-wrap:wrap; }
+    .vtab {
+      font-family: var(--font-mono);
+      font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.55rem 1.3rem;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      background: transparent; color: var(--muted);
+      transition: all 0.25s; border-radius: 2px;
+    }
+    .vtab:hover { border-color:var(--accent); color:var(--accent); }
+    .vtab.active { background:var(--accent); color:var(--accent-text); border-color:var(--accent); }
+    .v-panel { display:none; }
+    .v-panel.active { display:block; }
+
+    /* ── Service cards ── */
+    /* service cards — matches index.html */
+    .comp-services-grid {
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 2rem; margin-top: 2rem;
+    }
+    @media(max-width:900px){ .comp-services-grid { grid-template-columns: 1fr 1fr; } }
+    .comp-service-card {
+      background: var(--bg); border: 1px solid var(--border);
+      padding: 2.4rem 2rem 2rem; position: relative; overflow: hidden;
+      transition: transform 0.35s var(--ease-spring,cubic-bezier(.34,1.56,.64,1)), border-color 0.3s;
+    }
+    .comp-service-card:hover { transform: translateY(-6px); border-color: var(--accent); }
+    .comp-service-icon {
+      width: 56px; height: 56px; background: var(--bg-3,var(--bg-2));
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      color: var(--accent); margin-bottom: 1.5rem; transition: background 0.3s, color 0.3s;
+    }
+    .comp-service-card:hover .comp-service-icon { background: var(--accent); color: var(--accent-text,#0f0f0f); }
+    .comp-service-icon svg { stroke-width: 1.5; }
+    .comp-service-name { font-family: var(--font-display); font-size: 1.3rem; letter-spacing: 0.03em; margin-bottom: 0.8rem; color: var(--text); }
+    .comp-service-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+    .comp-service-num {
+      position: absolute; bottom: 1.5rem; right: 1.8rem;
+      font-family: var(--font-mono); font-size: 2.5rem; font-weight: 700;
+      color: var(--border); letter-spacing: -0.02em; line-height: 1; transition: color 0.3s;
+    }
+    .comp-service-card:hover .comp-service-num { color: var(--accent-border, var(--accent)); }
+
+    /* ── Client logo grid in components ── */
+    .comp-clients-grid {
+      display:grid;grid-template-columns:repeat(5,1fr);
+      margin-top:2rem;border:1px solid var(--border);
+    }
+    .comp-client-card {
+      display:flex;align-items:center;justify-content:center;
+      padding:2rem 1.5rem;
+      border-right:1px solid var(--border);border-bottom:1px solid var(--border);
+      opacity:0.35;filter:grayscale(100%);
+      transition:opacity 0.3s,background 0.3s;
+    }
+    .comp-client-card:nth-child(5n){border-right:none;}
+    .comp-client-card:nth-child(n+6){border-bottom:none;}
+    .comp-client-card:hover{opacity:1;filter:none;background:var(--bg-2);}
+    .comp-client-card svg{width:44px;height:44px;color:var(--text);}
+
+    .comp-section-title {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-label);
+      margin-bottom: 0.6rem;
+    }
+    .comp-section-heading {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      letter-spacing: 0.03em;
+      color: var(--text);
+      margin-bottom: 2.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .comp-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+    }
+    .comp-block { width: 100%; margin-bottom: 1.5rem; }
+    .comp-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── Buttons ── */
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 0.8rem 1.8rem; cursor: pointer;
+      transition: all 0.25s var(--ease-spring); border: none; text-decoration: none;
+    }
+    .btn-primary { background: var(--accent); color: var(--accent-text); border-radius: 999px; }
+    .btn-primary:hover { background: var(--accent-hover); transform: scale(1.04); }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); border-radius: 999px; }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: scale(1.04); }
+    .btn-ghost { background: var(--bg-3); color: var(--text); border-radius: 999px; }
+    .btn-ghost:hover { background: var(--bg-2); transform: scale(1.04); }
+    .btn-sm  { padding: 0.5rem 1.2rem; font-size: 0.68rem; }
+    .btn-lg  { padding: 1rem 2.4rem; font-size: 0.82rem; }
+    .btn-square { border-radius: 4px; }
+    .btn-icon { padding: 0.8rem; border-radius: 50%; aspect-ratio: 1; justify-content: center; }
+
+    /* ── Cards ── */
+    .cards-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .comp-card {
+      background: var(--bg-2); border: 1px solid var(--border);
+      padding: 2rem; transition: border-color 0.3s, transform 0.3s;
+    }
+    .comp-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+    .comp-card-tag {
+      font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent-label);
+      margin-bottom: 0.8rem; display: block;
+    }
+    .comp-card-title {
+      font-family: var(--font-display); font-size: 1.4rem;
+      letter-spacing: 0.03em; color: var(--text); margin-bottom: 0.6rem;
+    }
+    .comp-card-text { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+    .comp-card-footer { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center; }
+
+    /* ── Stat boxes ── */
+    .stats-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; }
+    .comp-stat {
+      background: var(--bg-2); border: 1px solid var(--border);
+      padding: 2rem 1.5rem; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .comp-stat::before {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 100%; height: 3px; background: var(--accent);
+      transform: scaleX(0); transition: transform 0.4s var(--ease-spring);
+    }
+    .comp-stat:hover::before { transform: scaleX(1); }
+    .comp-stat-number {
+      font-family: var(--font-display); font-size: 3rem; line-height: 1;
+      color: var(--accent); letter-spacing: -0.01em;
+    }
+    .comp-stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 0.4rem;
+      letter-spacing: 0.06em; text-transform: uppercase; font-family: var(--font-mono); }
+
+    /* ── Badges / Tags ── */
+    .badge { display: inline-flex; align-items: center; gap: 0.3rem;
+      font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 999px;
+    }
+    .badge-accent  { background: var(--accent); color: var(--accent-text); }
+    .badge-outline { background: transparent; border: 1px solid var(--accent); color: var(--accent); }
+    .badge-muted   { background: var(--bg-3); color: var(--muted); border: 1px solid var(--border); }
+    .badge-dot::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; display: inline-block; }
+
+    /* ── Form elements ── */
+    .comp-form { display: flex; flex-direction: column; gap: 1.2rem; max-width: 480px; }
+    .comp-input {
+      width: 100%; background: var(--bg-2); border: 1px solid var(--border);
+      color: var(--text); font-family: var(--font-body); font-size: 0.9rem;
+      padding: 0.85rem 1.2rem; outline: none; border-radius: 4px;
+      transition: border-color 0.25s;
+    }
+    .comp-input:focus { border-color: var(--accent); }
+    .comp-input::placeholder { color: var(--muted); }
+    .comp-textarea { resize: vertical; min-height: 120px; }
+    .comp-select {
+      width: 100%; background: var(--bg-2); border: 1px solid var(--border);
+      color: var(--text); font-family: var(--font-body); font-size: 0.9rem;
+      padding: 0.85rem 1.2rem; outline: none; border-radius: 4px;
+      cursor: pointer;
+    }
+    .input-group { display: flex; gap: 0; }
+    .input-group .comp-input { border-radius: 4px 0 0 4px; }
+    .input-group .btn { border-radius: 0 4px 4px 0; }
+    .form-label { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; display: block; }
+
+    /* ── Alert / notification boxes ── */
+    .alert { display: flex; align-items: flex-start; gap: 1rem;
+      padding: 1rem 1.4rem; border-left: 3px solid; margin-bottom: 0.8rem;
+      font-size: 0.85rem; line-height: 1.6;
+    }
+    .alert-success { background: rgba(34,197,94,0.08); border-color: #22c55e; color: var(--text); }
+    .alert-warning { background: rgba(234,179,8,0.08); border-color: #eab308; color: var(--text); }
+    .alert-error   { background: rgba(239,68,68,0.08); border-color: #ef4444; color: var(--text); }
+    .alert-info    { background: rgba(200,255,0,0.08); border-color: var(--accent); color: var(--text); }
+    .alert svg     { flex-shrink: 0; margin-top: 2px; }
+
+    /* ── Progress bars ── */
+    .progress-item { margin-bottom: 1.4rem; }
+    .progress-header { display: flex; justify-content: space-between;
+      font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+    .progress-track { height: 4px; background: var(--bg-3); border-radius: 2px; overflow: hidden; }
+    .progress-fill { height: 100%; background: var(--accent); border-radius: 2px;
+      transition: width 1.2s var(--ease-out); }
+
+    /* ── Pricing mini ── */
+    .comp-pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .comp-price-card {
+      background: var(--bg-2); border: 1px solid var(--border);
+      padding: 2rem; position: relative;
+    }
+    .comp-price-card.featured { border-color: var(--accent); }
+    .comp-price-card.featured::before {
+      content: 'POPULAR'; position: absolute; top: -1px; right: 1.5rem;
+      background: var(--accent); color: var(--accent-text);
+      font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.12em;
+      padding: 0.25rem 0.7rem;
+    }
+    .price-tier  { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+    .price-amount { font-family: var(--font-display); font-size: 3.5rem; line-height: 1;
+      color: var(--text); }
+    .price-amount sup { font-size: 1.2rem; vertical-align: super; color: var(--accent); }
+    .price-period { font-size: 0.8rem; color: var(--muted); margin-bottom: 1.5rem; margin-top: 0.3rem; }
+    .price-features { list-style: none; padding: 0; margin: 0 0 2rem; display: flex; flex-direction: column; gap: 0.6rem; }
+    .price-features li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; color: var(--muted); }
+    .price-features li svg { color: var(--accent); flex-shrink: 0; }
+
+    /* ── Timeline ── */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 0;
+      width: 1px; background: var(--border); }
+    .timeline-item { position: relative; padding-bottom: 2.5rem; }
+    .timeline-item::before { content: ''; position: absolute; left: -2rem; top: 6px;
+      width: 10px; height: 10px; border-radius: 50%; background: var(--bg);
+      border: 2px solid var(--accent); transform: translateX(-4px); }
+    .timeline-date { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em;
+      color: var(--accent-label); text-transform: uppercase; margin-bottom: 0.3rem; }
+    .timeline-title { font-family: var(--font-display); font-size: 1.2rem;
+      color: var(--text); margin-bottom: 0.4rem; }
+    .timeline-text { font-size: 0.84rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── Testimonial ── */
+    .comp-testimonial {
+      background: var(--bg-2); border: 1px solid var(--border);
+      padding: 2.5rem; max-width: 600px;
+    }
+    .testimonial-quote { font-size: 1rem; color: var(--text); line-height: 1.75;
+      margin-bottom: 2rem; font-style: italic; }
+    .testimonial-quote::before { content: '\201C'; color: var(--accent); font-size: 2rem;
+      font-family: var(--font-display); line-height: 0; vertical-align: -0.5rem; margin-right: 0.2rem; }
+    .testimonial-author { display: flex; align-items: center; gap: 1rem; }
+    .testimonial-avatar { width: 44px; height: 44px; border-radius: 50%;
+      background: var(--bg-3); display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 1.1rem; color: var(--accent); }
+    .testimonial-name { font-size: 0.9rem; font-weight: 500; color: var(--text); }
+    .testimonial-role { font-size: 0.78rem; color: var(--muted); font-family: var(--font-mono);
+      letter-spacing: 0.06em; }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .cards-grid, .comp-pricing-grid { grid-template-columns: 1fr 1fr; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .cards-grid, .comp-pricing-grid, .stats-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-em">EM</span><span class="logo-bio">BIO</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">V1 Dark</a></li>
+      <li><a href="v2.html" class="nav-link">V2 Cream</a></li>
+      <li><a href="v3.html" class="nav-link">V3 Neon</a></li>
+      <li><a href="preview.html" class="nav-link">Preview</a></li>
+    </ul>
+    <div class="nav-actions">
+      <label class="theme-switch" aria-label="Toggle light/dark mode">
+        <input type="checkbox" id="theme-toggle" />
+        <span class="theme-track"></span>
+        <span class="theme-icons">
+          <span class="theme-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          </span>
+          <span class="theme-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          </span>
+        </span>
+      </label>
+    </div>
+  </nav>
+
+  <!-- PAGE CONTENT -->
+  <main class="comp-page">
+    <div class="comp-inner">
+
+      <header class="comp-header">
+        <h1>UI <span>Components</span></h1>
+        <p>All reusable components across all 3 EMBio versions. Switch between V1, V2, and V3 to preview accent colors in context.</p>
+      </header>
+
+      <div class="version-tabs" role="tablist">
+        <button class="vtab active" data-v="v1" role="tab" aria-selected="true">V1 — Dark Industrial</button>
+        <button class="vtab" data-v="v2" role="tab" aria-selected="false">V2 — Cream Minimal</button>
+        <button class="vtab" data-v="v3" role="tab" aria-selected="false">V3 — Neon Cyberpunk</button>
+      </div>
+      <div id="panel-v1" class="v-panel active">
+      <!-- BUTTONS -->
+      <section class="comp-section">
+        <p class="comp-section-title">01 — Buttons</p>
+        <h2 class="comp-section-heading">BUTTONS & ACTIONS</h2>
+        <div class="comp-label">Primary / Outline / Ghost</div>
+        <div class="comp-row">
+          <a href="#" class="btn btn-primary">View Work <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="#" class="btn btn-outline">Get Started <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="#" class="btn btn-ghost">Learn More</a>
+        </div>
+        <div class="comp-label">Sizes</div>
+        <div class="comp-row" style="align-items:center">
+          <a href="#" class="btn btn-primary btn-sm">Small</a>
+          <a href="#" class="btn btn-primary">Default</a>
+          <a href="#" class="btn btn-primary btn-lg">Large</a>
+          <a href="#" class="btn btn-primary btn-square">Square Style</a>
+        </div>
+      </section>
+
+      <!-- BADGES -->
+      <section class="comp-section">
+        <p class="comp-section-title">02 — Badges</p>
+        <h2 class="comp-section-heading">BADGES & TAGS</h2>
+        <div class="comp-row">
+          <span class="badge badge-accent">Featured</span>
+          <span class="badge badge-outline">New</span>
+          <span class="badge badge-muted">Draft</span>
+          <span class="badge badge-accent badge-dot">Live</span>
+          <span class="badge badge-outline badge-dot">In Progress</span>
+          <span class="badge badge-muted badge-dot">Archived</span>
+        </div>
+      </section>
+
+      <!-- CARDS -->
+      <section class="comp-section">
+        <p class="comp-section-title">03 — Cards</p>
+        <h2 class="comp-section-heading">CONTENT CARDS</h2>
+        <div class="cards-grid">
+          <div class="comp-card">
+            <span class="comp-card-tag">Web Development</span>
+            <h3 class="comp-card-title">Project Alpha</h3>
+            <p class="comp-card-text">E-commerce platform with custom checkout flow, real-time inventory, and multi-currency support.</p>
+            <div class="comp-card-footer">
+              <div style="display:flex;gap:0.4rem">
+                <span class="badge badge-muted">React</span>
+                <span class="badge badge-muted">Node</span>
+              </div>
+              <a href="#" class="btn btn-sm btn-outline">View</a>
+            </div>
+          </div>
+          <div class="comp-card">
+            <span class="comp-card-tag">UI Design</span>
+            <h3 class="comp-card-title">Brand System</h3>
+            <p class="comp-card-text">Complete design system with 200+ components, tokens, and documentation for a fintech startup.</p>
+            <div class="comp-card-footer">
+              <div style="display:flex;gap:0.4rem">
+                <span class="badge badge-muted">Figma</span>
+                <span class="badge badge-muted">Tokens</span>
+              </div>
+              <a href="#" class="btn btn-sm btn-outline">View</a>
+            </div>
+          </div>
+          <div class="comp-card">
+            <span class="comp-card-tag">Development</span>
+            <h3 class="comp-card-title">Dashboard UI</h3>
+            <p class="comp-card-text">SaaS analytics dashboard with real-time charts, dark mode, and accessible component library.</p>
+            <div class="comp-card-footer">
+              <div style="display:flex;gap:0.4rem">
+                <span class="badge badge-muted">Vue</span>
+                <span class="badge badge-muted">Chart.js</span>
+              </div>
+              <a href="#" class="btn btn-sm btn-outline">View</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATS -->
+      <section class="comp-section">
+        <p class="comp-section-title">04 — Stats</p>
+        <h2 class="comp-section-heading">STAT BLOCKS</h2>
+        <div class="stats-row">
+          <div class="comp-stat">
+            <div class="comp-stat-number">120+</div>
+            <div class="comp-stat-label">Projects Delivered</div>
+          </div>
+          <div class="comp-stat">
+            <div class="comp-stat-number">50+</div>
+            <div class="comp-stat-label">Happy Clients</div>
+          </div>
+          <div class="comp-stat">
+            <div class="comp-stat-number">8</div>
+            <div class="comp-stat-label">Years Experience</div>
+          </div>
+          <div class="comp-stat">
+            <div class="comp-stat-number">99%</div>
+            <div class="comp-stat-label">Client Satisfaction</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FORMS -->
+      <section class="comp-section">
+        <p class="comp-section-title">05 — Forms</p>
+        <h2 class="comp-section-heading">FORM ELEMENTS</h2>
+        <div class="comp-block">
+          <div class="comp-form">
+            <div>
+              <label class="form-label">Full Name</label>
+              <input type="text" class="comp-input" placeholder="John Doe" />
+            </div>
+            <div>
+              <label class="form-label">Email Address</label>
+              <input type="email" class="comp-input" placeholder="john@example.com" />
+            </div>
+            <div>
+              <label class="form-label">Subject</label>
+              <select class="comp-select">
+                <option>Web Development</option>
+                <option>UI/UX Design</option>
+                <option>Brand Identity</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Message</label>
+              <textarea class="comp-input comp-textarea" placeholder="Tell us about your project..."></textarea>
+            </div>
+            <div class="input-group">
+              <input type="email" class="comp-input" placeholder="Subscribe to newsletter" />
+              <a href="#" class="btn btn-primary">Subscribe</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ALERTS -->
+      <section class="comp-section">
+        <p class="comp-section-title">06 — Alerts</p>
+        <h2 class="comp-section-heading">ALERT MESSAGES</h2>
+        <div class="alert alert-success">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          <span><strong>Success!</strong> Your message has been sent successfully. We'll get back to you within 24 hours.</span>
+        </div>
+        <div class="alert alert-warning">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <span><strong>Warning!</strong> Please review your submission before sending. Some fields may need attention.</span>
+        </div>
+        <div class="alert alert-error">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span><strong>Error!</strong> Something went wrong. Please try again or contact support.</span>
+        </div>
+        <div class="alert alert-info">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <span><strong>Info.</strong> New features have been added. Check the changelog for more details.</span>
+        </div>
+      </section>
+
+      <!-- PROGRESS -->
+      <section class="comp-section">
+        <p class="comp-section-title">07 — Progress</p>
+        <h2 class="comp-section-heading">PROGRESS BARS</h2>
+        <div style="max-width:600px">
+          <div class="progress-item">
+            <div class="progress-header"><span>HTML & CSS</span><span>95%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:95%"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header"><span>JavaScript</span><span>88%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:88%"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header"><span>UI Design</span><span>80%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:80%"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header"><span>Performance</span><span>92%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:92%"></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRICING -->
+      <section class="comp-section">
+        <p class="comp-section-title">08 — Pricing</p>
+        <h2 class="comp-section-heading">PRICING BLOCKS</h2>
+        <div class="comp-pricing-grid">
+          <div class="comp-price-card">
+            <p class="price-tier">Starter</p>
+            <div class="price-amount"><sup>$</sup>29</div>
+            <p class="price-period">per month</p>
+            <ul class="price-features">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 1 Landing Page</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Basic SEO</li>
+              <li style="opacity:0.4"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Custom Animations</li>
+            </ul>
+            <a href="#" class="btn btn-outline" style="width:100%;justify-content:center">Get Started</a>
+          </div>
+          <div class="comp-price-card featured">
+            <p class="price-tier">Professional</p>
+            <div class="price-amount"><sup>$</sup>79</div>
+            <p class="price-period">per month</p>
+            <ul class="price-features">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Up to 5 Pages</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Custom Animations</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> CMS Integration</li>
+            </ul>
+            <a href="#" class="btn btn-primary" style="width:100%;justify-content:center">Get Started</a>
+          </div>
+          <div class="comp-price-card">
+            <p class="price-tier">Enterprise</p>
+            <div class="price-amount"><sup>$</sup>199</div>
+            <p class="price-period">per month</p>
+            <ul class="price-features">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Unlimited Pages</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Priority Support</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 24hr Turnaround</li>
+            </ul>
+            <a href="#" class="btn btn-outline" style="width:100%;justify-content:center">Get Started</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- TIMELINE -->
+      <section class="comp-section">
+        <p class="comp-section-title">09 — Timeline</p>
+        <h2 class="comp-section-heading">TIMELINE</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <p class="timeline-date">2024 — Present</p>
+            <h3 class="timeline-title">Senior Frontend Developer</h3>
+            <p class="timeline-text">Leading frontend architecture for a SaaS platform serving 50k+ users. Built component library and design system from scratch.</p>
+          </div>
+          <div class="timeline-item">
+            <p class="timeline-date">2022 — 2024</p>
+            <h3 class="timeline-title">UI/UX Designer & Developer</h3>
+            <p class="timeline-text">Designed and built responsive web applications for clients across e-commerce, fintech, and media industries.</p>
+          </div>
+          <div class="timeline-item">
+            <p class="timeline-date">2020 — 2022</p>
+            <h3 class="timeline-title">Frontend Developer</h3>
+            <p class="timeline-text">Specialized in performance optimization and accessibility. Reduced average load times by 60% across client projects.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIAL -->
+      <section class="comp-section">
+        <p class="comp-section-title">10 — Testimonial</p>
+        <h2 class="comp-section-heading">TESTIMONIAL BLOCK</h2>
+        <div class="comp-testimonial">
+          <p class="testimonial-quote">The attention to detail and quality of work was outstanding. Delivered ahead of schedule and exceeded all our expectations. Would absolutely recommend to anyone looking for top-tier frontend development.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">A</div>
+            <div>
+              <div class="testimonial-name">Amanda Reyes</div>
+              <div class="testimonial-role">Product Lead · Acme Corp</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section class="comp-section">
+        <p class="comp-section-title">11 — Services</p>
+        <h2 class="comp-section-heading">SERVICE CARDS</h2>
+        <div class="comp-services-grid">
+          <div class="comp-service-card">
+            <div class="comp-service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+            <h3 class="comp-service-name">Web Development</h3>
+            <p class="comp-service-desc">Custom websites built with modern technologies.</p>
+            <span class="comp-service-num">01</span>
+          </div>
+          <div class="comp-service-card">
+            <div class="comp-service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <h3 class="comp-service-name">UI/UX Design</h3>
+            <p class="comp-service-desc">Pixel-perfect interfaces that convert visitors.</p>
+            <span class="comp-service-num">02</span>
+          </div>
+          <div class="comp-service-card">
+            <div class="comp-service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+            <h3 class="comp-service-name">Brand Identity</h3>
+            <p class="comp-service-desc">Cohesive visual identity for any market.</p>
+            <span class="comp-service-num">03</span>
+          </div>
+          <div class="comp-service-card">
+            <div class="comp-service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <h3 class="comp-service-name">Performance & SEO</h3>
+            <p class="comp-service-desc">Core Web Vitals + technical SEO audits.</p>
+            <span class="comp-service-num">04</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CLIENTS -->
+      <section class="comp-section">
+        <p class="comp-section-title">12 — Clients</p>
+        <h2 class="comp-section-heading">CLIENT LOGOS</h2>
+        <div class="comp-clients-grid">
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Notion"><rect x="8" y="6" width="32" height="42" rx="4" stroke="currentColor" stroke-width="2.5"/><line x1="14" y1="18" x2="34" y2="18" stroke="currentColor" stroke-width="2"/><line x1="14" y1="26" x2="34" y2="26" stroke="currentColor" stroke-width="2"/><line x1="14" y1="34" x2="28" y2="34" stroke="currentColor" stroke-width="2"/></svg></div>
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Linear"><circle cx="30" cy="30" r="20" stroke="currentColor" stroke-width="2"/><path d="M14 46 L46 14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M14 30 L30 14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M30 46 L46 30" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Framer"><polygon points="10,10 50,10 10,30" fill="currentColor"/><polygon points="10,30 50,30 30,50" fill="currentColor" opacity="0.55"/></svg></div>
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Vercel"><polygon points="30,8 54,50 6,50" fill="currentColor"/></svg></div>
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Figma"><rect x="15" y="6" width="14" height="14" rx="7" fill="currentColor" opacity="0.75"/><rect x="29" y="6" width="14" height="14" rx="7" fill="currentColor" opacity="0.5"/><rect x="15" y="20" width="14" height="14" rx="0" fill="currentColor"/><circle cx="36" cy="27" r="7" fill="currentColor" opacity="0.85"/><rect x="15" y="34" width="14" height="14" rx="7" fill="currentColor" opacity="0.6"/></svg></div>
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Stripe"><rect x="6" y="6" width="48" height="48" rx="8" stroke="currentColor" stroke-width="2"/><path d="M18 36 C18 28 26 26 30 30 C34 34 42 32 42 24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Webflow"><path d="M6 18 L15 42 L24 26 L33 42 L42 18" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Loom"><circle cx="30" cy="30" r="22" stroke="currentColor" stroke-width="2"/><circle cx="30" cy="30" r="8" fill="currentColor"/><line x1="30" y1="8" x2="30" y2="20" stroke="currentColor" stroke-width="2.5"/><line x1="30" y1="40" x2="30" y2="52" stroke="currentColor" stroke-width="2.5"/><line x1="8" y1="30" x2="20" y2="30" stroke="currentColor" stroke-width="2.5"/><line x1="40" y1="30" x2="52" y2="30" stroke="currentColor" stroke-width="2.5"/></svg></div>
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Supabase"><path d="M12 44 L30 10 L48 28 L26 28 L26 50 Z" fill="currentColor" opacity="0.85"/></svg></div>
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Railway"><rect x="10" y="10" width="40" height="40" rx="6" stroke="currentColor" stroke-width="2.5"/><line x1="20" y1="10" x2="20" y2="50" stroke="currentColor" stroke-width="2"/><line x1="40" y1="10" x2="40" y2="50" stroke="currentColor" stroke-width="2"/><line x1="10" y1="30" x2="50" y2="30" stroke="currentColor" stroke-width="2"/></svg></div>
+        </div>
+      </section>
+      </div><!-- /v1 -->
+
+      <div id="panel-v2" class="v-panel">
+        <div style="background:var(--bg-2);border:1px solid var(--border);padding:0.9rem 1.4rem;margin-bottom:3rem;font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);">↳ V2 Cream Minimal — Cobalt blue accent. Components inherit version styling via [data-version] selectors.</div>
+      <!-- BUTTONS -->
+      <section class="comp-section">
+        <p class="comp-section-title">01 — Buttons</p>
+        <h2 class="comp-section-heading">BUTTONS & ACTIONS</h2>
+        <div class="comp-label">Primary / Outline / Ghost</div>
+        <div class="comp-row">
+          <a href="#" class="btn btn-primary">View Work <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="#" class="btn btn-outline">Get Started <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="#" class="btn btn-ghost">Learn More</a>
+        </div>
+        <div class="comp-label">Sizes</div>
+        <div class="comp-row" style="align-items:center">
+          <a href="#" class="btn btn-primary btn-sm">Small</a>
+          <a href="#" class="btn btn-primary">Default</a>
+          <a href="#" class="btn btn-primary btn-lg">Large</a>
+          <a href="#" class="btn btn-primary btn-square">Square Style</a>
+        </div>
+      </section>
+
+      <!-- BADGES -->
+      <section class="comp-section">
+        <p class="comp-section-title">02 — Badges</p>
+        <h2 class="comp-section-heading">BADGES & TAGS</h2>
+        <div class="comp-row">
+          <span class="badge badge-accent">Featured</span>
+          <span class="badge badge-outline">New</span>
+          <span class="badge badge-muted">Draft</span>
+          <span class="badge badge-accent badge-dot">Live</span>
+          <span class="badge badge-outline badge-dot">In Progress</span>
+          <span class="badge badge-muted badge-dot">Archived</span>
+        </div>
+      </section>
+
+      <!-- CARDS -->
+      <section class="comp-section">
+        <p class="comp-section-title">03 — Cards</p>
+        <h2 class="comp-section-heading">CONTENT CARDS</h2>
+        <div class="cards-grid">
+          <div class="comp-card">
+            <span class="comp-card-tag">Web Development</span>
+            <h3 class="comp-card-title">Project Alpha</h3>
+            <p class="comp-card-text">E-commerce platform with custom checkout flow, real-time inventory, and multi-currency support.</p>
+            <div class="comp-card-footer">
+              <div style="display:flex;gap:0.4rem">
+                <span class="badge badge-muted">React</span>
+                <span class="badge badge-muted">Node</span>
+              </div>
+              <a href="#" class="btn btn-sm btn-outline">View</a>
+            </div>
+          </div>
+          <div class="comp-card">
+            <span class="comp-card-tag">UI Design</span>
+            <h3 class="comp-card-title">Brand System</h3>
+            <p class="comp-card-text">Complete design system with 200+ components, tokens, and documentation for a fintech startup.</p>
+            <div class="comp-card-footer">
+              <div style="display:flex;gap:0.4rem">
+                <span class="badge badge-muted">Figma</span>
+                <span class="badge badge-muted">Tokens</span>
+              </div>
+              <a href="#" class="btn btn-sm btn-outline">View</a>
+            </div>
+          </div>
+          <div class="comp-card">
+            <span class="comp-card-tag">Development</span>
+            <h3 class="comp-card-title">Dashboard UI</h3>
+            <p class="comp-card-text">SaaS analytics dashboard with real-time charts, dark mode, and accessible component library.</p>
+            <div class="comp-card-footer">
+              <div style="display:flex;gap:0.4rem">
+                <span class="badge badge-muted">Vue</span>
+                <span class="badge badge-muted">Chart.js</span>
+              </div>
+              <a href="#" class="btn btn-sm btn-outline">View</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATS -->
+      <section class="comp-section">
+        <p class="comp-section-title">04 — Stats</p>
+        <h2 class="comp-section-heading">STAT BLOCKS</h2>
+        <div class="stats-row">
+          <div class="comp-stat">
+            <div class="comp-stat-number">120+</div>
+            <div class="comp-stat-label">Projects Delivered</div>
+          </div>
+          <div class="comp-stat">
+            <div class="comp-stat-number">50+</div>
+            <div class="comp-stat-label">Happy Clients</div>
+          </div>
+          <div class="comp-stat">
+            <div class="comp-stat-number">8</div>
+            <div class="comp-stat-label">Years Experience</div>
+          </div>
+          <div class="comp-stat">
+            <div class="comp-stat-number">99%</div>
+            <div class="comp-stat-label">Client Satisfaction</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FORMS -->
+      <section class="comp-section">
+        <p class="comp-section-title">05 — Forms</p>
+        <h2 class="comp-section-heading">FORM ELEMENTS</h2>
+        <div class="comp-block">
+          <div class="comp-form">
+            <div>
+              <label class="form-label">Full Name</label>
+              <input type="text" class="comp-input" placeholder="John Doe" />
+            </div>
+            <div>
+              <label class="form-label">Email Address</label>
+              <input type="email" class="comp-input" placeholder="john@example.com" />
+            </div>
+            <div>
+              <label class="form-label">Subject</label>
+              <select class="comp-select">
+                <option>Web Development</option>
+                <option>UI/UX Design</option>
+                <option>Brand Identity</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Message</label>
+              <textarea class="comp-input comp-textarea" placeholder="Tell us about your project..."></textarea>
+            </div>
+            <div class="input-group">
+              <input type="email" class="comp-input" placeholder="Subscribe to newsletter" />
+              <a href="#" class="btn btn-primary">Subscribe</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ALERTS -->
+      <section class="comp-section">
+        <p class="comp-section-title">06 — Alerts</p>
+        <h2 class="comp-section-heading">ALERT MESSAGES</h2>
+        <div class="alert alert-success">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          <span><strong>Success!</strong> Your message has been sent successfully. We'll get back to you within 24 hours.</span>
+        </div>
+        <div class="alert alert-warning">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <span><strong>Warning!</strong> Please review your submission before sending. Some fields may need attention.</span>
+        </div>
+        <div class="alert alert-error">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span><strong>Error!</strong> Something went wrong. Please try again or contact support.</span>
+        </div>
+        <div class="alert alert-info">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <span><strong>Info.</strong> New features have been added. Check the changelog for more details.</span>
+        </div>
+      </section>
+
+      <!-- PROGRESS -->
+      <section class="comp-section">
+        <p class="comp-section-title">07 — Progress</p>
+        <h2 class="comp-section-heading">PROGRESS BARS</h2>
+        <div style="max-width:600px">
+          <div class="progress-item">
+            <div class="progress-header"><span>HTML & CSS</span><span>95%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:95%"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header"><span>JavaScript</span><span>88%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:88%"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header"><span>UI Design</span><span>80%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:80%"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header"><span>Performance</span><span>92%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:92%"></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRICING -->
+      <section class="comp-section">
+        <p class="comp-section-title">08 — Pricing</p>
+        <h2 class="comp-section-heading">PRICING BLOCKS</h2>
+        <div class="comp-pricing-grid">
+          <div class="comp-price-card">
+            <p class="price-tier">Starter</p>
+            <div class="price-amount"><sup>$</sup>29</div>
+            <p class="price-period">per month</p>
+            <ul class="price-features">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 1 Landing Page</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Basic SEO</li>
+              <li style="opacity:0.4"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Custom Animations</li>
+            </ul>
+            <a href="#" class="btn btn-outline" style="width:100%;justify-content:center">Get Started</a>
+          </div>
+          <div class="comp-price-card featured">
+            <p class="price-tier">Professional</p>
+            <div class="price-amount"><sup>$</sup>79</div>
+            <p class="price-period">per month</p>
+            <ul class="price-features">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Up to 5 Pages</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Custom Animations</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> CMS Integration</li>
+            </ul>
+            <a href="#" class="btn btn-primary" style="width:100%;justify-content:center">Get Started</a>
+          </div>
+          <div class="comp-price-card">
+            <p class="price-tier">Enterprise</p>
+            <div class="price-amount"><sup>$</sup>199</div>
+            <p class="price-period">per month</p>
+            <ul class="price-features">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Unlimited Pages</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Priority Support</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 24hr Turnaround</li>
+            </ul>
+            <a href="#" class="btn btn-outline" style="width:100%;justify-content:center">Get Started</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- TIMELINE -->
+      <section class="comp-section">
+        <p class="comp-section-title">09 — Timeline</p>
+        <h2 class="comp-section-heading">TIMELINE</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <p class="timeline-date">2024 — Present</p>
+            <h3 class="timeline-title">Senior Frontend Developer</h3>
+            <p class="timeline-text">Leading frontend architecture for a SaaS platform serving 50k+ users. Built component library and design system from scratch.</p>
+          </div>
+          <div class="timeline-item">
+            <p class="timeline-date">2022 — 2024</p>
+            <h3 class="timeline-title">UI/UX Designer & Developer</h3>
+            <p class="timeline-text">Designed and built responsive web applications for clients across e-commerce, fintech, and media industries.</p>
+          </div>
+          <div class="timeline-item">
+            <p class="timeline-date">2020 — 2022</p>
+            <h3 class="timeline-title">Frontend Developer</h3>
+            <p class="timeline-text">Specialized in performance optimization and accessibility. Reduced average load times by 60% across client projects.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIAL -->
+      <section class="comp-section">
+        <p class="comp-section-title">10 — Testimonial</p>
+        <h2 class="comp-section-heading">TESTIMONIAL BLOCK</h2>
+        <div class="comp-testimonial">
+          <p class="testimonial-quote">The attention to detail and quality of work was outstanding. Delivered ahead of schedule and exceeded all our expectations. Would absolutely recommend to anyone looking for top-tier frontend development.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">A</div>
+            <div>
+              <div class="testimonial-name">Amanda Reyes</div>
+              <div class="testimonial-role">Product Lead · Acme Corp</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section class="comp-section">
+        <p class="comp-section-title">11 — Services</p>
+        <h2 class="comp-section-heading">SERVICE CARDS</h2>
+        <div class="comp-services-grid">
+          <div class="comp-service-card">
+            <div class="comp-service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+            <h3 class="comp-service-name">Web Development</h3>
+            <p class="comp-service-desc">Custom websites built with modern technologies.</p>
+            <span class="comp-service-num">01</span>
+          </div>
+          <div class="comp-service-card">
+            <div class="comp-service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <h3 class="comp-service-name">UI/UX Design</h3>
+            <p class="comp-service-desc">Pixel-perfect interfaces that convert visitors.</p>
+            <span class="comp-service-num">02</span>
+          </div>
+          <div class="comp-service-card">
+            <div class="comp-service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+            <h3 class="comp-service-name">Brand Identity</h3>
+            <p class="comp-service-desc">Cohesive visual identity for any market.</p>
+            <span class="comp-service-num">03</span>
+          </div>
+          <div class="comp-service-card">
+            <div class="comp-service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <h3 class="comp-service-name">Performance & SEO</h3>
+            <p class="comp-service-desc">Core Web Vitals + technical SEO audits.</p>
+            <span class="comp-service-num">04</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CLIENTS -->
+      <section class="comp-section">
+        <p class="comp-section-title">12 — Clients</p>
+        <h2 class="comp-section-heading">CLIENT LOGOS</h2>
+        <div class="comp-clients-grid">
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Notion"><rect x="8" y="6" width="32" height="42" rx="4" stroke="currentColor" stroke-width="2.5"/><line x1="14" y1="18" x2="34" y2="18" stroke="currentColor" stroke-width="2"/><line x1="14" y1="26" x2="34" y2="26" stroke="currentColor" stroke-width="2"/><line x1="14" y1="34" x2="28" y2="34" stroke="currentColor" stroke-width="2"/></svg></div>
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Linear"><circle cx="30" cy="30" r="20" stroke="currentColor" stroke-width="2"/><path d="M14 46 L46 14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M14 30 L30 14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M30 46 L46 30" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Framer"><polygon points="10,10 50,10 10,30" fill="currentColor"/><polygon points="10,30 50,30 30,50" fill="currentColor" opacity="0.55"/></svg></div>
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Vercel"><polygon points="30,8 54,50 6,50" fill="currentColor"/></svg></div>
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Figma"><rect x="15" y="6" width="14" height="14" rx="7" fill="currentColor" opacity="0.75"/><rect x="29" y="6" width="14" height="14" rx="7" fill="currentColor" opacity="0.5"/><rect x="15" y="20" width="14" height="14" rx="0" fill="currentColor"/><circle cx="36" cy="27" r="7" fill="currentColor" opacity="0.85"/><rect x="15" y="34" width="14" height="14" rx="7" fill="currentColor" opacity="0.6"/></svg></div>
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Stripe"><rect x="6" y="6" width="48" height="48" rx="8" stroke="currentColor" stroke-width="2"/><path d="M18 36 C18 28 26 26 30 30 C34 34 42 32 42 24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Webflow"><path d="M6 18 L15 42 L24 26 L33 42 L42 18" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Loom"><circle cx="30" cy="30" r="22" stroke="currentColor" stroke-width="2"/><circle cx="30" cy="30" r="8" fill="currentColor"/><line x1="30" y1="8" x2="30" y2="20" stroke="currentColor" stroke-width="2.5"/><line x1="30" y1="40" x2="30" y2="52" stroke="currentColor" stroke-width="2.5"/><line x1="8" y1="30" x2="20" y2="30" stroke="currentColor" stroke-width="2.5"/><line x1="40" y1="30" x2="52" y2="30" stroke="currentColor" stroke-width="2.5"/></svg></div>
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Supabase"><path d="M12 44 L30 10 L48 28 L26 28 L26 50 Z" fill="currentColor" opacity="0.85"/></svg></div>
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Railway"><rect x="10" y="10" width="40" height="40" rx="6" stroke="currentColor" stroke-width="2.5"/><line x1="20" y1="10" x2="20" y2="50" stroke="currentColor" stroke-width="2"/><line x1="40" y1="10" x2="40" y2="50" stroke="currentColor" stroke-width="2"/><line x1="10" y1="30" x2="50" y2="30" stroke="currentColor" stroke-width="2"/></svg></div>
+        </div>
+      </section>
+      </div><!-- /v2 -->
+
+      <div id="panel-v3" class="v-panel">
+        <div style="background:var(--bg-2);border:1px solid var(--border);padding:0.9rem 1.4rem;margin-bottom:3rem;font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);">↳ V3 Neon Cyberpunk — Magenta accent. Components inherit version styling via [data-version] selectors.</div>
+      <!-- BUTTONS -->
+      <section class="comp-section">
+        <p class="comp-section-title">01 — Buttons</p>
+        <h2 class="comp-section-heading">BUTTONS & ACTIONS</h2>
+        <div class="comp-label">Primary / Outline / Ghost</div>
+        <div class="comp-row">
+          <a href="#" class="btn btn-primary">View Work <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="#" class="btn btn-outline">Get Started <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="#" class="btn btn-ghost">Learn More</a>
+        </div>
+        <div class="comp-label">Sizes</div>
+        <div class="comp-row" style="align-items:center">
+          <a href="#" class="btn btn-primary btn-sm">Small</a>
+          <a href="#" class="btn btn-primary">Default</a>
+          <a href="#" class="btn btn-primary btn-lg">Large</a>
+          <a href="#" class="btn btn-primary btn-square">Square Style</a>
+        </div>
+      </section>
+
+      <!-- BADGES -->
+      <section class="comp-section">
+        <p class="comp-section-title">02 — Badges</p>
+        <h2 class="comp-section-heading">BADGES & TAGS</h2>
+        <div class="comp-row">
+          <span class="badge badge-accent">Featured</span>
+          <span class="badge badge-outline">New</span>
+          <span class="badge badge-muted">Draft</span>
+          <span class="badge badge-accent badge-dot">Live</span>
+          <span class="badge badge-outline badge-dot">In Progress</span>
+          <span class="badge badge-muted badge-dot">Archived</span>
+        </div>
+      </section>
+
+      <!-- CARDS -->
+      <section class="comp-section">
+        <p class="comp-section-title">03 — Cards</p>
+        <h2 class="comp-section-heading">CONTENT CARDS</h2>
+        <div class="cards-grid">
+          <div class="comp-card">
+            <span class="comp-card-tag">Web Development</span>
+            <h3 class="comp-card-title">Project Alpha</h3>
+            <p class="comp-card-text">E-commerce platform with custom checkout flow, real-time inventory, and multi-currency support.</p>
+            <div class="comp-card-footer">
+              <div style="display:flex;gap:0.4rem">
+                <span class="badge badge-muted">React</span>
+                <span class="badge badge-muted">Node</span>
+              </div>
+              <a href="#" class="btn btn-sm btn-outline">View</a>
+            </div>
+          </div>
+          <div class="comp-card">
+            <span class="comp-card-tag">UI Design</span>
+            <h3 class="comp-card-title">Brand System</h3>
+            <p class="comp-card-text">Complete design system with 200+ components, tokens, and documentation for a fintech startup.</p>
+            <div class="comp-card-footer">
+              <div style="display:flex;gap:0.4rem">
+                <span class="badge badge-muted">Figma</span>
+                <span class="badge badge-muted">Tokens</span>
+              </div>
+              <a href="#" class="btn btn-sm btn-outline">View</a>
+            </div>
+          </div>
+          <div class="comp-card">
+            <span class="comp-card-tag">Development</span>
+            <h3 class="comp-card-title">Dashboard UI</h3>
+            <p class="comp-card-text">SaaS analytics dashboard with real-time charts, dark mode, and accessible component library.</p>
+            <div class="comp-card-footer">
+              <div style="display:flex;gap:0.4rem">
+                <span class="badge badge-muted">Vue</span>
+                <span class="badge badge-muted">Chart.js</span>
+              </div>
+              <a href="#" class="btn btn-sm btn-outline">View</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATS -->
+      <section class="comp-section">
+        <p class="comp-section-title">04 — Stats</p>
+        <h2 class="comp-section-heading">STAT BLOCKS</h2>
+        <div class="stats-row">
+          <div class="comp-stat">
+            <div class="comp-stat-number">120+</div>
+            <div class="comp-stat-label">Projects Delivered</div>
+          </div>
+          <div class="comp-stat">
+            <div class="comp-stat-number">50+</div>
+            <div class="comp-stat-label">Happy Clients</div>
+          </div>
+          <div class="comp-stat">
+            <div class="comp-stat-number">8</div>
+            <div class="comp-stat-label">Years Experience</div>
+          </div>
+          <div class="comp-stat">
+            <div class="comp-stat-number">99%</div>
+            <div class="comp-stat-label">Client Satisfaction</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FORMS -->
+      <section class="comp-section">
+        <p class="comp-section-title">05 — Forms</p>
+        <h2 class="comp-section-heading">FORM ELEMENTS</h2>
+        <div class="comp-block">
+          <div class="comp-form">
+            <div>
+              <label class="form-label">Full Name</label>
+              <input type="text" class="comp-input" placeholder="John Doe" />
+            </div>
+            <div>
+              <label class="form-label">Email Address</label>
+              <input type="email" class="comp-input" placeholder="john@example.com" />
+            </div>
+            <div>
+              <label class="form-label">Subject</label>
+              <select class="comp-select">
+                <option>Web Development</option>
+                <option>UI/UX Design</option>
+                <option>Brand Identity</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Message</label>
+              <textarea class="comp-input comp-textarea" placeholder="Tell us about your project..."></textarea>
+            </div>
+            <div class="input-group">
+              <input type="email" class="comp-input" placeholder="Subscribe to newsletter" />
+              <a href="#" class="btn btn-primary">Subscribe</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ALERTS -->
+      <section class="comp-section">
+        <p class="comp-section-title">06 — Alerts</p>
+        <h2 class="comp-section-heading">ALERT MESSAGES</h2>
+        <div class="alert alert-success">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          <span><strong>Success!</strong> Your message has been sent successfully. We'll get back to you within 24 hours.</span>
+        </div>
+        <div class="alert alert-warning">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <span><strong>Warning!</strong> Please review your submission before sending. Some fields may need attention.</span>
+        </div>
+        <div class="alert alert-error">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span><strong>Error!</strong> Something went wrong. Please try again or contact support.</span>
+        </div>
+        <div class="alert alert-info">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <span><strong>Info.</strong> New features have been added. Check the changelog for more details.</span>
+        </div>
+      </section>
+
+      <!-- PROGRESS -->
+      <section class="comp-section">
+        <p class="comp-section-title">07 — Progress</p>
+        <h2 class="comp-section-heading">PROGRESS BARS</h2>
+        <div style="max-width:600px">
+          <div class="progress-item">
+            <div class="progress-header"><span>HTML & CSS</span><span>95%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:95%"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header"><span>JavaScript</span><span>88%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:88%"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header"><span>UI Design</span><span>80%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:80%"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header"><span>Performance</span><span>92%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:92%"></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRICING -->
+      <section class="comp-section">
+        <p class="comp-section-title">08 — Pricing</p>
+        <h2 class="comp-section-heading">PRICING BLOCKS</h2>
+        <div class="comp-pricing-grid">
+          <div class="comp-price-card">
+            <p class="price-tier">Starter</p>
+            <div class="price-amount"><sup>$</sup>29</div>
+            <p class="price-period">per month</p>
+            <ul class="price-features">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 1 Landing Page</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Basic SEO</li>
+              <li style="opacity:0.4"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Custom Animations</li>
+            </ul>
+            <a href="#" class="btn btn-outline" style="width:100%;justify-content:center">Get Started</a>
+          </div>
+          <div class="comp-price-card featured">
+            <p class="price-tier">Professional</p>
+            <div class="price-amount"><sup>$</sup>79</div>
+            <p class="price-period">per month</p>
+            <ul class="price-features">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Up to 5 Pages</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Custom Animations</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> CMS Integration</li>
+            </ul>
+            <a href="#" class="btn btn-primary" style="width:100%;justify-content:center">Get Started</a>
+          </div>
+          <div class="comp-price-card">
+            <p class="price-tier">Enterprise</p>
+            <div class="price-amount"><sup>$</sup>199</div>
+            <p class="price-period">per month</p>
+            <ul class="price-features">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Unlimited Pages</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Priority Support</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 24hr Turnaround</li>
+            </ul>
+            <a href="#" class="btn btn-outline" style="width:100%;justify-content:center">Get Started</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- TIMELINE -->
+      <section class="comp-section">
+        <p class="comp-section-title">09 — Timeline</p>
+        <h2 class="comp-section-heading">TIMELINE</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <p class="timeline-date">2024 — Present</p>
+            <h3 class="timeline-title">Senior Frontend Developer</h3>
+            <p class="timeline-text">Leading frontend architecture for a SaaS platform serving 50k+ users. Built component library and design system from scratch.</p>
+          </div>
+          <div class="timeline-item">
+            <p class="timeline-date">2022 — 2024</p>
+            <h3 class="timeline-title">UI/UX Designer & Developer</h3>
+            <p class="timeline-text">Designed and built responsive web applications for clients across e-commerce, fintech, and media industries.</p>
+          </div>
+          <div class="timeline-item">
+            <p class="timeline-date">2020 — 2022</p>
+            <h3 class="timeline-title">Frontend Developer</h3>
+            <p class="timeline-text">Specialized in performance optimization and accessibility. Reduced average load times by 60% across client projects.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIAL -->
+      <section class="comp-section">
+        <p class="comp-section-title">10 — Testimonial</p>
+        <h2 class="comp-section-heading">TESTIMONIAL BLOCK</h2>
+        <div class="comp-testimonial">
+          <p class="testimonial-quote">The attention to detail and quality of work was outstanding. Delivered ahead of schedule and exceeded all our expectations. Would absolutely recommend to anyone looking for top-tier frontend development.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">A</div>
+            <div>
+              <div class="testimonial-name">Amanda Reyes</div>
+              <div class="testimonial-role">Product Lead · Acme Corp</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section class="comp-section">
+        <p class="comp-section-title">11 — Services</p>
+        <h2 class="comp-section-heading">SERVICE CARDS</h2>
+        <div class="comp-services-grid">
+          <div class="comp-service-card">
+            <div class="comp-service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+            <h3 class="comp-service-name">Web Development</h3>
+            <p class="comp-service-desc">Custom websites built with modern technologies.</p>
+            <span class="comp-service-num">01</span>
+          </div>
+          <div class="comp-service-card">
+            <div class="comp-service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <h3 class="comp-service-name">UI/UX Design</h3>
+            <p class="comp-service-desc">Pixel-perfect interfaces that convert visitors.</p>
+            <span class="comp-service-num">02</span>
+          </div>
+          <div class="comp-service-card">
+            <div class="comp-service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+            <h3 class="comp-service-name">Brand Identity</h3>
+            <p class="comp-service-desc">Cohesive visual identity for any market.</p>
+            <span class="comp-service-num">03</span>
+          </div>
+          <div class="comp-service-card">
+            <div class="comp-service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <h3 class="comp-service-name">Performance & SEO</h3>
+            <p class="comp-service-desc">Core Web Vitals + technical SEO audits.</p>
+            <span class="comp-service-num">04</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CLIENTS -->
+      <section class="comp-section">
+        <p class="comp-section-title">12 — Clients</p>
+        <h2 class="comp-section-heading">CLIENT LOGOS</h2>
+        <div class="comp-clients-grid">
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Notion"><rect x="8" y="6" width="32" height="42" rx="4" stroke="currentColor" stroke-width="2.5"/><line x1="14" y1="18" x2="34" y2="18" stroke="currentColor" stroke-width="2"/><line x1="14" y1="26" x2="34" y2="26" stroke="currentColor" stroke-width="2"/><line x1="14" y1="34" x2="28" y2="34" stroke="currentColor" stroke-width="2"/></svg></div>
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Linear"><circle cx="30" cy="30" r="20" stroke="currentColor" stroke-width="2"/><path d="M14 46 L46 14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M14 30 L30 14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M30 46 L46 30" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Framer"><polygon points="10,10 50,10 10,30" fill="currentColor"/><polygon points="10,30 50,30 30,50" fill="currentColor" opacity="0.55"/></svg></div>
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Vercel"><polygon points="30,8 54,50 6,50" fill="currentColor"/></svg></div>
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Figma"><rect x="15" y="6" width="14" height="14" rx="7" fill="currentColor" opacity="0.75"/><rect x="29" y="6" width="14" height="14" rx="7" fill="currentColor" opacity="0.5"/><rect x="15" y="20" width="14" height="14" rx="0" fill="currentColor"/><circle cx="36" cy="27" r="7" fill="currentColor" opacity="0.85"/><rect x="15" y="34" width="14" height="14" rx="7" fill="currentColor" opacity="0.6"/></svg></div>
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Stripe"><rect x="6" y="6" width="48" height="48" rx="8" stroke="currentColor" stroke-width="2"/><path d="M18 36 C18 28 26 26 30 30 C34 34 42 32 42 24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Webflow"><path d="M6 18 L15 42 L24 26 L33 42 L42 18" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Loom"><circle cx="30" cy="30" r="22" stroke="currentColor" stroke-width="2"/><circle cx="30" cy="30" r="8" fill="currentColor"/><line x1="30" y1="8" x2="30" y2="20" stroke="currentColor" stroke-width="2.5"/><line x1="30" y1="40" x2="30" y2="52" stroke="currentColor" stroke-width="2.5"/><line x1="8" y1="30" x2="20" y2="30" stroke="currentColor" stroke-width="2.5"/><line x1="40" y1="30" x2="52" y2="30" stroke="currentColor" stroke-width="2.5"/></svg></div>
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Supabase"><path d="M12 44 L30 10 L48 28 L26 28 L26 50 Z" fill="currentColor" opacity="0.85"/></svg></div>
+          <div class="comp-client-card"><svg viewBox="0 0 60 60" fill="none" aria-label="Railway"><rect x="10" y="10" width="40" height="40" rx="6" stroke="currentColor" stroke-width="2.5"/><line x1="20" y1="10" x2="20" y2="50" stroke="currentColor" stroke-width="2"/><line x1="40" y1="10" x2="40" y2="50" stroke="currentColor" stroke-width="2"/><line x1="10" y1="30" x2="50" y2="30" stroke="currentColor" stroke-width="2"/></svg></div>
+        </div>
+      </section>
+      </div><!-- /v3 -->
+    </div>
+  </main>
+
+  <script type="module" src="assets/js/main.js"></script>
+  <script>
+    // Version tab switcher
+    var vtabs = document.querySelectorAll('.vtab');
+    var vpanels = document.querySelectorAll('.v-panel');
+    vtabs.forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var v = this.dataset.v;
+        vtabs.forEach(function(t){ t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+        vpanels.forEach(function(p){ p.classList.remove('active'); });
+        this.classList.add('active'); this.setAttribute('aria-selected','true');
+        var panel = document.getElementById('panel-' + v);
+        if (panel) panel.classList.add('active');
+        document.documentElement.setAttribute('data-version', v.replace('v',''));
+      });
+    });
+  </script>
+  <script>
+    // Dropdown for components nav
+    document.querySelectorAll('.nav-dropdown-toggle').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        var p = this.closest('.nav-dropdown');
+        var isOpen = p.classList.contains('open');
+        document.querySelectorAll('.nav-dropdown').forEach(function(d){ d.classList.remove('open'); d.querySelector('.nav-dropdown-toggle') && d.querySelector('.nav-dropdown-toggle').setAttribute('aria-expanded','false'); });
+        if(!isOpen){ p.classList.add('open'); this.setAttribute('aria-expanded','true'); }
+      });
+    });
+    document.addEventListener('click', function(e){
+      if(!e.target.closest('.nav-dropdown'))
+        document.querySelectorAll('.nav-dropdown').forEach(function(d){ d.classList.remove('open'); });
+    });
+  </script>
+</body>
+</html>

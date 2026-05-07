@@ -1,171 +1,151 @@
-================================================================
-  EMBio — Frontend Developer Portfolio HTML Template
-  Version: 1.1.0 (SCSS Edition)
-  Author:  Elvin Mammadov
-  Email:   elvinmammadoff@gmail.com
-================================================================
+========================================================
+EMBio — Portfolio & Personal Branding HTML Template
+Version: 3.1.3
+Author: Elvin Mammadov
+========================================================
 
-Thank you for using EMBio Portfolio Template!
+Thank you for purchasing EMBio!
 
-🆕 NEW IN v1.1.0:
-  - Complete SCSS architecture for all 3 versions
-  - Modular, maintainable stylesheet structure
-  - NPM scripts for easy compilation
-  - Improved preview page with navigation menu
-  - Smooth scroll functionality
-  - Enhanced documentation
-
-----------------------------------------------------------------
-PACKAGE CONTENTS
-----------------------------------------------------------------
-
-  embio/
-  ├── preview.html            Live preview with navigation menu
-  ├── index.html              Version 1 — Dark Industrial (default)
-  ├── v2.html                 Version 2 — Cream Minimal (Cobalt)
-  ├── v3.html                 Version 3 — Neon Cyberpunk (Magenta)
-  ├── scss-test.html          SCSS compilation guide
-  ├── README.md               GitHub README (detailed)
-  ├── README.txt              This file
-  ├── SCSS_GUIDE.md           SCSS usage guide (Azerbaijani)
-  ├── CHANGELOG.md            Version history
-  ├── package.json            NPM configuration
-  ├── .gitignore              Git ignore rules
-  ├── documentation/          Full documentation (open index.html)
-  └── assets/
-      ├── css/
-      │   ├── variables.css   Design tokens & CSS custom properties
-      │   ├── base.css        Reset, typography, global elements
-      │   ├── nav.css         Navigation bar styles
-      │   ├── sections.css    All section styles + utility classes
-      │   ├── responsive.css  Mobile breakpoints
-      │   ├── style-v2.css    Version 2 specific overrides
-      │   ├── style-v3.css    Version 3 specific overrides
-      │   ├── style.min.css   Shared CSS — combined & minified
-      │   ├── style-v2.min.css  V2 CSS minified
-      │   └── style-v3.min.css  V3 CSS minified
-      ├── scss/               🆕 SCSS source files
-      │   ├── _variables.scss   Global variables (colors, fonts)
-      │   ├── _mixins.scss      Reusable mixins & functions
-      │   ├── README.md         SCSS structure documentation
-      │   ├── v1/              Version 1 SCSS files
-      │   │   ├── style.scss
-      │   │   ├── _base.scss
-      │   │   ├── _nav.scss
-      │   │   ├── sections/
-      │   │   └── components/
-      │   ├── v2/              Version 2 SCSS files
-      │   │   ├── style-v2.scss
-      │   │   ├── _variables-v2.scss
-      │   │   ├── sections/
-      │   │   └── ...
-      │   └── v3/              Version 3 SCSS files
-      │       ├── style-v3.scss
-      │       ├── _variables-v3.scss
-      │       ├── sections/
-      │       ├── components/
-      │       └── ...
-      ├── js/
-      │   ├── theme-init.js   Flash-prevention theme loader (head)
-      │   ├── main.js         Entry point (ES module)
-      │   ├── cursor.js       Custom cursor animation
-      │   ├── scroll.js       Scroll reveal + smooth scroll
-      │   ├── nav.js          Navigation mobile toggle & scroll
-      │   ├── theme.js        Light/dark mode toggle
-      │   ├── hero.js         Text rotate + floating parallax
-      │   ├── form.js         Contact form handler
-      │   └── main.min.js     All JS combined & minified
-      └── ElvinMammadov_CV.pdf  Sample CV (replace with your own)
-
-----------------------------------------------------------------
-3 VERSIONS — HOW THEY WORK
-----------------------------------------------------------------
-
-All 3 HTML files share the same assets/ folder and JS modules.
-The version is identified by the data-version attribute on <html>:
-
-  index.html  → <html data-version="1">  loads: style.min.css
-  v2.html     → <html data-version="2">  loads: style.min.css + style-v2.css
-  v3.html     → <html data-version="3">  loads: style.min.css + style-v3.css
-
-To switch version: just open the corresponding HTML file.
-The preview.html page lets you switch between all 3 with tabs.
-
-----------------------------------------------------------------
+--------------------------------------------------------
 QUICK START
-----------------------------------------------------------------
+--------------------------------------------------------
 
-IMPORTANT: ES Modules require a local server (not file://).
+1. Open index.html (V1 Dark Industrial) in your browser
+2. Open v2.html (V2 Cream Minimal) in your browser
+3. Open v3.html (V3 Neon Cyberpunk) in your browser
+4. Open preview.html to see all versions side by side
 
-  Option A — VS Code Live Server extension → click "Go Live"
-  Option B — Terminal: npx serve .
-  Option C — Python:  python3 -m http.server 3000
+For production deployment, use assets/css/style.min.css
+and assets/js/main.min.js (both already linked by default).
 
-Open: http://localhost:3000/preview.html
+--------------------------------------------------------
+FILE STRUCTURE
+--------------------------------------------------------
 
-Keyboard shortcuts in preview.html:
-  Press 1 → Version 1 (Dark Industrial)
-  Press 2 → Version 2 (Cream Minimal)
-  Press 3 → Version 3 (Neon Cyberpunk)
+EMBio/
+├── index.html              — Version 1: Dark Industrial
+├── v2.html                 — Version 2: Cream Minimal
+├── v3.html                 — Version 3: Neon Cyberpunk
+├── preview.html            — Version selector / demo page
+├── README.txt              — This file
+├── changelog.txt           — Version history
+├── documentation/
+│   └── index.html          — Full documentation (open in browser)
+└── assets/
+    ├── css/
+    │   ├── variables.css   — Design tokens (colors, fonts)
+    │   ├── base.css        — Reset and base styles
+    │   ├── nav.css         — Navigation styles
+    │   ├── sections.css    — All section styles
+    │   ├── responsive.css  — Mobile breakpoints
+    │   └── style.min.css   — Production minified bundle
+    ├── js/
+    │   ├── main.js         — Main entry point
+    │   ├── theme.js        — Light/dark mode
+    │   ├── theme-init.js   — Flash-free theme init
+    │   ├── hero.js         — Text rotate + parallax
+    │   ├── cursor.js       — Custom cursor
+    │   ├── nav.js          — Navigation behavior
+    │   ├── scroll.js       — Scroll reveal
+    │   ├── form.js         — Contact form UI
+    │   └── main.min.js     — Production minified bundle
+    ├── scss/               — SCSS source files
+    │   ├── style.scss      — Main entry point
+    │   ├── _variables.scss — All version design tokens
+    │   ├── _overrides.scss — V2 and V3 version overrides
+    │   └── ...
+    └── ElvinMammadov_CV.pdf — Sample CV (replace with your own)
 
-----------------------------------------------------------------
-🆕 USING SCSS (OPTIONAL)
-----------------------------------------------------------------
+--------------------------------------------------------
+CUSTOMIZATION
+--------------------------------------------------------
 
-SCSS is completely OPTIONAL. You can use the template with just CSS.
+COLORS:
+Edit assets/css/variables.css
+- Default (dark):    --accent: #c8ff00
+- Light mode:        --accent: #c8ff00  (same)
+- Version 2:         --accent: #1a56db
+- Version 3:         --accent: #ff00cc
 
-If you want to use SCSS for easier customization:
+PERSONAL INFO:
+Search and replace in HTML files:
+- "Elvin Mammadov"     → Your name
+- "elvinmammadoff@gmail.com" → Your email
+- "Baku, Azerbaijan"   → Your location
+- social media links   → Your profiles
 
-1. Install Node.js from https://nodejs.org
+CV FILE:
+Replace assets/ElvinMammadov_CV.pdf with your own CV.
+Update the href in HTML: href="assets/YourName_CV.pdf"
 
-2. Install dependencies:
-   cd embio
-   npm install
+IMAGES:
+Replace Unsplash image URLs in HTML with your own images.
+Recommended sizes:
+- About/Avatar: 600×600px
+- Projects: 800×500px
+- Blog: 600×400px
+- Hero floating: 400-500px wide
 
-3. Compile SCSS to CSS:
-   npm run compile:all      # All versions
-   npm run compile:v1       # Version 1 only
-   npm run compile:v2       # Version 2 only
-   npm run compile:v3       # Version 3 only
+SCSS (optional):
+If you prefer editing SCSS:
+  npm install
+  npm run compile    (compile once)
+  npm run watch      (watch mode)
 
-4. Development mode (auto-compile on save):
-   npm run dev:v1
-   npm run dev:v2
-   npm run dev:v3
+--------------------------------------------------------
+DARK / LIGHT MODE
+--------------------------------------------------------
 
-5. Edit SCSS files in assets/scss/ folder
+Auto-switches based on local time:
+  07:00 - 18:00  →  Light mode
+  18:00 - 07:00  →  Dark mode
 
-For detailed SCSS guide, see:
-  - SCSS_GUIDE.md (Azerbaijani)
-  - assets/scss/README.md (English)
+Manual toggle overrides auto mode and saves to localStorage.
 
-----------------------------------------------------------------
-BROWSER SUPPORT
-----------------------------------------------------------------
-
-  ✔ Chrome 90+    ✔ Firefox 88+
-  ✔ Safari 14+    ✔ Edge 90+
-  ✗ IE 11 (ES Modules not supported)
-
-----------------------------------------------------------------
-CREDITS
-----------------------------------------------------------------
-
-  Fonts:  Google Fonts (Bebas Neue, DM Sans, Space Mono)
-  Images: Unsplash (demo only — replace with your own)
-  Icons:  Inline SVG (no icon library required)
-
-----------------------------------------------------------------
-CHANGELOG
-----------------------------------------------------------------
-
-  v1.0.0 — 2026-04-21 — Initial release
-
-----------------------------------------------------------------
+--------------------------------------------------------
 SUPPORT
-----------------------------------------------------------------
+--------------------------------------------------------
 
-  ThemeForest comments section or: elvinmammadoff@gmail.com
-  Response time: within 24 hours on business days.
+Full documentation: documentation/index.html
+GitHub: https://github.com/elvinmammadoff/embio
 
-================================================================
+========================================================
+
+
+---------- COMPONENTS
+------------------------------------------------------------
+
+components.html — Full UI component library with V1/V2/V3 version switcher:
+  01 Buttons & Actions
+  02 Badges & Tags
+  03 Content Cards
+  04 Stat Blocks
+  05 Form Elements
+  06 Alert Messages
+  07 Progress Bars
+  08 Pricing Blocks
+  09 Timeline
+  10 Testimonial Block
+  11 Service Cards (8-card 4x2 grid)
+  12 Client Logo Grid (10-logo 5x2 divider layout)
+
+Click V1 / V2 / V3 tabs at the top to preview
+all components in each version's accent color.
+
+---------- CONTACT FORM / EMAIL SETUP
+------------------------------------------------------------
+
+The contact form uses Web3Forms to send emails to your inbox.
+No server or backend required. Free up to 250 submissions/month.
+
+SETUP (2 steps):
+  1. Go to https://web3forms.com
+     Enter your email → click "Create Access Key" → copy the key
+
+  2. Open assets/js/form.js
+     Replace: const WEB3FORMS_KEY = 'YOUR_ACCESS_KEY';
+     With:    const WEB3FORMS_KEY = 'your-actual-key-here';
+
+Form fields: name, email, subject, message
+Reply-to is set automatically so you can reply directly to the sender.
+

@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EMBio — Frontend Developer Portfolio Template</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --bg:      #060608;
+      --bg-2:    #0f0f14;
+      --border:  rgba(255,255,255,0.07);
+      --text:    #eeeef2;
+      --muted:   #888899;
+      --accent:  #c8ff00;
+      --accent2: #ff00cc;
+      --accent3: #6b8fff;
+      --font-d:  'Bebas Neue', sans-serif;
+      --font-b:  'DM Sans', sans-serif;
+      --font-m:  'Space Mono', monospace;
+    }
+    body { font-family: var(--font-b); background: var(--bg); color: var(--text); overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── TOP HEADER ── */
+    .preview-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 3rem;
+      height: 64px;
+      background: rgba(6,6,8,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .ph-logo {
+      font-family: var(--font-d);
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+    }
+    .ph-logo .em  { color: #ffffff; }
+    .ph-logo .bio { color: var(--accent); }
+
+    .ph-nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    .ph-nav-link {
+      font-family: var(--font-m);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+      cursor: pointer;
+    }
+    .ph-nav-link:hover {
+      color: var(--text);
+    }
+
+    .ph-tabs {
+      display: none;
+      gap: 0.25rem;
+    }
+    .ph-tab {
+      font-family: var(--font-m);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 3px;
+      cursor: pointer;
+      color: var(--muted);
+      border: 1px solid transparent;
+      transition: all 0.2s;
+    }
+    .ph-tab:hover { color: var(--text); border-color: var(--border); }
+    .ph-tab.active { background: var(--accent); color: #060608; border-color: transparent; }
+
+    .ph-buy {
+      font-family: var(--font-m);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--accent);
+      color: #060608;
+      padding: 0.5rem 1.4rem;
+      border-radius: 2px;
+      font-weight: 700;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .ph-buy:hover { background: #d9ff33; transform: scale(1.03); }
+
+    /* ── DEMO FRAME AREA ── */
+    .demo-area {
+      padding-top: 64px;
+      min-height: 100vh;
+      display: none;
+    }
+    .demo-frame-wrap {
+      position: relative;
+      background: var(--bg-2);
+      border-bottom: 1px solid var(--border);
+    }
+    .demo-browser-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.2rem;
+      background: #111116;
+      border-bottom: 1px solid var(--border);
+    }
+    .browser-dot {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+    }
+    .bd-red   { background: #ff5f57; }
+    .bd-amber { background: #febc2e; }
+    .bd-green { background: #28c840; }
+    .browser-url {
+      flex: 1;
+      background: #1a1a22;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.3rem 0.8rem;
+      font-family: var(--font-m);
+      font-size: 0.72rem;
+      color: var(--muted);
+      max-width: 380px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    #demo-iframe {
+      width: 100%;
+      height: calc(100vh - 108px);
+      border: none;
+      display: block;
+      transition: opacity 0.4s;
+    }
+
+    /* ── HERO SPLASH ── */
+    .splash {
+      padding: 5rem 2rem;
+      text-align: center;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+    }
+    .splash-eyebrow {
+      font-family: var(--font-m);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+    .splash-title {
+      font-family: var(--font-d);
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: 0.9;
+      margin-bottom: 1.5rem;
+    }
+    .splash-title .em  { color: #ffffff; }
+    .splash-title .bio { color: var(--accent); }
+    .splash-sub {
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+    .splash-badges {
+      display: flex;
+      gap: 0.6rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .badge {
+      font-family: var(--font-m);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.8rem;
+      border-radius: 2px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .badge.green { border-color: rgba(200,255,0,0.35); color: var(--accent); }
+
+    /* ── VERSIONS GRID ── */
+    .versions-section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .section-eyebrow {
+      font-family: var(--font-m);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 0.8rem;
+    }
+    .section-headline {
+      font-family: var(--font-d);
+      font-size: clamp(2rem, 5vw, 4rem);
+      text-align: center;
+      margin-bottom: 0.8rem;
+      position: relative;
+      z-index: 1;
+    }
+    .section-headline::before {
+      content: attr(data-text);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: clamp(4rem, 12vw, 10rem);
+      opacity: 0.03;
+      z-index: -1;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    .section-desc {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+      max-width: 500px;
+      margin: 0 auto 3rem;
+      line-height: 1.7;
+    }
+    .versions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .version-card {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s;
+      cursor: pointer;
+    }
+    .version-card:hover {
+      border-color: rgba(200,255,0,0.3);
+      transform: translateY(-4px);
+    }
+    .version-card.v2:hover { border-color: rgba(107,143,255,0.4); }
+    .version-card.v3:hover { border-color: rgba(255,0,204,0.4); }
+
+    .vc-preview {
+      width: 100%;
+      height: 279px;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(135deg, var(--bg) 0%, var(--bg-3) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .vc-preview .preview-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+    }
+    .vc-preview .preview-img.loaded {
+      opacity: 1;
+    }
+    .vc-preview .preview-img:hover {
+      opacity: 0.95;
+    }
+    .vc-preview .vc-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, rgba(15,15,15,0.8));
+      pointer-events: none;
+      z-index: 1;
+    }
+    .vc-preview-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-align: center;
+      gap: 0.8rem;
+      z-index: 1;
+    }
+    .vc-preview-placeholder svg {
+      width: 40px;
+      height: 40px;
+      opacity: 0.4;
+    }
+
+    .vc-body { padding: 1.2rem 1.4rem 1.4rem; }
+    .vc-number {
+      font-family: var(--font-m);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+    .vc-name {
+      font-family: var(--font-d);
+      font-size: 1.5rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.4rem;
+    }
+    .vc-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .vc-accent { display: flex; gap: 0.4rem; align-items: center; margin-bottom: 1rem; }
+    .vc-dot { width: 14px; height: 14px; border-radius: 50%; }
+    .vc-accent-label { font-size: 0.75rem; color: var(--muted); font-family: var(--font-m); letter-spacing: 0.06em; }
+
+    .vc-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-m);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.5rem 1rem;
+      border-radius: 2px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .vc-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── FEATURES GRID ── */
+    .features-section {
+      padding: 5rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      border-top: 1px solid var(--border);
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .feature-item {
+      padding: 1.8rem;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+    .fi-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 1.2rem;
+      padding: 12px;
+      border-radius: 8px;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      transition: all 0.3s ease;
+    }
+    .feature-item:hover .fi-icon {
+      background: var(--accent);
+      color: #000000;
+      transform: translateY(-4px);
+    }
+    .fi-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      stroke-width: 1.5;
+    }
+    .feature-item {
+      text-align: center;
+    }
+    .fi-title {
+      font-family: var(--font-d);
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.04em;
+      text-align: center;
+    }
+    .fi-desc {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.65;
+      text-align: center;
+    }
+
+    /* ── TECH STACK ── */
+    .tech-section {
+      padding: 4rem 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .tech-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 2rem;
+    }
+    .tech-chip {
+      font-family: var(--font-m);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.55rem 1.1rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      color: var(--muted);
+      background: var(--bg-2);
+    }
+
+    /* ── CTA FOOTER ── */
+    .cta-section {
+      padding: 6rem 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      background: var(--bg-2);
+    }
+    .cta-title {
+      font-family: var(--font-d);
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      margin-bottom: 1.5rem;
+      line-height: 0.95;
+    }
+    .cta-title span { color: var(--accent); }
+    .cta-sub {
+      max-width: 460px;
+      margin: 0 auto 2.5rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-m);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--accent);
+      color: #060608;
+      padding: 0.9rem 2.4rem;
+      border-radius: 2px;
+      font-weight: 700;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .cta-btn:hover { background: #d9ff33; transform: scale(1.04); }
+
+    .preview-footer {
+      padding: 1.5rem 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-family: var(--font-m);
+    }
+    .preview-footer span { color: var(--muted); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .versions-grid  { grid-template-columns: repeat(2, 1fr); }
+      .features-grid  { grid-template-columns: 1fr 1fr; }
+      .preview-header { padding: 0 1.5rem; }
+      .ph-tabs        { display: none; }
+      .vc-preview     { height: 220px; }
+      #demo-iframe    { height: calc(100vh - 108px); min-height: 500px; }
+    }
+    @media (max-width: 600px) {
+      .versions-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+      .vc-preview    { height: 200px; }
+      .ph-nav        { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP HEADER -->
+  <header class="preview-header">
+    <div class="ph-logo"><span class="em">EM</span><span class="bio">Bio</span></div>
+    <nav class="ph-nav">
+      <a href="#home" class="ph-nav-link">Home</a>
+      <a href="#versions" class="ph-nav-link">Versions</a>
+      <a href="#features" class="ph-nav-link">Features</a>
+      <a href="#tech" class="ph-nav-link">Tech Stack</a>
+    </nav>
+    <a href="#purchase" class="ph-buy">Buy Now →</a>
+  </header>
+
+  <!-- LIVE DEMO IFRAME AREA -->
+  <section class="demo-area">
+    <div class="demo-frame-wrap">
+      <div class="demo-browser-bar">
+        <span class="browser-dot bd-red"></span>
+        <span class="browser-dot bd-amber"></span>
+        <span class="browser-dot bd-green"></span>
+        <div class="browser-url" id="browser-url">embio / index.html</div>
+      </div>
+      <iframe id="demo-iframe" src="index.html" title="EMBio Demo Preview" loading="lazy" allow="fullscreen"></iframe>
+    </div>
+  </section>
+
+  <!-- SPLASH INFO -->
+  <section class="splash" id="home">
+    <p class="splash-eyebrow">HTML5 Portfolio Template</p>
+    <h1 class="splash-title"><span class="em">EM</span><span class="bio">Bio</span></h1>
+    <p class="splash-sub">A dark-first, editorial-style portfolio template for frontend developers. Zero dependencies, pure HTML/CSS/JS — no frameworks, no build step.</p>
+    <div class="splash-badges">
+      <span class="badge green">HTML5</span>
+      <span class="badge green">CSS3</span>
+      <span class="badge green">Vanilla JS</span>
+      <span class="badge">Zero Dependencies</span>
+      <span class="badge">3 Versions</span>
+      <span class="badge">Light + Dark Mode</span>
+      <span class="badge">Fully Responsive</span>
+      <span class="badge">W3C Valid</span>
+      <span class="badge">Well Documented</span>
+    </div>
+  </section>
+
+  <!-- VERSION CARDS -->
+  <section class="versions-section" id="versions">
+    <p class="section-eyebrow">Choose Your Style</p>
+    <h2 class="section-headline" data-text="3 UNIQUE VERSIONS">3 UNIQUE VERSIONS</h2>
+    <p class="section-desc">All versions share the same HTML structure and JS modules — only the visual style changes. Switch effortlessly.</p>
+    <div class="versions-grid">
+
+      <div class="version-card v1">
+        <div class="vc-preview">
+          <img src="assets/images/preview-v1.jpg" alt="Version 1 - Dark Industrial Preview" class="preview-img">
+          <div class="vc-overlay"></div>
+        </div>
+        <div class="vc-body">
+          <p class="vc-number">Version 01</p>
+          <p class="vc-name">DARK INDUSTRIAL</p>
+          <p class="vc-desc">Acid-lime on deep black. Editorial typography, floating parallax, animated cursor. The default statement piece.</p>
+          <div class="vc-accent">
+            <span class="vc-dot" style="background:#c8ff00"></span>
+            <span class="vc-accent-label">Acid Lime · Dark</span>
+          </div>
+          <a href="index.html" class="vc-btn">Live Preview →</a>
+        </div>
+      </div>
+
+      <div class="version-card v2">
+        <div class="vc-preview">
+          <img src="assets/images/preview-v2.jpg" alt="Version 2 - Cream Minimal Preview" class="preview-img">
+          <div class="vc-overlay"></div>
+        </div>
+        <div class="vc-body">
+          <p class="vc-number">Version 02</p>
+          <p class="vc-name">CREAM MINIMAL</p>
+          <p class="vc-desc">Cobalt blue on warm cream. Clean, editorial, centre-aligned hero with grid background texture.</p>
+          <div class="vc-accent">
+            <span class="vc-dot" style="background:#1a56db"></span>
+            <span class="vc-accent-label">Cobalt Blue · Cream</span>
+          </div>
+          <a href="v2.html" class="vc-btn">Live Preview →</a>
+        </div>
+      </div>
+
+      <div class="version-card v3">
+        <div class="vc-preview">
+          <img src="assets/images/preview-v3.jpg" alt="Version 3 - Neon Cyberpunk Preview" class="preview-img">
+          <div class="vc-overlay"></div>
+        </div>
+        <div class="vc-body">
+          <p class="vc-number">Version 03</p>
+          <p class="vc-name">NEON CYBERPUNK</p>
+          <p class="vc-desc">Magenta + cyan on near-black. Scanline texture, neon glow on titles, diagonal hero layout.</p>
+          <div class="vc-accent">
+            <span class="vc-dot" style="background:#ff00cc"></span>
+            <span class="vc-dot" style="background:#00e5ff"></span>
+            <span class="vc-accent-label">Magenta + Cyan · Dark</span>
+          </div>
+          <a href="v3.html" class="vc-btn">Live Preview →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features-section" id="features">
+    <p class="section-eyebrow">What's Inside</p>
+    <h2 class="section-headline" data-text="KEY FEATURES">KEY FEATURES</h2>
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="fi-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+          </svg>
+        </div>
+        <h3 class="fi-title">Zero Dependencies</h3>
+        <p class="fi-desc">No jQuery, no Bootstrap, no framework. Pure HTML5, CSS3, and ES Module JavaScript.</p>
+      </div>
+      <div class="feature-item">
+        <div class="fi-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </div>
+        <h3 class="fi-title">Light &amp; Dark Mode</h3>
+        <p class="fi-desc">Toggle persisted via localStorage. All 3 versions support both themes with thoughtful color systems.</p>
+      </div>
+      <div class="feature-item">
+        <div class="fi-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 4 23 10 17 10"></polyline>
+            <path d="M20.49 15a9 9 0 1 1-2-8.83"></path>
+          </svg>
+        </div>
+        <h3 class="fi-title">Text Rotate Animation</h3>
+        <p class="fi-desc">Per-character spring animation with stagger. Cycles through words with smooth exit and enter.</p>
+      </div>
+      <div class="feature-item">
+        <div class="fi-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"></path>
+            <polyline points="13 13 17 9"></polyline>
+          </svg>
+        </div>
+        <h3 class="fi-title">Custom Cursor</h3>
+        <p class="fi-desc">Acid-lime dot with smooth lerp-lag ring. Blends on interactive elements.</p>
+      </div>
+      <div class="feature-item">
+        <div class="fi-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+          </svg>
+        </div>
+        <h3 class="fi-title">Parallax Floating Images</h3>
+        <p class="fi-desc">5 images react to mouse position with depth layers. Smooth rAF interpolation.</p>
+      </div>
+      <div class="feature-item">
+        <div class="fi-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+          </svg>
+        </div>
+        <h3 class="fi-title">Fully Responsive</h3>
+        <p class="fi-desc">Mobile-first breakpoints at 900px and 600px. Tested from 320px to 1440px+.</p>
+      </div>
+      <div class="feature-item">
+        <div class="fi-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="1"></circle>
+            <path d="M12 1v6"></path>
+            <path d="M4.22 4.22l4.24 4.24"></path>
+            <path d="M1 12h6"></path>
+            <path d="M4.22 19.78l4.24-4.24"></path>
+            <path d="M12 23v-6"></path>
+            <path d="M19.78 19.78l-4.24-4.24"></path>
+            <path d="M23 12h-6"></path>
+            <path d="M19.78 4.22l-4.24 4.24"></path>
+          </svg>
+        </div>
+        <h3 class="fi-title">Accessibility</h3>
+        <p class="fi-desc">ARIA labels, semantic HTML5, keyboard navigation, screen reader support, focus styles.</p>
+      </div>
+      <div class="feature-item">
+        <div class="fi-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+            <polyline points="13 2 13 9 20 9"></polyline>
+          </svg>
+        </div>
+        <h3 class="fi-title">Download CV Button</h3>
+        <p class="fi-desc">Direct PDF download from the About section. Replace with your own CV file.</p>
+      </div>
+      <div class="feature-item">
+        <div class="fi-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+        </div>
+        <h3 class="fi-title">Well Documented</h3>
+        <p class="fi-desc">21-section documentation with code examples for every component and customization option.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section class="tech-section" id="tech">
+    <p class="section-eyebrow">Built With</p>
+    <h2 class="section-headline" data-text="TECH STACK">TECH STACK</h2>
+    <div class="tech-row">
+      <span class="tech-chip">HTML5 Semantic</span>
+      <span class="tech-chip">CSS3 Custom Properties</span>
+      <span class="tech-chip">ES Modules</span>
+      <span class="tech-chip">Intersection Observer API</span>
+      <span class="tech-chip">requestAnimationFrame</span>
+      <span class="tech-chip">localStorage API</span>
+      <span class="tech-chip">CSS Grid + Flexbox</span>
+      <span class="tech-chip">CSS Animations</span>
+      <span class="tech-chip">Google Fonts</span>
+      <span class="tech-chip">Inline SVG Icons</span>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="purchase">
+    <h2 class="cta-title">GET <span>EMBIO</span><br>TODAY.</h2>
+    <p class="cta-sub">Start building your standout developer portfolio. One purchase, three styles, unlimited customization.</p>
+    <a href="https://themeforest.net" target="_blank" rel="noopener noreferrer" class="cta-btn">
+      Buy on ThemeForest →
+    </a>
+  </section>
+
+  <footer class="preview-footer">
+    <span>© 2026 EMBio — Elvin Mammadov</span>
+    <span>HTML5 Portfolio Template · v1.0.0</span>
+  </footer>
+
+  <script>
+    function switchDemo(tab, file) {
+      document.querySelectorAll('.ph-tab').forEach(t => t.classList.remove('active'));
+      if (tab) tab.classList.add('active');
+      var iframe = document.getElementById('demo-iframe');
+      var urlEl  = document.getElementById('browser-url');
+      iframe.style.opacity = '0';
+      setTimeout(function() {
+        iframe.src = file;
+        urlEl.textContent = 'embio / ' + file;
+        iframe.style.opacity = '1';
+      }, 250);
+    }
+
+    function scrollToDemo() {
+      document.querySelector('.demo-area').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Keyboard version switching
+    document.addEventListener('keydown', function(e) {
+      if (e.key === '1') switchDemo(document.querySelectorAll('.ph-tab')[0], 'index.html');
+      if (e.key === '2') switchDemo(document.querySelectorAll('.ph-tab')[1], 'v2.html');
+      if (e.key === '3') switchDemo(document.querySelectorAll('.ph-tab')[2], 'v3.html');
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('.ph-nav-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        
+        if (targetSection) {
+          const headerHeight = 64;
+          const targetPosition = targetSection.offsetTop - headerHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Lazy load images with intersection observer
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.classList.add('loaded');
+          console.log(`Image loaded: ${img.alt}`);
+          observer.unobserve(img);
+        }
+      });
+    });
+
+    document.querySelectorAll('.preview-img').forEach(img => {
+      imageObserver.observe(img);
+    });
+  </script>
+</body>
+</html>

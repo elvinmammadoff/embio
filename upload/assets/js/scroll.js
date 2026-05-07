@@ -25,9 +25,11 @@ export function initScrollReveal() {
 export function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', e => {
-      const target = document.querySelector(anchor.getAttribute('href'));
-      if (!target) return;
+      const href = anchor.getAttribute('href');
+      if (!href || href === '#') return; // skip bare '#' links
       e.preventDefault();
+      const target = document.querySelector(href);
+      if (!target) return;
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });

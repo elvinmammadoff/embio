@@ -194,20 +194,23 @@
       <li><a href="#s-about">9. About Section</a></li>
       <li><a href="#s-skills">10. Skills Section</a></li>
       <li><a href="#s-projects">11. Projects Section</a></li>
-      <li><a href="#s-pricing">12. Pricing Section</a></li>
-      <li><a href="#s-blog">13. Blog Section</a></li>
-      <li><a href="#s-contact">14. Contact Section</a></li>
+      <li><a href="#s-services">12. Services Section</a></li>
+      <li><a href="#s-clients">13. Clients Section</a></li>
+      <li><a href="#s-pricing">14. Pricing Section</a></li>
+      <li><a href="#s-blog">15. Blog Section</a></li>
+      <li><a href="#s-contact">16. Contact Section</a></li>
 
       <li class="nav-section">Technical</li>
-      <li><a href="#css">15. CSS Architecture</a></li>
+      <li><a href="#css">17. CSS Architecture</a></li>
       <li><a href="#scss">15b. SCSS Architecture</a></li>
-      <li><a href="#js">16. JavaScript Modules</a></li>
-      <li><a href="#browsers">17. Browser Support</a></li>
-      <li><a href="#performance">18. Performance</a></li>
+      <li><a href="#js">18. JavaScript Modules</a></li>
+      <li><a href="#browsers">19. Browser Support</a></li>
+      <li><a href="#performance">20. Performance</a></li>
 
       <li class="nav-section">Info</li>
       <li><a href="#credits">19. Sources & Credits</a></li>
-      <li><a href="#support">20. Support</a></li>
+      <li><a href="#web3forms">22. Web3Forms Integration</a></li>
+      <li><a href="#support">23. Support</a></li>
       <li><a href="#changelog">21. Changelog</a></li>
     </ul>
   </nav>
@@ -218,14 +221,14 @@
 
   <!-- ── 1. INTRODUCTION ── -->
   <section class="doc-section" id="introduction">
-    <h1>EMBio — Frontend Developer Portfolio</h1>
+    <h1>EMBio — Portfolio & Personal Branding HTML Template</h1>
     <p style="color:var(--accent); font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:1.5rem;">Version 1.0.0 &nbsp;·&nbsp; HTML5 Template</p>
     <p>Thank you for purchasing <strong>EMBio Portfolio Template</strong>. This documentation will guide you through setup, customization, and deployment of your new portfolio website.</p>
     <p>EMBio is a dark-first, editorial-style HTML5 portfolio template built with pure HTML, CSS, and vanilla JavaScript — zero framework dependencies, zero build step required.</p>
 
     <table>
       <tr><th>Property</th><th>Value</th></tr>
-      <tr><td>Template Name</td><td>EMBio — Frontend Developer Portfolio</td></tr>
+      <tr><td>Template Name</td><td>EMBio — Portfolio & Personal Branding HTML Template</td></tr>
       <tr><td>Version</td><td>1.0.0</td></tr>
       <tr><td>Author</td><td>Elvin Mammadov</td></tr>
       <tr><td>Date</td><td>April 2026</td></tr>
@@ -476,6 +479,43 @@ python3 -m http.server 3000</pre>
 --font-mono:    'Your Mono Font', monospace;</pre>
   </section>
 
+
+  <section class="doc-section" id="v332-changes">
+    <h2>v3.3.2 — Recent Changes</h2>
+    <p>The following improvements were made in v3.3.2:</p>
+
+    <h3>Navigation</h3>
+    <ul>
+      <li><strong>Demos dropdown</strong> — Added to all 3 versions. Hover (desktop) or tap (mobile) to expand. Links to V1, V2, V3 demo pages.</li>
+      <li><strong>Dropdown gap fix</strong> — <code>padding-bottom</code> on <code>.nav-dropdown</code> bridges the gap between the toggle and menu so hovering across doesn't close it.</li>
+      <li><strong>Dropdown colors</strong> — Menu links use <code>var(--accent)</code> background on hover; no color/background on default state.</li>
+      <li><strong>Active nav links</strong> — <code>initActiveNav()</code> in <code>nav.js</code> highlights the current section's nav link on scroll and on click. Uses <code>offsetTop</code>-based detection — works correctly for both large sections (hero, about, skills) and small ones.</li>
+      <li><strong>Nav links added</strong> — Services, Clients, and Contact links added to all nav menus (index, v2, v3, components).</li>
+    </ul>
+
+    <h3>Images</h3>
+    <ul>
+      <li><strong>Real images</strong> — <code>index.html</code>, <code>v2.html</code>, <code>v3.html</code> use real Unsplash photos. <code>upload/</code> versions use <code>placehold.co</code> placeholders for easy replacement.</li>
+    </ul>
+
+    <h3>Sections</h3>
+    <ul>
+      <li><strong>Services</strong> — 8 service cards in a 4×2 grid across all versions.</li>
+      <li><strong>Clients</strong> — 10 logo tiles in a 5×2 divider grid across all versions.</li>
+    </ul>
+
+    <h3>scroll.js</h3>
+    <ul>
+      <li>Fixed <code>querySelector('#')</code> error — bare <code>#</code> href links are now skipped before querying the DOM.</li>
+    </ul>
+
+    <h3>upload/ folder</h3>
+    <ul>
+      <li>Removed: <code>README.txt</code>, <code>changelog.txt</code>, <code>description.txt</code>, <code>scss-test.html</code>, <code>package.json</code>, <code>screenshots/</code></li>
+      <li>Kept: HTML files, assets (CSS/JS), documentation, components.html, preview.html</li>
+    </ul>
+  </section>
+
   <!-- ── 8. HERO ── -->
   <section class="doc-section" id="s-hero">
     <h2>8. Hero Section</h2>
@@ -546,22 +586,55 @@ python3 -m http.server 3000</pre>
     <p>Projects alternate left/right layout automatically via CSS <code>nth-child(even)</code>. Add projects by copying a <code>.project-item</code> article block. Update number, name, description, tech tags, live URL, and image.</p>
   </section>
 
-  <!-- ── 12. PRICING ── -->
+
+  <!-- ── 12. SERVICES ── -->
+  <section class="doc-section" id="s-services">
+    <h2>12. Services Section</h2>
+    <p>Displays <strong>8 service cards</strong> in a <code>repeat(4, 1fr)</code> grid (2 rows × 4 columns). Each card contains an SVG icon, service name, short description, and a large background number (01–08).</p>
+    <pre>&lt;div class="service-card reveal"&gt;
+  &lt;div class="service-icon"&gt;&lt;svg ...&gt;&lt;/svg&gt;&lt;/div&gt;
+  &lt;h3 class="service-name"&gt;Service Name&lt;/h3&gt;
+  &lt;p class="service-desc"&gt;Short description.&lt;/p&gt;
+  &lt;span class="service-num"&gt;01&lt;/span&gt;
+&lt;/div&gt;</pre>
+    <p><strong>Grid:</strong> <code>repeat(4, 1fr)</code> desktop → <code>repeat(2, 1fr)</code> tablet → <code>1fr</code> mobile.</p>
+    <p><strong>Hover:</strong> Card lifts <code>translateY(-6px)</code>, border → accent color, icon background fills with accent, number fades to <code>--accent-border</code>.</p>
+    <p><strong>Default services (8):</strong> Web Development, UI/UX Design, Brand Identity, Content Strategy, Motion &amp; Animation, Copywriting, No-Code &amp; CMS, Performance &amp; SEO.</p>
+  </section>
+
+  <!-- ── 13. CLIENTS ── -->
+  <section class="doc-section" id="s-clients">
+    <h2>13. Clients Section</h2>
+    <p>Displays <strong>10 client logos</strong> in a <code>repeat(5, 1fr)</code> grid (2 rows × 5 columns). Grid cells are separated by <code>border</code> dividers — no card backgrounds. Logos use inline SVG with <code>currentColor</code> for automatic light/dark theme adaptation.</p>
+    <pre>&lt;div class="clients-grid"&gt;
+  &lt;div class="client-logo"&gt;
+    &lt;svg viewBox="0 0 60 60" fill="none" aria-label="Brand"&gt;
+      &lt;!-- SVG paths using currentColor --&gt;
+    &lt;/svg&gt;
+  &lt;/div&gt;
+  &lt;!-- repeat × 10 --&gt;
+&lt;/div&gt;</pre>
+    <p><strong>Default logos (10):</strong> Notion, Linear, Framer, Vercel, Figma, Stripe, Webflow, Loom, Supabase, Railway.</p>
+    <p><strong>Hover:</strong> Opacity increases to 1, grayscale filter removed, cell background shifts to <code>--bg-2</code>.</p>
+    <p><strong>Responsive:</strong> 5 cols desktop → 4 cols tablet (900px) → 2 cols mobile (600px).</p>
+  </section>
+
+  <!-- ── 14. PRICING ── -->
   <section class="doc-section" id="s-pricing">
-    <h2>12. Pricing Section</h2>
+    <h2>14. Pricing Section</h2>
     <p>Three tiers: Starter, Professional (featured), Premium. The <code>.featured</code> class on the middle card adds the highlight styling and "Most Popular" badge.</p>
     <p>To update prices, find the <code>.price-amount</code> spans inside each <code>.price-card</code> and update the number. To add/remove features, edit the <code>.price-features</code> list items. Change <code>.pf-no</code> class to mark a feature as unavailable (shows ✗ instead of ✓).</p>
   </section>
 
   <!-- ── 13. BLOG ── -->
   <section class="doc-section" id="s-blog">
-    <h2>13. Blog Section</h2>
+    <h2>15. Blog Section</h2>
     <p>3-column card grid. Each card: image with category badge, date, title, excerpt, "Read More" link. Update the <code>href</code> on <code>.blog-link</code> to point to your actual blog post pages.</p>
   </section>
 
   <!-- ── 14. CONTACT ── -->
   <section class="doc-section" id="s-contact">
-    <h2>14. Contact Section</h2>
+    <h2>16. Contact Section</h2>
     <p>The contact form is purely front-end (UI only). To make it actually send emails, integrate a service like <a href="https://formspree.io" target="_blank">Formspree</a>, <a href="https://web3forms.com" target="_blank">Web3Forms</a>, or <a href="https://emailjs.com" target="_blank">EmailJS</a>.</p>
 
     <h3>Formspree Integration (easiest)</h3>
@@ -572,7 +645,7 @@ python3 -m http.server 3000</pre>
 
   <!-- ── 15. CSS ARCHITECTURE ── -->
   <section class="doc-section" id="css">
-    <h2>15. CSS Architecture</h2>
+    <h2>17. CSS Architecture</h2>
     <p>CSS is split into 5 focused files. All 3 versions share the same files — version-specific styles use <code>[data-version]</code> attribute selectors.</p>
     <table>
       <tr><th>File</th><th>Contents</th></tr>
@@ -669,7 +742,7 @@ $accent-v4: #your-color;
 
   <!-- ── 16. JAVASCRIPT MODULES ── -->
   <section class="doc-section" id="js">
-    <h2>16. JavaScript Modules</h2>
+    <h2>18. JavaScript Modules</h2>
     <table>
       <tr><th>Module</th><th>Function</th><th>Description</th></tr>
       <tr><td><code>theme.js</code></td><td><code>initTheme()</code></td><td>Reads/writes <code>localStorage</code>, applies <code>data-theme</code> attribute</td></tr>
@@ -695,7 +768,7 @@ initMyFeature();</pre>
 
   <!-- ── 17. BROWSER SUPPORT ── -->
   <section class="doc-section" id="browsers">
-    <h2>17. Browser Support</h2>
+    <h2>19. Browser Support</h2>
     <table>
       <tr><th>Browser</th><th>Version</th><th>Status</th></tr>
       <tr><td>Chrome</td><td>90+</td><td><span class="badge">✓ Supported</span></td></tr>
@@ -709,7 +782,7 @@ initMyFeature();</pre>
 
   <!-- ── 18. PERFORMANCE ── -->
   <section class="doc-section" id="performance">
-    <h2>18. Performance</h2>
+    <h2>20. Performance</h2>
     <ul>
       <li>All images use <code>loading="lazy"</code> (except hero which uses <code>loading="eager"</code>)</li>
       <li>Animations use only <code>transform</code> and <code>opacity</code> — no layout-triggering properties</li>
@@ -728,7 +801,7 @@ initMyFeature();</pre>
 
   <!-- ── 19. CREDITS ── -->
   <section class="doc-section" id="credits">
-    <h2>19. Sources &amp; Credits</h2>
+    <h2>21. Sources &amp; Credits</h2>
     <table>
       <tr><th>Resource</th><th>URL</th><th>License</th></tr>
       <tr><td>Bebas Neue font</td><td>fonts.google.com</td><td>OFL</td></tr>
@@ -742,7 +815,7 @@ initMyFeature();</pre>
 
   <!-- ── 20. SUPPORT ── -->
   <section class="doc-section" id="support">
-    <h2>20. Support</h2>
+    <h2>22. Support</h2>
     <p>For support, please use the <strong>ThemeForest comments section</strong> on the item page, or email directly:</p>
     <p><strong>Email:</strong> <a href="mailto:elvinmammadoff@gmail.com">elvinmammadoff@gmail.com</a></p>
     <p><strong>Response time:</strong> Within 24 hours on business days.</p>
@@ -766,7 +839,60 @@ initMyFeature();</pre>
   <!-- ── 21. CHANGELOG ── -->
   <section class="doc-section" id="changelog">
     <h2>21. Changelog</h2>
-    <pre>v3.1.3 — May 2026
+    <pre>v3.3.1 — May 2026
+──────────────────────────────
+  - upload/: All Unsplash image URLs replaced with placehold.co placeholders
+    (index.html, v2.html, v3.html — 12 images each)
+  - V1 light mode: Service card icons now use #5a7a00 (logo dark green)
+    instead of #c8ff00 (invisible on white bg)
+    Hover state keeps accent bg with black icon text
+  - V3 hero: Centered layout (justify-content: center, text-align: center)
+    Font size reduced from 11rem → 9rem for better fit
+    hero-sub max-width 480 → 560px, margin: 0 auto
+    hero-actions justify-content: center
+  - _overrides.scss: V3 hero block synced
+
+v3.3.0 — May 2026 (Commercial Upgrade)
+──────────────────────────────
+  - Hero text repositioned: "Building digital experiences" (commercial tone)
+  - CTA buttons: "View Work" + "Get Started" (replaces "Hire Me")
+  - Services section added to all 3 versions (Web Dev, UI/UX, Brand, Content)
+  - Clients section added to all 3 versions (6 SVG placeholder logos)
+  - services-grid + clients-grid CSS added to sections.css
+  - components.html created — full UI component library:
+    01 Buttons (primary/outline/ghost, sizes, styles)
+    02 Badges & Tags
+    03 Content Cards
+    04 Stat Blocks
+    05 Form Elements (inputs, textarea, select, input-group)
+    06 Alert Messages (success/warning/error/info)
+    07 Progress Bars
+    08 Pricing Blocks (3-tier with featured highlight)
+    09 Timeline
+    10 Testimonial Block
+  - description.txt: "Perfect For" section added
+  - description.txt: "Why Choose EMBio" section added
+  - description.txt: "Included Pages & Files" section updated
+  - Template repositioned: "Portfolio & Personal Branding HTML Template"
+  - README.txt + changelog.txt: professional format
+
+v3.2.0 — May 2026 (ThemeForest Ready)
+──────────────────────────────
+  - Template repositioned: "Portfolio & Personal Branding HTML Template"
+    (broader market appeal for ThemeForest approval)
+  - upload/ fully rebuilt to ThemeForest standards:
+    ✓ README.txt added (professional, replaces README.md)
+    ✓ changelog.txt added (ThemeForest required)
+    ✓ package.json REMOVED
+    ✓ scss-test.html REMOVED
+    ✓ .gitignore REMOVED
+    ✓ screenshots/ folder REMOVED from upload
+    ✓ All .md files REMOVED from upload
+    ✓ description.txt included (ThemeForest item description)
+  - documentation/index.html: title updated to new positioning
+  - changelog.txt: full version history from v1.0.0 to v3.1.3
+
+v3.1.3 — May 2026
 ──────────────────────────────
   - V1 skills: Removed [data-theme="light"] .skill-icon-wrap { background: var(--bg-3) }
     This rule was overriding the [data-version="1"] glassmorphism background (rgba white)
@@ -992,6 +1118,43 @@ v1.0.0 — April 2026
   - CSS custom properties for easy theming
   - Minified CSS + JS included</pre>
   </section>
+  <!-- ── WEB3FORMS INTEGRATION ── -->
+  <section class="doc-section" id="web3forms">
+    <h2>Contact Form — Web3Forms Integration</h2>
+    <p>The contact form is integrated with <a href="https://web3forms.com" target="_blank">Web3Forms</a> — a free email delivery service that requires no server or backend. Messages submitted via the contact form are delivered directly to your inbox.</p>
+
+    <h3>Setup (2 steps)</h3>
+    <ol>
+      <li>Visit <a href="https://web3forms.com" target="_blank">web3forms.com</a>, enter your email address, and click <strong>Create Access Key</strong></li>
+      <li>Open <code>assets/js/form.js</code> and replace the placeholder key:</li>
+    </ol>
+    <pre>const WEB3FORMS_KEY = 'your-access-key-here';</pre>
+
+    <h3>Data Sent</h3>
+    <pre>{
+  access_key: WEB3FORMS_KEY,
+  name:       "Sender name",
+  email:      "sender@email.com",
+  subject:    "[EMBio Contact] Subject line",
+  message:    "Message body",
+  from_name:  "Sender name",
+  replyto:    "sender@email.com"
+}</pre>
+
+    <h3>Form States</h3>
+    <ul>
+      <li><strong>Loading</strong> — Button disabled with spinner while request is in flight</li>
+      <li><strong>Success</strong> — Green confirmation message, form fields reset automatically</li>
+      <li><strong>Error</strong> — Red error message if API call fails</li>
+      <li><strong>Warning</strong> — Yellow notice if access key is still set to placeholder (dev mode)</li>
+    </ul>
+    <p>All feedback messages auto-clear after 6 seconds. The <code>replyto</code> field lets you reply directly to the sender from your email client.</p>
+
+    <h3>Free Plan Limits</h3>
+    <p><strong>250 submissions/month</strong> on the free tier. No credit card required. Upgrade available on the Web3Forms website for higher volume.</p>
+  </section>
+
+
 
   <div class="footer-doc">
     <p>EMBio Portfolio Template — Documentation</p>
