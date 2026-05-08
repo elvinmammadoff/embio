@@ -3,166 +3,160 @@
 <blockquote>
   <ul>
     <li><strong>3 Unique Design Versions Included</strong></li>
+    <li><strong>Premium Dark & Light Modes with Auto-Switching</strong></li>
     <li><strong>Zero Dependencies — Pure HTML/CSS/JS</strong></li>
-    <li><strong>SCSS Source Files Included</strong></li>
-    <li><strong>Auto Light/Dark Mode by Local Time</strong></li>
+    <li><strong>Full Component Library & Documentation</strong></li>
   </ul>
 </blockquote>
 
 <h3>EMBio – Portfolio & Personal Branding HTML Template</h3>
 
 <p>
-  <strong>EMBio</strong> is a modern, dark-first, editorial-style
-  <strong>Personal Portfolio HTML Template</strong> built for frontend developers,
-  UI designers, and creative professionals. Crafted with
-  <strong>pure HTML5, CSS3, and vanilla JavaScript</strong> — no jQuery, no Bootstrap,
-  no dependencies. Every pixel is hand-coded for performance, accessibility, and style.
+  <strong>EMBio</strong> is a premium, visually striking
+  <strong>Portfolio & Agency HTML Template</strong> designed for creative professionals,
+  agencies, freelancers, and developers who want to make a powerful first impression.
+  With <strong>3 complete design versions</strong> included, you get maximum flexibility
+  and visual variety in a single purchase.
 </p>
 
 <p>
-  Choose from <strong>3 visually distinct versions</strong> — each with its own personality,
-  color system, and layout logic — all sharing a single, unified codebase and compiling
-  from one SCSS entry point.
+  Each version features its own distinctive personality, color palette, and layout style —
+  from bold industrial to minimal elegance to experimental neon. All three versions share
+  a unified, production-ready codebase with professional animations, smart theming, and
+  commercial-grade sections.
 </p>
 
-<h3>EMBio Key Features</h3>
+<h3>What Makes EMBio Stand Out</h3>
 <ul>
-  <li><strong>3 Unique Design Versions</strong> — Dark Industrial, Cream Minimal, Neon Cyberpunk</li>
-  <li><strong>Smart Light &amp; Dark Mode</strong> — Auto-switches by local time (07:00–18:00 → light, 18:00–07:00 → dark). Manual toggle overrides and persists via localStorage. Resets to auto when cleared.</li>
-  <li><strong>Zero Dependencies</strong> — No jQuery, no Bootstrap, no frameworks. Pure HTML5 / CSS3 / ES Modules</li>
-  <li><strong>SCSS Architecture Included</strong> — Single entry point compiles all 3 versions via <code>[data-version]</code> selectors. Adding a new version = tokens in <code>_variables.scss</code> + one block in <code>_overrides.scss</code></li>
-  <li><strong>Fully Responsive</strong> — Mobile-first breakpoints at 900px and 600px, tested from 320px to 1440px+</li>
-  <li><strong>Custom Animated Cursor</strong> — Accent-color dot with smooth lerp-lag ring, version-specific colors</li>
-  <li><strong>Text Rotate Animation</strong> — Per-character spring animation with stagger, smooth enter/exit</li>
-  <li><strong>Parallax Floating Images</strong> — Mouse-reactive depth layers with rAF interpolation (hero section)</li>
-  <li><strong>Active Nav Highlighting</strong> — Current section nav link highlights automatically on scroll and click via <code>initActiveNav()</code></li>
-  <li><strong>Demos Dropdown</strong> — Header nav includes a "Demos" dropdown (hover on desktop, tap on mobile) linking to V1, V2, and V3 demo pages</li>
-  <li><strong>Web3Forms Email Integration</strong> — Contact form sends emails via Web3Forms API (free). No server required. Set access key in <code>assets/js/form.js</code></li>
-  <li><strong>scroll.js querySelector fix</strong> — Bare <code>#</code> href links no longer cause <code>querySelector</code> errors</li>
-  <li><strong>Scroll Reveal</strong> — IntersectionObserver-powered fade-up animations</li>
-  <li><strong>12 Skill Cards</strong> — Linear SVG icons, bracket-corner decoration, version-accented hover colors</li>
-  <li><strong>Projects Section</strong> — Alternating image/text layout with technology tags</li>
-  <li><strong>3-Tier Pricing Cards</strong> — Featured highlight with SVG checkmarks/crosses</li>
-  <li><strong>Blog Section</strong> — 3-column card grid with category badges and read-more links</li>
-  <li><strong>Contact Form UI</strong> — 2-column layout with contact info (email, location, social links)</li>
-  <li><strong>Multi-column Footer</strong> — Logo, tagline, social icons, navigation links, legal</li>
-  <li><strong>Download CV Button</strong> — Direct PDF download from About section</li>
-  <li><strong>Professional SVG Icons</strong> — All icons inline SVG (linear/outline style), no icon fonts or external libraries</li>
-  <li><strong>Accessibility</strong> — ARIA labels, semantic HTML5, keyboard navigation, focus styles (WCAG 2.1 AA)</li>
-  <li><strong>Performance</strong> — Minified CSS + JS included for production deployment</li>
-  <li><strong>Well Documented</strong> — 21-section HTML documentation with code examples for every component</li>
+  <li><strong>3 Complete Design Versions</strong> — Dark Industrial, Cream Minimal, and Neon Cyberpunk (experimental creative bonus). Three distinct visual styles in one purchase.</li>
+  <li><strong>Smart Auto Theme System</strong> — Automatically switches between light and dark mode based on local time (7AM–6PM → light, 6PM–7AM → dark). Manual toggle overrides and persists. No setup required.</li>
+  <li><strong>Premium Visual Quality</strong> — Custom animated cursor, parallax floating images, smooth text animations, and polished micro-interactions throughout</li>
+  <li><strong>Commercial Ready</strong> — Services section, client logos, 3-tier pricing, contact form with Web3Forms integration, blog grid — everything you need for client work</li>
+  <li><strong>Full Component Library</strong> — Dedicated components page with 12 reusable UI categories (buttons, cards, forms, pricing, timelines, alerts, progress bars, testimonials) to accelerate customization</li>
+  <li><strong>Fully Responsive</strong> — Mobile-first design tested from 320px to 1440px+. Looks perfect on every device</li>
+  <li><strong>Production Optimized</strong> — Minified CSS and JS included. Deploy immediately</li>
+  <li><strong>Zero Dependencies</strong> — No jQuery, no Bootstrap, no frameworks. Pure HTML5, CSS3, and vanilla JavaScript for maximum performance and minimal bloat</li>
 </ul>
 
-<h3>3 Design Versions</h3>
+<h3>3 Design Versions Included</h3>
 
 <ul>
   <li>
     <strong>Version 1 — Dark Industrial</strong><br>
-    Acid-lime (#c8ff00) on deep black. Editorial typography, floating parallax images,
-    animated custom cursor, marquee skill strip. The bold, statement-piece portfolio.
+    Bold acid-lime accent (#c8ff00) on deep black. Editorial typography, floating parallax hero,
+    animated custom cursor, marquee skill strip. The statement-piece portfolio for confident creatives.
     Full light/dark mode support.
   </li>
   <li>
     <strong>Version 2 — Cream Minimal</strong><br>
-    Cobalt blue (#1a56db) on warm cream. Centre-aligned hero with CSS grid texture,
-    clean editorial layout. Dedicated dark footer regardless of page theme.
-    Full light/dark mode support.
+    Elegant cobalt blue (#1a56db) on warm cream. Center-aligned hero with subtle CSS grid texture,
+    clean editorial layout. Perfect for designers and agencies seeking timeless sophistication.
+    Full light/dark mode support with dedicated dark footer.
   </li>
   <li>
-    <strong>Version 3 — Neon Cyberpunk</strong><br>
-    Magenta (#ff00cc) + cyan (#00e5ff) on near-black. Scanline texture, neon glow,
-    diagonal hero layout, noise overlay. Scanlines and noise hidden in light mode.
+    <strong>Version 3 — Neon Cyberpunk (Experimental Creative Bonus)</strong><br>
+    Vibrant magenta (#ff00cc) + cyan (#00e5ff) on near-black. Scanline texture, neon glow effects,
+    diagonal hero layout, noise overlay. A bold experimental version for cutting-edge creative projects.
     Full light/dark mode support with purple-tinted light palette.
   </li>
 </ul>
 
-<h3>Sections Included</h3>
-<ul>
-  <li><strong>Hero</strong> — Full-screen with text rotate animation + floating parallax images</li>
-  <li><strong>About</strong> — Bio, stats (years / projects / clients), tags, download CV, social links</li>
-  <li><strong>Skills</strong> — 12 cards with linear SVG icons: HTML &amp; CSS, JavaScript, React &amp; Vue, TypeScript, UI Design, Performance, Accessibility, Tooling, Testing, Deployment, API Integration, SEO &amp; Analytics</li>
-  <li><strong>Projects</strong> — 3 projects, alternating image/text layout, technology tags</li>
-  <li><strong>Pricing</strong> — 3 tiers (Starter / Pro / Enterprise) with SVG icon feature lists</li>
-  <li><strong>Blog</strong> — 3 article cards with category badges and read-more links</li>
-  <li><strong>Contact</strong> — Form UI + contact info (email, location, social links)</li>
-  <li><strong>Footer</strong> — Multi-column: logo + tagline + social icons + navigation + legal</li>
-  <li><strong>Preview Page</strong> — Version selector with real screenshot thumbnails</li>
-</ul>
-
-<h3>Light &amp; Dark Mode</h3>
-<p>
-  EMBio features a smart theme system that works automatically without any configuration:
-</p>
-<ul>
-  <li><strong>Auto by time</strong> — 07:00–18:00 local time → light mode, 18:00–07:00 → dark mode</li>
-  <li><strong>Manual override</strong> — Toggle button saves preference to localStorage and persists across sessions</li>
-  <li><strong>Flash-free</strong> — Inline <code>theme-init.js</code> runs synchronously before render, eliminating flash of wrong theme</li>
-  <li><strong>Auto-resume</strong> — Clearing localStorage restores time-based auto switching</li>
-  <li><strong>Per-minute check</strong> — Theme updates automatically if the user leaves the tab open across the threshold hour</li>
-  <li><strong>Consistent brand color</strong> — V1 uses the same acid-lime (#c8ff00) in both light and dark mode. Button text turns black (#0f0f0f) in light mode for readability on the bright accent background</li>
-</ul>
-
-<h3>CSS / SCSS Architecture</h3>
-<ul>
-  <li>Single SCSS entry point: <code>assets/scss/style.scss</code> compiles all 3 versions</li>
-  <li>Version overrides via <code>[data-version]</code> HTML attribute — no duplicate files</li>
-  <li>All version tokens in <code>_variables.scss</code> with <code>-v2</code> / <code>-v3</code> suffix convention</li>
-  <li>All version layout overrides in single <code>_overrides.scss</code> file, grouped by version</li>
-  <li>Production: one <code>style.min.css</code> + one <code>main.min.js</code> covers all 3 versions</li>
-  <li>Compile: <code>npm run compile</code> / Watch: <code>npm run watch</code></li>
-</ul>
-
-<h3>Included in the Purchase Package</h3>
-<ul>
-  <li>HTML files — <code>index.html</code> (V1), <code>v2.html</code> (V2), <code>v3.html</code> (V3), <code>preview.html</code></li>
-  <li>SCSS source files with full documented architecture</li>
-  <li>CSS files — individual source files + minified production bundle</li>
-  <li>JavaScript modules — individual source files + minified production bundle</li>
-  <li>HTML Documentation — 21 sections with code examples</li>
-  <li>ThemeForest-compliant upload package with <code>placehold.co</code> placeholder images</li>
-</ul>
-
-<p>
-  <strong>EMBio</strong> is built for developers who care about code quality as much as visual impact.
-  Clean code, pixel-perfect design, zero dependencies — your portfolio deserves nothing less.
-</p>
-
-<strong>Get EMBio today and build your portfolio the right way.</strong>
-
-<p><strong>NOTE:</strong> All images used in the live demo are from <a href="https://unsplash.com" rel="nofollow">Unsplash</a> and are <strong>not included</strong> in the purchase package. The upload package contains <code>placehold.co</code> placeholder images as required by ThemeForest guidelines.</p>
-
 <h3>Perfect For</h3>
 <ul>
   <li><strong>Freelancers</strong> — Showcase your services, rates, and portfolio in a premium, client-ready format</li>
-  <li><strong>Agencies</strong> — Present your team, services, and case studies with a professional agency feel</li>
-  <li><strong>Developers</strong> — Highlight technical skills, open source work, and coding projects</li>
+  <li><strong>Agencies</strong> — Present your team, services, and case studies with a professional studio feel</li>
+  <li><strong>Creative Studios</strong> — Multi-person teams can adapt any version to represent their unique brand</li>
+  <li><strong>Developers</strong> — Highlight technical skills, open source contributions, and coding projects</li>
   <li><strong>Designers</strong> — Display visual work, brand projects, and UI/UX case studies beautifully</li>
-  <li><strong>Creative Studios</strong> — Multi-person studios can adapt any version to represent their brand</li>
-  <li><strong>Consultants</strong> — Lead generation focused layout with pricing, services, and strong CTAs</li>
+  <li><strong>Consultants</strong> — Lead generation-focused layout with pricing, services, and strong CTAs</li>
+</ul>
+
+<h3>Key Features & Sections</h3>
+<ul>
+  <li><strong>Hero Section</strong> — Full-screen impact with rotating text animation and mouse-reactive floating parallax images</li>
+  <li><strong>About</strong> — Bio, stats counter (years / projects / clients), skill tags, download CV button, social links</li>
+  <li><strong>Skills</strong> — 12 skill cards with custom linear SVG icons and version-accented hover colors</li>
+  <li><strong>Projects</strong> — Showcase your work with alternating image/text layout and technology tags</li>
+  <li><strong>Services</strong> — Professional service offerings with icon cards and descriptions</li>
+  <li><strong>Clients</strong> — Logo grid with grayscale filter and smooth color-on-hover animation</li>
+  <li><strong>Pricing</strong> — 3-tier pricing cards (Starter / Pro / Enterprise) with feature lists and SVG checkmarks</li>
+  <li><strong>Blog</strong> — 3-column article grid with category badges and read-more links</li>
+  <li><strong>Contact</strong> — Working form with Web3Forms email integration (free, no server required) + contact info sidebar</li>
+  <li><strong>Footer</strong> — Multi-column layout with logo, tagline, social icons, navigation, and legal links</li>
+  <li><strong>Preview Page</strong> — Interactive version selector with live demo thumbnails</li>
+  <li><strong>Components Library</strong> — Full component showcase (components.html) with V1/V2/V3 switcher and 12 categories</li>
+  <li><strong>Documentation</strong> — 21-section HTML documentation with code examples for every component</li>
+</ul>
+
+<h3>Premium Interactions & Animations</h3>
+<ul>
+  <li><strong>Custom Animated Cursor</strong> — Accent-colored dot with smooth-following ring, version-specific colors</li>
+  <li><strong>Text Rotate Hero Animation</strong> — Per-character spring physics with stagger delay for smooth, elegant text transitions</li>
+  <li><strong>Parallax Floating Images</strong> — Mouse-reactive depth layers with requestAnimationFrame interpolation</li>
+  <li><strong>Scroll Reveal Animations</strong> — IntersectionObserver-powered fade-up effects on all sections</li>
+  <li><strong>Active Nav Highlighting</strong> — Current section automatically highlights in navigation on scroll</li>
+  <li><strong>Demos Dropdown</strong> — Header navigation includes a "Demos" dropdown (hover on desktop, tap on mobile) linking to all 3 versions</li>
+</ul>
+
+<h3>Smart Light & Dark Mode System</h3>
+<p>
+  EMBio features an intelligent auto-switching theme system that works without any configuration:
+</p>
+<ul>
+  <li><strong>Auto by Time</strong> — Automatically switches to light mode from 7AM–6PM local time, and dark mode from 6PM–7AM</li>
+  <li><strong>Manual Override</strong> — Toggle button allows users to set their preference, which persists across sessions via localStorage</li>
+  <li><strong>Flash-Free Loading</strong> — Inline theme initialization script runs before page render, eliminating the "flash of wrong theme"</li>
+  <li><strong>Auto-Resume</strong> — Clearing localStorage automatically restores time-based switching</li>
+  <li><strong>Live Updates</strong> — Theme updates automatically if the page is left open across the time threshold</li>
+  <li><strong>Consistent Branding</strong> — V1 uses the same acid-lime accent in both themes, with smart text color adjustment for readability</li>
 </ul>
 
 <h3>Why Choose EMBio</h3>
 <ul>
-  <li><strong>Zero Dependencies</strong> — No jQuery, no Bootstrap, no bloat. Pure HTML5/CSS3/JavaScript means faster load times and cleaner code</li>
-  <li><strong>3 Complete Styles</strong> — Get three production-ready designs in one purchase instead of buying separate templates</li>
-  <li><strong>Smart Theme System</strong> — Auto switches light/dark by time of day. No configuration needed</li>
-  <li><strong>Component Library Included</strong> — components.html (V1/V2/V3 switcher — 12 component categories) provides 10 reusable UI component categories to accelerate your build</li>
-  <li><strong>Commercial Ready</strong> — Services section, client logos, pricing, testimonials — all the sections a commercial project needs</li>
-  <li><strong>SCSS Source Included</strong> — Full SCSS architecture with single entry point, design tokens per version, and documented overrides</li>
-  <li><strong>Production Optimized</strong> — Minified CSS and JS included. Deploy in minutes</li>
+  <li><strong>Maximum Visual Flexibility</strong> — Three complete, production-ready designs in one purchase. Switch between styles or use different versions for different clients</li>
+  <li><strong>Commercial-Grade Quality</strong> — Professional animations, pixel-perfect spacing, and attention to detail throughout</li>
+  <li><strong>Easy Customization</strong> — Full component library and comprehensive documentation make modifications straightforward</li>
+  <li><strong>No Learning Curve</strong> — Pure HTML/CSS/JavaScript. No frameworks to learn, no build tools required to get started</li>
+  <li><strong>Fast & Lightweight</strong> — Zero dependencies means faster load times and cleaner code. Performance-optimized out of the box</li>
+  <li><strong>Accessibility Built-In</strong> — ARIA labels, semantic HTML5, keyboard navigation, and focus styles following WCAG 2.1 AA guidelines</li>
 </ul>
 
-<h3>Included Pages &amp; Files</h3>
+<h3>Technical Highlights</h3>
+<ul>
+  <li><strong>Pure HTML5/CSS3/JavaScript</strong> — No jQuery, no Bootstrap, no framework dependencies</li>
+  <li><strong>SCSS Source Files Included</strong> — Full modular architecture with single entry point. All 3 versions compile from one SCSS file using <code>[data-version]</code> selectors</li>
+  <li><strong>ES Modules Architecture</strong> — Clean JavaScript modules (nav, scroll, form, animations) for easy maintenance and modification</li>
+  <li><strong>Production Files Included</strong> — Minified CSS and JavaScript bundles ready for immediate deployment</li>
+  <li><strong>Easy Version Creation</strong> — Add new color schemes by updating design tokens in <code>_variables.scss</code> and adding overrides in <code>_overrides.scss</code></li>
+  <li><strong>Web3Forms Integration</strong> — Contact form ready to use with free Web3Forms API. No backend server required</li>
+  <li><strong>Mobile-First Responsive</strong> — Breakpoints at 900px and 600px, tested from 320px to 1440px+ screens</li>
+</ul>
+
+<h3>Included Pages & Files</h3>
 <ul>
   <li><code>index.html</code> — Version 1: Dark Industrial</li>
   <li><code>v2.html</code> — Version 2: Cream Minimal</li>
   <li><code>v3.html</code> — Version 3: Neon Cyberpunk</li>
-  <li><code>preview.html</code> — Interactive version selector</li>
-  <li><code>components.html (V1/V2/V3 switcher — 12 component categories)</code> — Full UI component library (buttons, cards, forms, pricing, timeline, alerts, progress bars, testimonials)</li>
-  <li><code>documentation/index.html</code> — 21-section HTML documentation</li>
-  <li><code>README.txt</code> — Quick start guide</li>
+  <li><code>preview.html</code> — Interactive version selector and preview</li>
+  <li><code>components.html</code> — Full UI component library with V1/V2/V3 switcher and 12 component categories</li>
+  <li><code>documentation/index.html</code> — Comprehensive 21-section HTML documentation with code examples</li>
+  <li><code>assets/scss/</code> — Complete SCSS source files with modular architecture</li>
+  <li><code>assets/css/</code> — Individual CSS files + minified production bundle</li>
+  <li><code>assets/js/</code> — JavaScript ES modules + minified production bundle</li>
+  <li><code>README.txt</code> — Quick start guide and setup instructions</li>
   <li><code>changelog.txt</code> — Full version history</li>
+  <li><code>upload/</code> — ThemeForest-compliant package with placeholder images</li>
 </ul>
+
+<p>
+  <strong>EMBio</strong> delivers premium visual quality, commercial functionality, and technical
+  excellence in one complete package. Perfect for creative professionals who refuse to compromise
+  on design or code quality.
+</p>
+
+<strong>Get EMBio today and showcase your work the right way.</strong>
+
+<p><strong>NOTE:</strong> All images used in the live demo are from <a href="https://unsplash.com" rel="nofollow">Unsplash</a> and are <strong>not included</strong> in the purchase package. The upload package contains <code>placehold.co</code> placeholder images as required by ThemeForest guidelines.</p>
 
 
 </div>
