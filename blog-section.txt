@@ -1,0 +1,38 @@
+        <article class="blog-card reveal">
+          <div class="blog-img">
+            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=80&fit=crop" alt="CSS Grid article" loading="lazy" />
+            <span class="blog-cat">CSS</span>
+          </div>
+          <div class="blog-body">
+            <p class="blog-date">April 10, 2026</p>
+            <h3 class="blog-title">Mastering CSS Grid: Layouts That Actually Work</h3>
+            <p class="blog-excerpt">A deep dive into CSS Grid — from basic tracks to named areas and subgrid. Build any layout without a framework.</p>
+            <a href="blog-single.html" class="blog-link">Read More <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </article>
+
+        <article class="blog-card reveal reveal-delay-1">
+          <div class="blog-img">
+            <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=600&q=80&fit=crop" alt="JavaScript animation article" loading="lazy" />
+            <span class="blog-cat">JavaScript</span>
+          </div>
+          <div class="blog-body">
+            <p class="blog-date">March 28, 2026</p>
+            <h3 class="blog-title">Vanilla JS Animations That Feel Native</h3>
+            <p class="blog-excerpt">No GSAP, no libraries — just Web Animations API and Intersection Observer to create buttery smooth transitions.</p>
+            <a href="blog-single.html" class="blog-link">Read More <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </article>
+
+        <article class="blog-card reveal reveal-delay-2">
+          <div class="blog-img">
+            <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=600&q=80&fit=crop" alt="Lighthouse performance article" loading="lazy" />
+            <span class="blog-cat">Performance</span>
+          </div>
+          <div class="blog-body">
+            <p class="blog-date">March 12, 2026</p>
+            <h3 class="blog-title">How I Got a Lighthouse Score of 100</h3>
+            <p class="blog-excerpt">Step-by-step breakdown of the optimizations that took a real portfolio site from 68 to a perfect 100 score.</p>
+            <a href="blog-single.html" class="blog-link">Read More <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </article>

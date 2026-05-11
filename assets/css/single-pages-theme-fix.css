@@ -1,0 +1,7 @@
+/* Dark mode override for accent backgrounds */
+[data-theme="dark"] .btn-primary,
+[data-theme="dark"] .tech-tag,
+[data-theme="dark"] .post-category,
+[data-theme="dark"] .author-avatar {
+  color: #0f0f0f;
+}

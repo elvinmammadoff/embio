@@ -1,0 +1,39 @@
+        <article class="project-item">
+          <div class="project-info reveal">
+            <p class="project-number">01</p>
+            <h3 class="project-name">Project Alpha</h3>
+            <p class="project-desc">E-commerce storefront built for a fashion brand. Custom cart, Stripe payments, and micro-interaction animations. Lighthouse 98.</p>
+            <div class="project-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Stripe</span></div>
+            <a href="project-single.html" class="project-link">View Project <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+          <div class="project-img reveal reveal-delay-2">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80&fit=crop" alt="Project Alpha" loading="lazy" />
+          </div>
+        </article>
+
+        <article class="project-item">
+          <div class="project-info reveal">
+            <p class="project-number">02</p>
+            <h3 class="project-name">Project Beta</h3>
+            <p class="project-desc">SaaS dashboard UI with real-time data charts, dark/light theme, and a fully accessible component library built from zero.</p>
+            <div class="project-tech"><span>React</span><span>CSS Modules</span><span>D3.js</span><span>REST API</span></div>
+            <a href="project-single.html" class="project-link">View Project <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+          <div class="project-img reveal reveal-delay-2">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&fit=crop" alt="Project Beta" loading="lazy" />
+          </div>
+        </article>
+
+        <article class="project-item">
+          <div class="project-info reveal">
+            <p class="project-number">03</p>
+            <h3 class="project-name">EMBio Portfolio</h3>
+            <p class="project-desc">Open-source portfolio template built for developers. Fully customizable, zero dependencies, Lighthouse 100 score.</p>
+            <div class="project-tech"><span>HTML</span><span>CSS</span><span>Animation</span><span>Open Source</span></div>
+            <a href="project-single.html" class="project-link">View Project <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+          <div class="project-img reveal reveal-delay-2">
+            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80&fit=crop" alt="EMBio Portfolio" loading="lazy" />
+          </div>
+        </article>
+

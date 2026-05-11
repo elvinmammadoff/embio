@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" data-version="1">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mastering CSS Grid — Layouts That Actually Work" />
+  <title>Mastering CSS Grid — EMBio</title>
+
+  <script src="assets/js/theme-init.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/variables.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/nav.css" />
+  <link rel="stylesheet" href="assets/css/sections.css" />
+  <link rel="stylesheet" href="assets/css/single-pages.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+</head>
+<body>
+
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="index.html" class="nav-logo" aria-label="EMBio home">
+      <span class="logo-em">EM</span><span class="logo-bio">Bio</span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="index.html#projects">Work</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#clients">Clients</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="index.html#blog">Blog</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li class="nav-dropdown">
+        <a href="#" class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+          Demos
+          <svg class="chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg>
+        </a>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="index.html" role="menuitem">V1 — Dark Industrial</a>
+          <a href="v2.html"    role="menuitem">V2 — Cream Minimal</a>
+          <a href="v3.html"    role="menuitem">V3 — Neon Cyberpunk</a>
+        </div>
+      </li>
+    </ul>
+    <div class="nav-controls">
+      <label class="theme-switch" aria-label="Toggle light/dark mode">
+        <input type="checkbox" id="theme-toggle" />
+        <span class="theme-track"></span>
+        <span class="theme-icons">
+          <span class="theme-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </span>
+          <span class="theme-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </span>
+        </span>
+      </label>
+      <a href="index.html#contact" class="nav-cta">Hire Me</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- BLOG POST -->
+  <article id="blog-post">
+    <div class="section-inner">
+      
+      <!-- Back link -->
+      <a href="index.html#blog" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to Blog
+      </a>
+
+      <!-- Post header -->
+      <div class="post-header">
+        <span class="post-category">CSS</span>
+        <h1>MASTERING CSS GRID: LAYOUTS THAT ACTUALLY WORK</h1>
+        <div class="post-meta">
+          <time datetime="2026-04-10">April 10, 2026</time>
+          <span>8 min read</span>
+        </div>
+      </div>
+
+      <!-- Featured image -->
+      <div class="featured-image">
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&q=80&fit=crop" alt="CSS Grid" loading="eager" />
+      </div>
+
+      <!-- Post content -->
+      <div class="blog-content">
+        
+        <p>
+          CSS Grid changed how we build layouts. No more float hacks, no more clearfix, no more grid frameworks. Just clean, powerful layout control baked into CSS itself. Here's everything you need to know to build production-ready layouts with Grid.
+        </p>
+
+        <h2>WHY CSS GRID MATTERS</h2>
+        <p>
+          Before Grid, we relied on floats, flexbox hacks, or CSS frameworks like Bootstrap to build complex layouts. Grid gives us two-dimensional layout control — rows and columns working together — with a clean, declarative syntax.
+        </p>
+        <p>
+          Unlike flexbox (which is one-dimensional), Grid lets you position items anywhere on a 2D plane. This means fewer wrapper divs, less CSS, and layouts that respond naturally to content changes.
+        </p>
+
+        <h2>THE BASICS</h2>
+        <p>
+          Every Grid layout starts with a container and items inside it. The container defines the grid, and the items place themselves within it.
+        </p>
+        
+        <pre><code>.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.grid-item {
+  /* Items automatically flow into grid cells */
+}</code></pre>
+
+        <p>
+          This creates a 3-column grid where each column takes up an equal fraction (1fr) of the available space. The gap property adds space between items.
+        </p>
+
+        <h2>RESPONSIVE GRIDS WITHOUT MEDIA QUERIES</h2>
+        <p>
+          One of Grid's superpowers is auto-fit and auto-fill. These keywords create responsive layouts that adapt to screen size without needing breakpoints.
+        </p>
+
+        <pre><code>.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}</code></pre>
+
+        <p>
+          This grid automatically adjusts the number of columns based on available space. Each column is at least 280px wide, but expands to fill space evenly. No media queries needed.
+        </p>
+
+        <h2>NAMED GRID AREAS</h2>
+        <p>
+          For complex layouts, named grid areas give you a visual way to define structure right in your CSS.
+        </p>
+
+        <pre><code>.layout {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "sidebar main aside"
+    "footer footer footer";
+  grid-template-columns: 200px 1fr 200px;
+  gap: 1rem;
+}
+
+.header  { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main    { grid-area: main; }
+.aside   { grid-area: aside; }
+.footer  { grid-area: footer; }</code></pre>
+
+        <p>
+          This creates a classic dashboard layout. The ASCII-art syntax in grid-template-areas makes the structure immediately clear.
+        </p>
+
+        <h2>WHEN TO USE GRID VS FLEXBOX</h2>
+        <p>
+          Grid and flexbox aren't competitors — they solve different problems. Use Grid when you need precise two-dimensional control. Use flexbox for one-dimensional layouts (rows or columns) where items should flex and wrap naturally.
+        </p>
+        <p>
+          In practice, you'll often use both together. Grid for page layout, flexbox for component layout.
+        </p>
+
+        <h2>BROWSER SUPPORT</h2>
+        <p>
+          CSS Grid has been supported in all modern browsers since 2017. IE11 requires the -ms- prefix and has limited feature support, but for modern projects, Grid is production-ready.
+        </p>
+
+        <hr />
+
+        <p>
+          CSS Grid is the most powerful layout tool we've ever had in CSS. Master the basics, experiment with named areas and auto-placement, and you'll never need a grid framework again.
+        </p>
+
+      </div>
+
+      <!-- Author box -->
+      <div class="author-box">
+        <div class="author-avatar">EM</div>
+        <div class="author-info">
+          <h3>ABOUT THE AUTHOR</h3>
+          <p>
+            Frontend developer focused on performance, accessibility, and clean code. Building fast, beautiful web experiences since 2018.
+          </p>
+          <div class="author-links">
+            <a href="#">GitHub →</a>
+            <a href="#">Twitter →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related posts -->
+      <div class="related-posts">
+        <h2>RELATED POSTS</h2>
+        <div class="related-grid">
+          
+          <a href="#" class="related-card">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&q=80&fit=crop" alt="JavaScript article" loading="lazy" />
+            <div class="related-card-body">
+              <span class="related-cat">JavaScript</span>
+              <h3>Building Reactive UIs with Vanilla JS</h3>
+              <time datetime="2026-03-28">March 28, 2026</time>
+            </div>
+          </a>
+
+          <a href="#" class="related-card">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&q=80&fit=crop" alt="Performance article" loading="lazy" />
+            <div class="related-card-body">
+              <span class="related-cat">Performance</span>
+              <h3>Lighthouse 100: A Practical Guide</h3>
+              <time datetime="2026-03-15">March 15, 2026</time>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo" aria-label="EMBio home">
+          <span class="logo-em">EM</span><span class="logo-bio">Bio</span>
+        </a>
+        <p class="footer-tagline">Building the web, one pixel at a time. Crafting fast, beautiful, and accessible web experiences.</p>
+        <ul class="footer-social-list">
+          <li><a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="footer-social-icon"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a></li>
+          <li><a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="footer-social-icon"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a></li>
+          <li><a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="footer-social-icon"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.63L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a></li>
+          <li><a href="https://linkedin.com/in/elvinmammadov" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="footer-social-icon"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-nav-grid">
+        <div class="footer-nav">
+          <p class="footer-nav-title">Navigation</p>
+          <ul>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#skills">Skills</a></li>
+            <li><a href="index.html#projects">Work</a></li>
+            <li><a href="index.html#pricing">Pricing</a></li>
+            <li><a href="index.html#blog">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav">
+          <p class="footer-nav-title">Services</p>
+          <ul>
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">UI Development</a></li>
+            <li><a href="#">Performance</a></li>
+            <li><a href="#">Accessibility</a></li>
+            <li><a href="#">Consulting</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav">
+          <p class="footer-nav-title">Resources</p>
+          <ul>
+            <li><a href="assets/ElvinMammadov_CV.pdf" download>Download CV</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="https://github.com/elvinmammadoff" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 EMBio. All rights reserved.</p>
+      <ul class="footer-legal">
+        <li><a href="#">Terms and Conditions</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
