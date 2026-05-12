@@ -805,6 +805,10 @@ body, body * {
   margin-bottom: 0.4rem;
 }
 
+[data-theme="light"] .stat-num {
+  color: var(--accent-dim);
+}
+
 .stat-label {
   font-family: var(--font-mono);
   font-size: 0.62rem;

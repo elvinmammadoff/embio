@@ -194,24 +194,26 @@
       <li><a href="#s-about">9. About Section</a></li>
       <li><a href="#s-skills">10. Skills Section</a></li>
       <li><a href="#s-projects">11. Projects Section</a></li>
-      <li><a href="#s-services">12. Services Section</a></li>
-      <li><a href="#s-clients">13. Clients Section</a></li>
-      <li><a href="#s-pricing">14. Pricing Section</a></li>
-      <li><a href="#s-blog">15. Blog Section</a></li>
-      <li><a href="#s-contact">16. Contact Section</a></li>
+      <li><a href="#s-project-detail">12. Project Detail Page</a></li>
+      <li><a href="#s-services">13. Services Section</a></li>
+      <li><a href="#s-clients">14. Clients Section</a></li>
+      <li><a href="#s-pricing">15. Pricing Section</a></li>
+      <li><a href="#s-blog">16. Blog Section</a></li>
+      <li><a href="#s-blog-detail">17. Blog Detail Page</a></li>
+      <li><a href="#s-contact">18. Contact Section</a></li>
 
       <li class="nav-section">Technical</li>
-      <li><a href="#css">17. CSS Architecture</a></li>
-      <li><a href="#scss">15b. SCSS Architecture</a></li>
-      <li><a href="#js">18. JavaScript Modules</a></li>
-      <li><a href="#browsers">19. Browser Support</a></li>
-      <li><a href="#performance">20. Performance</a></li>
+      <li><a href="#css">19. CSS Architecture</a></li>
+      <li><a href="#scss">20. SCSS Architecture</a></li>
+      <li><a href="#js">21. JavaScript Modules</a></li>
+      <li><a href="#browsers">22. Browser Support</a></li>
+      <li><a href="#performance">23. Performance</a></li>
 
       <li class="nav-section">Info</li>
-      <li><a href="#credits">19. Sources & Credits</a></li>
-      <li><a href="#web3forms">22. Web3Forms Integration</a></li>
-      <li><a href="#support">23. Support</a></li>
-      <li><a href="#changelog">21. Changelog</a></li>
+      <li><a href="#credits">24. Sources & Credits</a></li>
+      <li><a href="#web3forms">25. Web3Forms Integration</a></li>
+      <li><a href="#support">26. Support</a></li>
+      <li><a href="#changelog">27. Changelog</a></li>
     </ul>
   </nav>
 </aside>
@@ -284,6 +286,9 @@
 ├── v2.html                 ← V2 Cream Minimal
 ├── v3.html                 ← V3 Neon Cyberpunk
 ├── preview.html            ← Version selector page
+├── project-single.html     ← Project detail / case study page
+├── blog-single.html        ← Blog post detail page
+├── components.html         ← Component library (V1/V2/V3 switcher)
 ├── ElvinMammadov_CV.pdf    ← Replace with your own CV
 ├── documentation/
 │   └── index.html          ← This file
@@ -291,6 +296,9 @@
 │   ├── index.html          ← V1 with placehold.co images
 │   ├── v2.html             ← V2 with placehold.co images
 │   ├── v3.html             ← V3 with placehold.co images
+│   ├── project-single.html ← Project detail page
+│   ├── blog-single.html    ← Blog detail page
+│   ├── components.html     ← Component library
 │   ├── documentation/
 │   └── assets/             ← css/ scss/ js/ (no images/ folder)
 └── assets/
@@ -299,6 +307,7 @@
     │   ├── base.css        ← CSS reset + shared utilities
     │   ├── nav.css         ← Navigation bar styles
     │   ├── sections.css    ← All sections + V2 &amp; V3 overrides
+    │   ├── single-pages.css ← Project &amp; blog detail page styles
     │   ├── responsive.css  ← Mobile breakpoints (900px, 600px)
     │   └── style.min.css   ← All CSS combined &amp; minified (production)
     ├── scss/
@@ -307,6 +316,7 @@
     │   ├── _mixins.scss    ← Shared mixins
     │   ├── _base.scss
     │   ├── _nav.scss
+    │   ├── _single-pages.scss ← Project &amp; blog detail page styles (SCSS)
     │   ├── _responsive.scss
     │   ├── _overrides.scss ← All version overrides in one file (V2, V3, …)
     │   ├── sections/
@@ -584,12 +594,31 @@ python3 -m http.server 3000</pre>
   <section class="doc-section" id="s-projects">
     <h2>11. Projects Section</h2>
     <p>Projects alternate left/right layout automatically via CSS <code>nth-child(even)</code>. Add projects by copying a <code>.project-item</code> article block. Update number, name, description, tech tags, live URL, and image.</p>
+    <p>Each project's "View Project" link points to <code>project-single.html</code>. Update the <code>href</code> to link to individual project detail pages.</p>
+  </section>
+
+  <!-- ── 12. PROJECT DETAIL PAGE ── -->
+  <section class="doc-section" id="s-project-detail">
+    <h2>12. Project Detail Page</h2>
+    <p>The <code>project-single.html</code> page provides a professional case study layout for showcasing project details. It includes:</p>
+    <ul>
+      <li><strong>Back Link</strong> — Returns to projects section with smooth scroll</li>
+      <li><strong>Project Header</strong> — Case Study label, project title, description, and technology tags</li>
+      <li><strong>Featured Image</strong> — Large hero image (1200×500px recommended)</li>
+      <li><strong>Project Info Grid</strong> — Client name, year, role, and live demo link in a responsive grid</li>
+      <li><strong>Project Content</strong> — Project overview, challenges & solutions, and results with SVG checkmarks</li>
+      <li><strong>Image Gallery</strong> — Additional project screenshots in a 2-column grid</li>
+      <li><strong>CTA Section</strong> — "Interested in working together?" call-to-action with link to contact form</li>
+    </ul>
+    <p><strong>Styling:</strong> All styles are in <code>assets/css/single-pages.css</code> with SCSS source at <code>assets/scss/_single-pages.scss</code>. No inline styles used.</p>
+    <p><strong>Dark Mode:</strong> Accent backgrounds (tags, buttons) use dark text (#0f0f0f) for readability. Light mode uses <code>var(--text)</code> for proper contrast.</p>
+    <p><strong>Customization:</strong> Replace project title, description, images, and content. Update the info grid with your project details. Add or remove result items as needed.</p>
   </section>
 
 
-  <!-- ── 12. SERVICES ── -->
+  <!-- ── 13. SERVICES ── -->
   <section class="doc-section" id="s-services">
-    <h2>12. Services Section</h2>
+    <h2>13. Services Section</h2>
     <p>Displays <strong>8 service cards</strong> in a <code>repeat(4, 1fr)</code> grid (2 rows × 4 columns). Each card contains an SVG icon, service name, short description, and a large background number (01–08).</p>
     <pre>&lt;div class="service-card reveal"&gt;
   &lt;div class="service-icon"&gt;&lt;svg ...&gt;&lt;/svg&gt;&lt;/div&gt;
@@ -602,9 +631,9 @@ python3 -m http.server 3000</pre>
     <p><strong>Default services (8):</strong> Web Development, UI/UX Design, Brand Identity, Content Strategy, Motion &amp; Animation, Copywriting, No-Code &amp; CMS, Performance &amp; SEO.</p>
   </section>
 
-  <!-- ── 13. CLIENTS ── -->
+  <!-- ── 14. CLIENTS ── -->
   <section class="doc-section" id="s-clients">
-    <h2>13. Clients Section</h2>
+    <h2>14. Clients Section</h2>
     <p>Displays <strong>10 client logos</strong> in a <code>repeat(5, 1fr)</code> grid (2 rows × 5 columns). Grid cells are separated by <code>border</code> dividers — no card backgrounds. Logos use inline SVG with <code>currentColor</code> for automatic light/dark theme adaptation.</p>
     <pre>&lt;div class="clients-grid"&gt;
   &lt;div class="client-logo"&gt;
@@ -619,22 +648,40 @@ python3 -m http.server 3000</pre>
     <p><strong>Responsive:</strong> 5 cols desktop → 4 cols tablet (900px) → 2 cols mobile (600px).</p>
   </section>
 
-  <!-- ── 14. PRICING ── -->
+  <!-- ── 15. PRICING ── -->
   <section class="doc-section" id="s-pricing">
-    <h2>14. Pricing Section</h2>
+    <h2>15. Pricing Section</h2>
     <p>Three tiers: Starter, Professional (featured), Premium. The <code>.featured</code> class on the middle card adds the highlight styling and "Most Popular" badge.</p>
     <p>To update prices, find the <code>.price-amount</code> spans inside each <code>.price-card</code> and update the number. To add/remove features, edit the <code>.price-features</code> list items. Change <code>.pf-no</code> class to mark a feature as unavailable (shows ✗ instead of ✓).</p>
   </section>
 
-  <!-- ── 13. BLOG ── -->
+  <!-- ── 16. BLOG ── -->
   <section class="doc-section" id="s-blog">
-    <h2>15. Blog Section</h2>
-    <p>3-column card grid. Each card: image with category badge, date, title, excerpt, "Read More" link. Update the <code>href</code> on <code>.blog-link</code> to point to your actual blog post pages.</p>
+    <h2>16. Blog Section</h2>
+    <p>3-column card grid. Each card: image with category badge, date, title, excerpt, "Read More" link. The "Read More" links point to <code>blog-single.html</code>. Update the <code>href</code> to link to individual blog post pages.</p>
   </section>
 
-  <!-- ── 14. CONTACT ── -->
+  <!-- ── 17. BLOG DETAIL PAGE ── -->
+  <section class="doc-section" id="s-blog-detail">
+    <h2>17. Blog Detail Page</h2>
+    <p>The <code>blog-single.html</code> page provides a complete blog post layout with professional typography and code formatting. It includes:</p>
+    <ul>
+      <li><strong>Back Link</strong> — Returns to blog section with smooth scroll</li>
+      <li><strong>Post Header</strong> — Category badge, post title, publish date, and read time</li>
+      <li><strong>Featured Image</strong> — Large hero image (1200×500px recommended)</li>
+      <li><strong>Post Content</strong> — Full article with headings, paragraphs, code blocks, and horizontal rules</li>
+      <li><strong>Author Box</strong> — Author avatar, bio, and social links with accent-colored links</li>
+      <li><strong>Related Posts</strong> — 2-card grid showing related articles with images and metadata</li>
+    </ul>
+    <p><strong>Code Blocks:</strong> Pre-formatted code uses <code>Space Mono</code> font with syntax-friendly styling. Background is <code>var(--bg-2)</code> with proper padding and border.</p>
+    <p><strong>Styling:</strong> All styles are in <code>assets/css/single-pages.css</code> with SCSS source at <code>assets/scss/_single-pages.scss</code>. No inline styles used.</p>
+    <p><strong>Dark Mode:</strong> Accent backgrounds (category badge, author avatar) use dark text (#0f0f0f) for readability. Light mode uses <code>var(--text)</code> for proper contrast.</p>
+    <p><strong>Customization:</strong> Replace post title, category, date, images, and content. Update author info and related posts. Add or remove content sections as needed.</p>
+  </section>
+
+  <!-- ── 18. CONTACT ── -->
   <section class="doc-section" id="s-contact">
-    <h2>16. Contact Section</h2>
+    <h2>18. Contact Section</h2>
     <p>The contact form is purely front-end (UI only). To make it actually send emails, integrate a service like <a href="https://formspree.io" target="_blank">Formspree</a>, <a href="https://web3forms.com" target="_blank">Web3Forms</a>, or <a href="https://emailjs.com" target="_blank">EmailJS</a>.</p>
 
     <h3>Formspree Integration (easiest)</h3>
@@ -645,14 +692,15 @@ python3 -m http.server 3000</pre>
 
   <!-- ── 15. CSS ARCHITECTURE ── -->
   <section class="doc-section" id="css">
-    <h2>17. CSS Architecture</h2>
-    <p>CSS is split into 5 focused files. All 3 versions share the same files — version-specific styles use <code>[data-version]</code> attribute selectors.</p>
+    <h2>19. CSS Architecture</h2>
+    <p>CSS is split into 6 focused files. All 3 versions share the same files — version-specific styles use <code>[data-version]</code> attribute selectors.</p>
     <table>
       <tr><th>File</th><th>Contents</th></tr>
       <tr><td><code>variables.css</code></td><td>CSS custom property tokens for <strong>all 3 versions</strong> — V1 (default), V2 (<code>[data-version="2"]</code>), V3 (<code>[data-version="3"]</code>)</td></tr>
       <tr><td><code>base.css</code></td><td>CSS reset, shared section/container styles, scroll reveal, keyframes</td></tr>
       <tr><td><code>nav.css</code></td><td>Navigation bar, theme switch, mobile burger menu</td></tr>
       <tr><td><code>sections.css</code></td><td>All section styles (hero, about, skills, projects, pricing, blog, contact, footer) + V2 &amp; V3 layout overrides at the bottom</td></tr>
+      <tr><td><code>single-pages.css</code></td><td>Project detail and blog detail page styles with dark/light mode overrides</td></tr>
       <tr><td><code>responsive.css</code></td><td>Mobile breakpoints (900px and 600px)</td></tr>
     </table>
 
@@ -679,9 +727,9 @@ python3 -m http.server 3000</pre>
 }</pre>
   </section>
 
-  <!-- ── 15b. SCSS ARCHITECTURE ── -->
+  <!-- ── 20. SCSS ARCHITECTURE ── -->
   <section class="doc-section" id="scss">
-    <h2>15b. SCSS Architecture</h2>
+    <h2>20. SCSS Architecture</h2>
     <p>SCSS source files compile to a <strong>single</strong> <code>style.min.css</code> covering all 3 versions. No <code>v1/</code> subfolder — all files live directly in <code>assets/scss/</code>.</p>
 
     <h3>Folder Structure</h3>
@@ -742,7 +790,7 @@ $accent-v4: #your-color;
 
   <!-- ── 16. JAVASCRIPT MODULES ── -->
   <section class="doc-section" id="js">
-    <h2>18. JavaScript Modules</h2>
+    <h2>21. JavaScript Modules</h2>
     <table>
       <tr><th>Module</th><th>Function</th><th>Description</th></tr>
       <tr><td><code>theme.js</code></td><td><code>initTheme()</code></td><td>Reads/writes <code>localStorage</code>, applies <code>data-theme</code> attribute</td></tr>
@@ -768,7 +816,7 @@ initMyFeature();</pre>
 
   <!-- ── 17. BROWSER SUPPORT ── -->
   <section class="doc-section" id="browsers">
-    <h2>19. Browser Support</h2>
+    <h2>22. Browser Support</h2>
     <table>
       <tr><th>Browser</th><th>Version</th><th>Status</th></tr>
       <tr><td>Chrome</td><td>90+</td><td><span class="badge">✓ Supported</span></td></tr>
@@ -782,7 +830,7 @@ initMyFeature();</pre>
 
   <!-- ── 18. PERFORMANCE ── -->
   <section class="doc-section" id="performance">
-    <h2>20. Performance</h2>
+    <h2>23. Performance</h2>
     <ul>
       <li>All images use <code>loading="lazy"</code> (except hero which uses <code>loading="eager"</code>)</li>
       <li>Animations use only <code>transform</code> and <code>opacity</code> — no layout-triggering properties</li>
@@ -801,7 +849,7 @@ initMyFeature();</pre>
 
   <!-- ── 19. CREDITS ── -->
   <section class="doc-section" id="credits">
-    <h2>21. Sources &amp; Credits</h2>
+    <h2>24. Sources &amp; Credits</h2>
     <table>
       <tr><th>Resource</th><th>URL</th><th>License</th></tr>
       <tr><td>Bebas Neue font</td><td>fonts.google.com</td><td>OFL</td></tr>
@@ -813,9 +861,9 @@ initMyFeature();</pre>
     <div class="warn-box"><strong>⚠ Image License:</strong> Unsplash images are for demo purposes only. Replace with your own images or properly licensed alternatives before commercial use.</div>
   </section>
 
-  <!-- ── 20. SUPPORT ── -->
+  <!-- ── 26. SUPPORT ── -->
   <section class="doc-section" id="support">
-    <h2>22. Support</h2>
+    <h2>26. Support</h2>
     <p>For support, please use the <strong>ThemeForest comments section</strong> on the item page, or email directly:</p>
     <p><strong>Email:</strong> <a href="mailto:elvinmammadoff@gmail.com">elvinmammadoff@gmail.com</a></p>
     <p><strong>Response time:</strong> Within 24 hours on business days.</p>
@@ -838,7 +886,7 @@ initMyFeature();</pre>
 
   <!-- ── 21. CHANGELOG ── -->
   <section class="doc-section" id="changelog">
-    <h2>21. Changelog</h2>
+    <h2>27. Changelog</h2>
     <pre>v3.3.1 — May 2026
 ──────────────────────────────
   - upload/: All Unsplash image URLs replaced with placehold.co placeholders
@@ -1120,7 +1168,7 @@ v1.0.0 — April 2026
   </section>
   <!-- ── WEB3FORMS INTEGRATION ── -->
   <section class="doc-section" id="web3forms">
-    <h2>Contact Form — Web3Forms Integration</h2>
+    <h2>25. Contact Form — Web3Forms Integration</h2>
     <p>The contact form is integrated with <a href="https://web3forms.com" target="_blank">Web3Forms</a> — a free email delivery service that requires no server or backend. Messages submitted via the contact form are delivered directly to your inbox.</p>
 
     <h3>Setup (2 steps)</h3>

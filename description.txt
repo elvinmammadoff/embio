@@ -76,11 +76,13 @@
   <li><strong>Hero Section</strong> — Full-screen impact with rotating text animation and mouse-reactive floating parallax images</li>
   <li><strong>About</strong> — Bio, stats counter (years / projects / clients), skill tags, download CV button, social links</li>
   <li><strong>Skills</strong> — 12 skill cards with custom linear SVG icons and version-accented hover colors</li>
-  <li><strong>Projects</strong> — Showcase your work with alternating image/text layout and technology tags</li>
+  <li><strong>Projects</strong> — Showcase your work with alternating image/text layout and technology tags. Each project links to detailed case study page</li>
+  <li><strong>Project Detail Page</strong> — Professional case study layout with project overview, challenges & solutions, results with checkmarks, image gallery, and CTA section</li>
   <li><strong>Services</strong> — Professional service offerings with icon cards and descriptions</li>
   <li><strong>Clients</strong> — Logo grid with grayscale filter and smooth color-on-hover animation</li>
   <li><strong>Pricing</strong> — 3-tier pricing cards (Starter / Pro / Enterprise) with feature lists and SVG checkmarks</li>
-  <li><strong>Blog</strong> — 3-column article grid with category badges and read-more links</li>
+  <li><strong>Blog</strong> — 3-column article grid with category badges and read-more links. Each post links to full article page</li>
+  <li><strong>Blog Detail Page</strong> — Full blog post layout with featured image, code examples, author bio box, and related posts grid</li>
   <li><strong>Contact</strong> — Working form with Web3Forms email integration (free, no server required) + contact info sidebar</li>
   <li><strong>Footer</strong> — Multi-column layout with logo, tagline, social icons, navigation, and legal links</li>
   <li><strong>Preview Page</strong> — Interactive version selector with live demo thumbnails</li>
@@ -138,6 +140,8 @@
   <li><code>v2.html</code> — Version 2: Cream Minimal</li>
   <li><code>v3.html</code> — Version 3: Neon Cyberpunk</li>
   <li><code>preview.html</code> — Interactive version selector and preview</li>
+  <li><code>project-single.html</code> — Project detail page with case study layout, project info grid, and image gallery</li>
+  <li><code>blog-single.html</code> — Blog post detail page with code examples, author box, and related posts</li>
   <li><code>components.html</code> — Full UI component library with V1/V2/V3 switcher and 12 component categories</li>
   <li><code>documentation/index.html</code> — Comprehensive 21-section HTML documentation with code examples</li>
   <li><code>assets/scss/</code> — Complete SCSS source files with modular architecture</li>
